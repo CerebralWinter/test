@@ -1,0 +1,2876 @@
+/***********************************************************************************************************************
+ * Per ogni esercizio                                                                                                  *
+ ***********************************************************************************************************************/
+
+Aprire Visual Studio Code e creare una nuova cartella di progetto.
+Aprire il terminale integrato di Visual Studio Code (Ctrl + Shift + `).
+Inserire il comando npm init e seguire le istruzioni per creare un file package.json,
+che descrive il progetto e le sue dipendenze.
+
+/***********************************************************************************************************************
+ * 1 esercizio NODE JS in VISUAL STUDIO CODE                                                                           *
+ ***********************************************************************************************************************/
+
+Installare il modulo http con il comando npm install http
+Creare un nuovo file server.js nella cartella di progetto.
+Aggiungere il seguente codice per creare un server web di base:
+
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Benvenuto nel mio server!');
+});
+
+server.listen(3000, () => {
+  console.log('Il server è in ascolto sulla porta 3000!');
+});
+
+Salvare il file server.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node server.js per avviare il server.
+Aprire il browser e digitare l'indirizzo http://localhost:3000 per visualizzare la pagina "Benvenuto nel mio server!".
+Questo esercizio è solo un esempio di base per creare un server web con Node.js utilizzando Visual Studio Code
+
+/***********************************************************************************************************************
+ * 2 esercizio NODE JS in VISUAL STUDIO Code                                                                           *
+ ***********************************************************************************************************************/
+
+Creare un nuovo file main.js nella cartella di progetto.
+Aggiungere il seguente codice per leggere il contenuto di un file:
+
+const fs = require('fs');
+
+fs.readFile('file.txt', (err, data) => {
+  if (err) throw err;
+  console.log(data.toString());
+});
+
+Salvare il file main.js.
+Creare un nuovo file file.txt nella stessa cartella di progetto.
+Scrivere un messaggio all'interno del file file.txt.
+Aggiungere il seguente codice per scrivere un messaggio in un file:
+
+const fs = require('fs');
+
+fs.writeFile('message.txt', 'Ciao, mondo!', (err) => {
+  if (err) throw err;
+  console.log('Il file è stato creato!');
+});
+
+Salvare il file main.js.
+
+Aprire il terminale integrato di Visual Studio Code e digitare node main.js per eseguire il codice.
+Verificare che il contenuto del file file.txt sia stato stampato sulla console.
+Verificare che il file message.txt sia stato creato e contenga il messaggio.
+
+/***********************************************************************************************************************
+ * 3 esercizio NODE JS in VISUAL STUDIO CODE                                                                           *
+ ***********************************************************************************************************************/
+
+Installare il modulo request con il comando npm install request
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per eseguire una chiamata API a un servizio esterno:
+
+const request = require('request');
+
+const url = 'https://jsonplaceholder.typicode.com/posts/1';
+
+request(url, { json: true }, (err, res, body) => {
+  if (err) throw err;
+
+  console.log(body);
+});
+
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Verificare che la risposta dell'API sia stata stampata sulla console.
+Questo esercizio è solo un esempio di base per eseguire chiamate API a un servizio esterno utilizzando Node.js in Visual Studio Code.
+
+/***********************************************************************************************************************
+ * 4 esercizio NODE JS in VISUAL STUDIO CODE                                                                           *
+ ***********************************************************************************************************************/
+
+Installare il modulo ws con il comando npm install ws
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per creare un server WebSocket:
+
+const WebSocket = require('ws');
+
+const wss = new WebSocket.Server({ port: 8080 });
+
+wss.on('connection', (ws) => {
+  console.log('Nuova connessione!');
+
+  ws.on('message', (message) => {
+    console.log(`Ricevuto messaggio: ${message}`);
+  });
+
+  ws.send('Benvenuto al server WebSocket!');
+});
+
+Salvare il file app.js.
+
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Aprire un client WebSocket, ad esempio utilizzando un'estensione del browser come "Simple WebSocket Client".
+Collegarsi al server WebSocket utilizzando l'indirizzo ws://localhost:8080.
+Verificare che il messaggio di benvenuto sia stato ricevuto dal client.
+Inviare un messaggio dal client al server e verificare che il messaggio sia stato stampato sulla console del server.
+Questo esercizio è solo un esempio di base per creare un server WebSocket utilizzando Node.js in Visual Studio Code. È possibile aggiungere funzionalità e personalizzare ulteriormente il codice in base alle proprie esigenze, ad esempio aggiungere la gestione di più client o l'invio di messaggi a tutti i client connessi.
+Ecco un altro esempio di esercizio per principianti su come utilizzare Node.js in Visual Studio Code per creare un server WebSocket utilizzando il modulo ws di Node.js:
+
+
+Aggiungere il seguente codice per creare un server WebSocket utilizzando il modulo ws:
+
+const WebSocket = require('ws');
+
+const wss = new WebSocket.Server({ port: 3000 });
+
+wss.on('connection', (ws) => {
+  console.log('Nuova connessione WebSocket stabilita!');
+
+  ws.on('message', (message) => {
+    console.log(`Messaggio ricevuto: ${message}`);
+
+    // Invia un messaggio a tutti i client connessi
+    wss.clients.forEach((client) => {
+      if (client !== ws && client.readyState === WebSocket.OPEN) {
+        client.send(message);
+      }
+    });
+  });
+});
+
+Salvare il file server.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node server.js per eseguire il codice.
+Aprire il client WebSocket, ad esempio utilizzando il modulo ws in un altro progetto, e connettersi al server all'indirizzo ws://localhost:3000.
+Invia un messaggio dal client al server.
+Verificare che il messaggio venga stampato sulla console del server e inviato a tutti i client connessi.
+Questo esercizio è solo un esempio di base per creare un server WebSocket utilizzando il modulo ws di Node.js in Visual Studio Code. È possibile aggiungere funzionalità e personalizzare ulteriormente il codice in base alle proprie esigenze, ad esempio gestire i messaggi di errore o utilizzare l'autenticazione per verificare l'identità dei client.
+
+Quali sono i vantaggi di utilizzare un WEB socket
+
+I WebSockets sono utilizzati per consentire la comunicazione bidirezionale tra un server web e un client web,
+consentendo l'invio di dati in tempo reale tra i due. Alcuni vantaggi di utilizzare i WebSocket includono:
+
+Efficienza:
+a differenza delle tradizionali richieste HTTP, i WebSocket consentono la comunicazione continuativa tra client e server con una connessione persistente.
+Ciò consente una maggiore efficienza nella comunicazione dei dati, poiché non è necessario stabilire una nuova connessione ogni volta che si invia un messaggio.
+Reattività:
+grazie alla connessione continua tra client e server, i WebSocket consentono di inviare e ricevere messaggi in tempo reale,
+consentendo applicazioni web altamente reattive e interattive.
+Scalabilità:
+i WebSocket sono altamente scalabili, poiché consentono di gestire molte connessioni contemporaneamente su un singolo server.
+Compatibilità con diverse tecnologie:
+i WebSocket sono compatibili con una vasta gamma di tecnologie web, tra cui HTML5, JavaScript, Node.js e molte altre.
+Sicurezza:
+i WebSocket consentono una comunicazione sicura tra client e server utilizzando il protocollo di sicurezza WebSocket Secure (WSS)
+
+In generale, i WebSocket sono una tecnologia avanzata e altamente utile per lo sviluppo di applicazioni web altamente reattive e interattive.
+Tuttavia, poiché richiedono una connessione persistente tra client e server, potrebbero non essere la soluzione migliore per tutte le applicazioni web.
+
+/***********************************************************************************************************************
+ * 5 esercizio NODE JS in VISUAL STUDIO CODE                                                                           *
+ ***********************************************************************************************************************/
+
+Aprire Visual Studio Code e creare una nuova cartella di progetto.
+Aprire il terminale integrato di Visual Studio Code (Ctrl + Shift + `).
+Inserire il comando npm init e seguire le istruzioni per creare un file package.json, che descrive il progetto e le sue dipendenze.
+Installare il modulo express con il comando npm install express.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire le richieste HTTP utilizzando Express:
+
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Benvenuto nella mia applicazione!');
+});
+
+app.get('/about', (req, res) => {
+  res.send('Questa è la pagina "About"!');
+});
+
+app.listen(3000, () => {
+  console.log('Il server è in ascolto sulla porta 3000!');
+});
+
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Aprire il browser e digitare l'indirizzo http://localhost:3000 per visualizzare la pagina "Benvenuto nella mia applicazione!".
+Digitare l'indirizzo http://localhost:3000/about per visualizzare la pagina "Questa è la pagina "About"!".
+
+/***********************************************************************************************************************
+ * 6 esercizio NODE JS in VISUAL STUDIO CODE                                                                           *
+ ***********************************************************************************************************************/
+
+Creare un nuovo file server.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire le richieste HTTP:
+
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+  if (req.url === '/') {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Benvenuto nella mia applicazione!');
+  } else if (req.url === '/about') {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Questa è la pagina "About"!');
+  } else {
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('Pagina non trovata!');
+  }
+});
+
+server.listen(3000, () => {
+  console.log('Il server è in ascolto sulla porta 3000!');
+});
+
+Salvare il file server.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node server.js per eseguire il codice.
+Aprire il browser e digitare l'indirizzo http://localhost:3000 per visualizzare la pagina "Benvenuto nella mia applicazione!".
+Digitare l'indirizzo http://localhost:3000/about per visualizzare la pagina "Questa è la pagina "About"!".
+Digitare un indirizzo non valido per verificare che venga restituito il messaggio di errore "Pagina non trovata!".
+
+/***********************************************************************************************************************
+ * 7 esercizio NODE JS in VISUAL STUDIO CODE                                                                           *
+ ***********************************************************************************************************************/
+
+Installare il modulo express con il comando npm install express
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire il routing delle pagine utilizzando Express:
+
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Benvenuto nella mia applicazione!');
+});
+
+app.get('/about', (req, res) => {
+  res.send('Questa è la pagina "About"!');
+});
+
+app.get('/contact', (req, res) => {
+  res.send('Questa è la pagina "Contatti"!');
+});
+
+app.get('*', (req, res) => {
+  res.send('Pagina non trovata!');
+});
+
+app.listen(3000, () => {
+  console.log('Il server è in ascolto sulla porta 3000!');
+});
+
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Aprire il browser e digitare l'indirizzo http://localhost:3000 per visualizzare la pagina "Benvenuto nella mia applicazione!".
+Digitare l'indirizzo http://localhost:3000/about per visualizzare la pagina "Questa è la pagina "About"!".
+Digitare l'indirizzo http://localhost:3000/contact per visualizzare la pagina "Questa è la pagina "Contatti"!".
+Digitare un indirizzo non valido per verificare che venga restituito il messaggio di errore "Pagina non trovata!".
+
+/***********************************************************************************************************************
+ * 8 esercizio NODE JS in VISUAL STUDIO CODE per principianti                                                          *
+ ***********************************************************************************************************************/
+
+Creare un nuovo file notes.txt nella cartella di progetto.
+Aggiungere alcune note al file, ad esempio:
+
+Nota 1
+Nota 2
+Nota 3
+
+Creare un nuovo file app.js nella cartella di progetto
+
+Aggiungere il seguente codice per leggere e scrivere dati utilizzando il modulo fs:
+
+const fs = require('fs');
+
+// Leggi il file di testo
+fs.readFile('notes.txt', 'utf8', (err, data) => {
+  if (err) throw err;
+
+  console.log(data);
+});
+
+// Aggiungi una nuova nota al file di testo
+fs.appendFile('notes.txt', '\nNota 4', (err) => {
+  if (err) throw err;
+
+  console.log('Nota aggiunta con successo!');
+});
+
+Salvare il file app.js.
+
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Verificare che le note nel file di testo vengano stampate sulla console.
+Verificare che la nuova nota sia stata aggiunta al file di testo.
+Questo esercizio è solo un esempio di base per gestire la persistenza dei dati utilizzando il modulo fs di Node.js in Visual Studio Code.
+
+/***********************************************************************************************************************
+ * 9 esercizio NODE JS in VISUAL STUDIO CODE per principianti                                                         *
+ ***********************************************************************************************************************/
+
+Installare il modulo express con il comando npm install express
+Installare il modulo axios con il comando npm install axios
+Creare un nuovo file app.js nella cartella di progetto
+Aggiungere il seguente codice per effettuare richieste HTTP utilizzando Axios:
+
+const express = require('express');
+const axios = require('axios');
+
+const app = express();
+
+app.get('/', async (req, res) => {
+  try {
+    const response = await axios.get('https://jsonplaceholder.typicode.com/posts/1');
+    res.send(response.data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Errore del server!');
+  }
+});
+
+app.listen(3000, () => {
+  console.log('Il server è in ascolto sulla porta 3000!');
+});
+
+Salvare il file app.js
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Aprire il browser e digitare l'indirizzo http://localhost:3000 per visualizzare i dati restituiti dalla richiesta HTTP.
+Questo esercizio è solo un esempio di base per effettuare richieste HTTP utilizzando il modulo axios in Node.js con Visual Studio Code.
+
+
+
+
+info@delectablerecords.com
+1 esercizio NODE JS AJAX in VISUAL STUDIO CODE per principianti
+Ecco un esempio di esercizio per principianti su come utilizzare Node.js e AJAX in Visual Studio Code per effettuare una richiesta HTTP asincrona:
+
+Aprire Visual Studio Code e creare una nuova cartella di progetto.
+Aprire il terminale integrato di Visual Studio Code (Ctrl + Shift + `).
+Inserire il comando npm init e seguire le istruzioni per creare un file package.json, che descrive il progetto e le sue dipendenze.
+Creare un nuovo file index.html nella cartella di progetto.
+Aggiungere il seguente codice HTML per creare un form HTML:
+php
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Form AJAX</title>
+  </head>
+  <body>
+    <h1>Form AJAX</h1>
+    <form>
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name">
+      <br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+      <br>
+      <button type="submit">Invia</button>
+    </form>
+    <div id="result"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
+Creare un nuovo file script.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP asincrona utilizzando AJAX:
+javascript
+Copy code
+const form = document.querySelector('form');
+const result = document.getElementById('result');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+
+  const xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        result.innerHTML = xhr.responseText;
+      } else {
+        console.error('Errore nella richiesta AJAX!');
+      }
+    }
+  };
+
+  xhr.open('POST', '/submit');
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.send(`name=${name}&email=${email}`);
+});
+Salvare i file index.html e script.js.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP POST utilizzando Express:
+javascript
+Copy code
+const express = require('express');
+const app = express();
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use(express.static('public'));
+
+app.post('/submit', (req, res) => {
+  const { name, email } = req.body;
+
+  console.log(`Nome: ${name}, Email: ${email}`);
+
+  res.send(`Dati ricevuti! Nome: ${name}, Email: ${email}`);
+});
+
+app.listen(3000, () => {
+  console.log('Il server è in ascolto sulla porta 3000!');
+});
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il server.
+Aprire il browser e digitare l'indirizzo http://localhost:3000 per visualizzare la pagina del form AJAX.
+Inserire il nome
+
+
+
+info@delectablerecords.com
+continua
+e l'email nel form e fare clic sul pulsante "Invia".
+15. Verificare che i dati del form siano stati inviati con successo al server tramite la console del server.
+
+Verificare che la risposta del server sia stata visualizzata correttamente nella pagina del form AJAX.
+Questo esercizio è solo un esempio di base per gestire una richiesta HTTP asincrona utilizzando AJAX e Node.js con Visual Studio Code. È possibile aggiungere funzionalità e personalizzare ulteriormente il codice in base alle proprie esigenze, ad esempio utilizzare il modulo fetch per effettuare richieste HTTP asincrone o utilizzare librerie come jQuery per semplificare la gestione della richiesta AJAX.
+
+
+
+info@delectablerecords.com
+2 esercizio NODE JS AJAX in VISUAL STUDIO CODE per principianti
+Ecco un altro esempio di esercizio per principianti su come utilizzare Node.js e AJAX in Visual Studio Code per effettuare una richiesta HTTP asincrona:
+
+Aprire Visual Studio Code e creare una nuova cartella di progetto.
+Aprire il terminale integrato di Visual Studio Code (Ctrl + Shift + `).
+Inserire il comando npm init e seguire le istruzioni per creare un file package.json, che descrive il progetto e le sue dipendenze.
+Creare un nuovo file index.html nella cartella di progetto.
+Aggiungere il seguente codice HTML per creare un pulsante e visualizzare il risultato della richiesta AJAX:
+php
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AJAX</title>
+  </head>
+  <body>
+    <h1>AJAX</h1>
+    <button id="button">Clicca qui</button>
+    <div id="result"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
+Creare un nuovo file script.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP asincrona utilizzando AJAX:
+javascript
+Copy code
+const button = document.getElementById('button');
+const result = document.getElementById('result');
+
+button.addEventListener('click', () => {
+  const xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        result.innerHTML = xhr.responseText;
+      } else {
+        console.error('Errore nella richiesta AJAX!');
+      }
+    }
+  };
+
+  xhr.open('GET', '/data');
+  xhr.send();
+});
+Salvare i file index.html e script.js.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP GET utilizzando Express:
+javascript
+Copy code
+const express = require('express');
+const app = express();
+
+app.use(express.static('public'));
+
+app.get('/data', (req, res) => {
+  const data = {
+    message: 'Questa è una risposta AJAX!',
+    number: Math.floor(Math.random() * 10) + 1
+  };
+
+  res.send(data);
+});
+
+app.listen(3000, () => {
+  console.log('Il server è in ascolto sulla porta 3000!');
+});
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il server.
+Aprire il browser e digitare l'indirizzo http://localhost:3000 per visualizzare la pagina.
+Fare clic sul pulsante per effettuare la richiesta AJAX.
+Verificare che i dati restituiti dal server siano stati visualizzati correttamente nella pagina.
+Questo esercizio è solo un esempio di base per gestire una richiesta HTTP asincrona utilizzando AJAX e Node.js con Visual Studio Code. È possibile aggiungere funzionalità e personalizzare ulteriormente il codice in base alle proprie esigenze, ad esempio utilizzare il metodo fetch per effettuare richieste HTTP asincrone o gestire le rich
+
+
+
+info@delectablerecords.com
+3 esercizio NODE JS AJAX in VISUAL STUDIO CODE per principianti
+Ecco un altro esempio di esercizio per principianti su come utilizzare Node.js e AJAX in Visual Studio Code per effettuare una richiesta HTTP asincrona:
+
+Aprire Visual Studio Code e creare una nuova cartella di progetto.
+Aprire il terminale integrato di Visual Studio Code (Ctrl + Shift + `).
+Inserire il comando npm init e seguire le istruzioni per creare un file package.json, che descrive il progetto e le sue dipendenze.
+Creare un nuovo file index.html nella cartella di progetto.
+Aggiungere il seguente codice HTML per creare un pulsante e visualizzare il risultato della richiesta AJAX:
+php
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AJAX</title>
+  </head>
+  <body>
+    <h1>AJAX</h1>
+    <button id="button">Clicca qui</button>
+    <div id="result"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
+Creare un nuovo file script.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP asincrona utilizzando AJAX:
+javascript
+Copy code
+const button = document.getElementById('button');
+const result = document.getElementById('result');
+
+button.addEventListener('click', () => {
+  const xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        const data = JSON.parse(xhr.responseText);
+        result.innerHTML = `La temperatura attuale è di ${data.temperature}°C`;
+      } else {
+        console.error('Errore nella richiesta AJAX!');
+      }
+    }
+  };
+
+  xhr.open('GET', '/temperature');
+  xhr.send();
+});
+Salvare i file index.html e script.js.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP GET utilizzando Express:
+javascript
+Copy code
+const express = require('express');
+const app = express();
+
+app.use(express.static('public'));
+
+app.get('/temperature', (req, res) => {
+  const data = {
+    temperature: Math.floor(Math.random() * 20) + 10
+  };
+
+  res.send(data);
+});
+
+app.listen(3000, () => {
+  console.log('Il server è in ascolto sulla porta 3000!');
+});
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il server.
+Aprire il browser e digitare l'indirizzo http://localhost:3000 per visualizzare la pagina.
+Fare clic sul pulsante per effettuare la richiesta AJAX.
+Verificare che la temperatura restituita dal server sia stata visualizzata correttamente nella pagina.
+Questo esercizio è solo un esempio di base per gestire una richiesta HTTP asincrona utilizzando AJAX e Node.js con Visual Studio Code. È possibile aggiungere funzionalità e personalizzare ulteriormente il codice in base alle proprie esigenze, ad esempio utilizzare il metodo fetch per effettuare richieste HTTP as
+
+
+
+info@delectablerecords.com
+ 4 esercizio NODE JS AJAX in VISUAL STUDIO CODE per principianti
+Ecco un altro esempio di esercizio per principianti su come utilizzare Node.js e AJAX in Visual Studio Code per effettuare una richiesta HTTP asincrona:
+
+Aprire Visual Studio Code e creare una nuova cartella di progetto.
+Aprire il terminale integrato di Visual Studio Code (Ctrl + Shift + `).
+Inserire il comando npm init e seguire le istruzioni per creare un file package.json, che descrive il progetto e le sue dipendenze.
+Creare un nuovo file index.html nella cartella di progetto.
+Aggiungere il seguente codice HTML per creare un form HTML:
+php
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Form AJAX</title>
+  </head>
+  <body>
+    <h1>Form AJAX</h1>
+    <form>
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name">
+      <br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+      <br>
+      <button type="submit">Invia</button>
+    </form>
+    <div id="result"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
+Creare un nuovo file script.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP asincrona utilizzando AJAX:
+javascript
+Copy code
+const form = document.querySelector('form');
+const result = document.getElementById('result');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+
+  const xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        const data = JSON.parse(xhr.responseText);
+        result.innerHTML = `La risposta è ${data.response}`;
+      } else {
+        console.error('Errore nella richiesta AJAX!');
+      }
+    }
+  };
+
+  xhr.open('POST', '/submit');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({ name, email }));
+});
+Salvare i file index.html e script.js.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP POST utilizzando Express:
+javascript
+Copy code
+const express = require('express');
+const app = express();
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use(express.static('public'));
+
+app.post('/submit', (req, res) => {
+  const { name, email } = req.body;
+
+  console.log(`Nome: ${name}, Email: ${email}`);
+
+  const data = {
+    response: `Ciao ${name}! Grazie per aver inviato il tuo indirizzo email ${email}.`
+  };
+
+  res.send(data);
+});
+
+app.listen(3000, () => {
+  console.log('Il server è in ascolto sulla porta 3000!');
+});
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il server.
+Aprire il browser e digit
+
+
+
+info@delectablerecords.com
+continua
+are l'indirizzo http://localhost:3000 per visualizzare la pagina.
+14. Compilare il form con il nome e l'email e fare clic sul pulsante "Invia".
+
+Verificare che i dati del form siano stati inviati con successo al server tramite la console del server.
+Verificare che la risposta del server sia stata visualizzata correttamente nella pagina del form AJAX.
+Questo esercizio è solo un esempio di base per gestire una richiesta HTTP asincrona utilizzando AJAX e Node.js con Visual Studio Code. È possibile aggiungere funzionalità e personalizzare ulteriormente il codice in base alle proprie esigenze, ad esempio utilizzare il modulo fetch per effettuare richieste HTTP asincrone o utilizzare librerie come jQuery per semplificare la gestione della richiesta AJAX.
+
+
+
+info@delectablerecords.com
+6 esercizio NODE JS AJAX in VISUAL STUDIO CODE per principianti
+Ecco un altro esempio di esercizio per principianti su come utilizzare Node.js e AJAX in Visual Studio Code per effettuare una richiesta HTTP asincrona:
+
+Aprire Visual Studio Code e creare una nuova cartella di progetto.
+Aprire il terminale integrato di Visual Studio Code (Ctrl + Shift + `).
+Inserire il comando npm init e seguire le istruzioni per creare un file package.json, che descrive il progetto e le sue dipendenze.
+Creare un nuovo file index.html nella cartella di progetto.
+Aggiungere il seguente codice HTML per creare una lista di utenti e visualizzare il risultato della richiesta AJAX:
+php
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AJAX</title>
+  </head>
+  <body>
+    <h1>AJAX</h1>
+    <ul id="users"></ul>
+    <script src="script.js"></script>
+  </body>
+</html>
+Creare un nuovo file script.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP asincrona utilizzando AJAX:
+javascript
+Copy code
+const usersList = document.getElementById('users');
+
+const xhr = new XMLHttpRequest();
+
+xhr.onreadystatechange = () => {
+  if (xhr.readyState === XMLHttpRequest.DONE) {
+    if (xhr.status === 200) {
+      const data = JSON.parse(xhr.responseText);
+
+      data.forEach(user => {
+        const li = document.createElement('li');
+        li.innerHTML = user.name;
+        usersList.appendChild(li);
+      });
+    } else {
+      console.error('Errore nella richiesta AJAX!');
+    }
+  }
+};
+
+xhr.open('GET', '/users');
+xhr.send();
+Salvare i file index.html e script.js.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP GET utilizzando Express:
+javascript
+Copy code
+const express = require('express');
+const app = express();
+
+app.use(express.static('public'));
+
+app.get('/users', (req, res) => {
+  const data = [
+    { id: 1, name: 'Mario Rossi' },
+    { id: 2, name: 'Paola Verdi' },
+    { id: 3, name: 'Luigi Neri' }
+  ];
+
+  res.send(data);
+});
+
+app.listen(3000, () => {
+  console.log('Il server è in ascolto sulla porta 3000!');
+});
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il server.
+Aprire il browser e digitare l'indirizzo http://localhost:3000 per visualizzare la pagina.
+Verificare che la lista di utenti sia stata visualizzata correttamente nella pagina.
+Questo esercizio è solo un esempio di base per gestire una richiesta HTTP asincrona utilizzando AJAX e Node.js con Visual Studio Code. È possibile aggiungere funzionalità e personalizzare ulteriormente il codice in base alle proprie esigenze, ad esempio utilizzare il metodo fetch per effettuare richieste HTTP asincrone o utilizzare librerie come jQuery
+
+
+
+info@delectablerecords.com
+7 esercizio NODE JS AJAX in VISUAL STUDIO CODE per principianti
+Ecco un altro esempio di esercizio per principianti su come utilizzare Node.js e AJAX in Visual Studio Code per effettuare una richiesta HTTP asincrona:
+
+Aprire Visual Studio Code e creare una nuova cartella di progetto.
+Aprire il terminale integrato di Visual Studio Code (Ctrl + Shift + `).
+Inserire il comando npm init e seguire le istruzioni per creare un file package.json, che descrive il progetto e le sue dipendenze.
+Creare un nuovo file index.html nella cartella di progetto.
+Aggiungere il seguente codice HTML per creare un pulsante e visualizzare il risultato della richiesta AJAX:
+php
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AJAX</title>
+  </head>
+  <body>
+    <h1>AJAX</h1>
+    <button id="get-joke">Ricevi una barzelletta</button>
+    <p id="joke"></p>
+    <script src="script.js"></script>
+  </body>
+</html>
+Creare un nuovo file script.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP asincrona utilizzando AJAX:
+javascript
+Copy code
+const getJokeButton = document.getElementById('get-joke');
+const jokeParagraph = document.getElementById('joke');
+
+getJokeButton.addEventListener('click', () => {
+  const xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        const data = JSON.parse(xhr.responseText);
+        jokeParagraph.innerHTML = data.joke;
+      } else {
+        console.error('Errore nella richiesta AJAX!');
+      }
+    }
+  };
+
+  xhr.open('GET', 'https://icanhazdadjoke.com/');
+  xhr.setRequestHeader('Accept', 'application/json');
+  xhr.send();
+});
+Salvare i file index.html e script.js.
+Aprire il browser e digitare l'indirizzo https://icanhazdadjoke.com/ per verificare il funzionamento dell'API delle barzellette.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP GET utilizzando Express:
+javascript
+Copy code
+const express = require('express');
+const app = express();
+
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
+app.listen(3000, () => {
+  console.log('Il server è in ascolto sulla porta 3000!');
+});
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il server.
+Aprire il browser e digitare l'indirizzo http://localhost:3000 per visualizzare la pagina.
+Fare clic sul pulsante "Ricevi una barzelletta" per ricevere una barzelletta dal server.
+Questo esercizio è solo un esempio di base per gestire una richiesta HTTP asincrona utilizzando AJAX e Node.js con Visual Studio Code. È possibile aggiungere funzionalità e personalizzare ulterior
+
+
+
+info@delectablerecords.com
+continua
+mente il codice in base alle proprie esigenze, ad esempio utilizzare il metodo fetch per effettuare richieste HTTP asincrone o utilizzare librerie come jQuery per semplificare la gestione della richiesta AJAX. Inoltre, si può utilizzare un'ampia gamma di API e servizi web disponibili per ottenere dati da diverse fonti e integrarle nelle proprie applicazioni web.
+
+
+
+info@delectablerecords.com
+8 esercizio NODE JS AJAX in VISUAL STUDIO CODE per principianti
+Ecco un altro esempio di esercizio per principianti su come utilizzare Node.js e AJAX in Visual Studio Code per effettuare una richiesta HTTP asincrona:
+
+Aprire Visual Studio Code e creare una nuova cartella di progetto.
+Aprire il terminale integrato di Visual Studio Code (Ctrl + Shift + `).
+Inserire il comando npm init e seguire le istruzioni per creare un file package.json, che descrive il progetto e le sue dipendenze.
+Creare un nuovo file index.html nella cartella di progetto.
+Aggiungere il seguente codice HTML per creare un form e visualizzare il risultato della richiesta AJAX:
+php
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AJAX</title>
+  </head>
+  <body>
+    <h1>AJAX</h1>
+    <form id="form">
+      <label for="city">Città:</label>
+      <input type="text" id="city" name="city">
+      <button type="submit">Cerca</button>
+    </form>
+    <div id="weather"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
+Creare un nuovo file script.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP asincrona utilizzando AJAX:
+javascript
+Copy code
+const form = document.getElementById('form');
+const weatherDiv = document.getElementById('weather');
+
+form.addEventListener('submit', event => {
+  event.preventDefault();
+
+  const city = form.elements.city.value;
+
+  const xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        const data = JSON.parse(xhr.responseText);
+        const weather = data.weather[0].description;
+        weatherDiv.innerHTML = `Il tempo a ${city} è ${weather}.`;
+      } else {
+        console.error('Errore nella richiesta AJAX!');
+      }
+    }
+  };
+
+  xhr.open('GET', `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=<API_KEY>&units=metric`);
+  xhr.send();
+});
+Salvare i file index.html e script.js.
+Aprire il browser e digitare l'indirizzo https://openweathermap.org/api per ottenere una chiave API gratuita.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP GET utilizzando Express:
+javascript
+Copy code
+const express = require('express');
+const app = express();
+
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
+app.listen(3000, () => {
+  console.log('Il server è in ascolto sulla porta 3000!');
+});
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il server.
+Aprire il browser e digitare l'indirizzo http://localhost:3000 per visualizzare la pagina.
+Inserire il nome di una città nel form e fare clic sul pulsante "Cerca" per visualizzare le informazioni sul tempo.
+Quest
+
+
+
+info@delectablerecords.com
+9 esercizio NODE JS AJAX in VISUAL STUDIO CODE per principianti
+Ecco un altro esempio di esercizio per principianti su come utilizzare Node.js e AJAX in Visual Studio Code per effettuare una richiesta HTTP asincrona:
+
+Aprire Visual Studio Code e creare una nuova cartella di progetto.
+Aprire il terminale integrato di Visual Studio Code (Ctrl + Shift + `).
+Inserire il comando npm init e seguire le istruzioni per creare un file package.json, che descrive il progetto e le sue dipendenze.
+Creare un nuovo file index.html nella cartella di progetto.
+Aggiungere il seguente codice HTML per creare un pulsante e visualizzare il risultato della richiesta AJAX:
+php
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AJAX</title>
+  </head>
+  <body>
+    <h1>AJAX</h1>
+    <button id="get-random-quote">Ottieni una citazione a caso</button>
+    <p id="quote"></p>
+    <script src="script.js"></script>
+  </body>
+</html>
+Creare un nuovo file script.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP asincrona utilizzando AJAX:
+javascript
+Copy code
+const getRandomQuoteButton = document.getElementById('get-random-quote');
+const quoteParagraph = document.getElementById('quote');
+
+getRandomQuoteButton.addEventListener('click', () => {
+  const xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        const data = JSON.parse(xhr.responseText);
+        quoteParagraph.innerHTML = `"${data.content}" - ${data.author}`;
+      } else {
+        console.error('Errore nella richiesta AJAX!');
+      }
+    }
+  };
+
+  xhr.open('GET', 'https://api.quotable.io/random');
+  xhr.send();
+});
+Salvare i file index.html e script.js.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP GET utilizzando Express:
+javascript
+Copy code
+const express = require('express');
+const app = express();
+
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
+app.listen(3000, () => {
+  console.log('Il server è in ascolto sulla porta 3000!');
+});
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il server.
+Aprire il browser e digitare l'indirizzo http://localhost:3000 per visualizzare la pagina.
+Fare clic sul pulsante "Ottieni una citazione a caso" per ricevere una citazione dal server.
+Questo esercizio è solo un esempio di base per gestire una richiesta HTTP asincrona utilizzando AJAX e Node.js con Visual Studio Code. È possibile aggiungere funzionalità e personalizzare ulteriormente il codice in base alle proprie esigenze, ad esempio utilizzare il metodo fetch per effettuare richieste HTTP asincrone o utilizzare librerie come jQuery.
+
+
+
+info@delectablerecords.com
+10 esercizio NODE JS AJAX in VISUAL STUDIO CODE per principianti
+Ecco un altro esempio di esercizio per principianti su come utilizzare Node.js e AJAX in Visual Studio Code per effettuare una richiesta HTTP asincrona:
+
+Aprire Visual Studio Code e creare una nuova cartella di progetto.
+Aprire il terminale integrato di Visual Studio Code (Ctrl + Shift + `).
+Inserire il comando npm init e seguire le istruzioni per creare un file package.json, che descrive il progetto e le sue dipendenze.
+Creare un nuovo file index.html nella cartella di progetto.
+Aggiungere il seguente codice HTML per creare un form e visualizzare il risultato della richiesta AJAX:
+php
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AJAX</title>
+  </head>
+  <body>
+    <h1>AJAX</h1>
+    <form id="form">
+      <label for="word">Parola:</label>
+      <input type="text" id="word" name="word">
+      <button type="submit">Cerca</button>
+    </form>
+    <div id="definition"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
+Creare un nuovo file script.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP asincrona utilizzando AJAX:
+javascript
+Copy code
+const form = document.getElementById('form');
+const definitionDiv = document.getElementById('definition');
+
+form.addEventListener('submit', event => {
+  event.preventDefault();
+
+  const word = form.elements.word.value;
+
+  const xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        const data = JSON.parse(xhr.responseText);
+        const definition = data[0].meanings[0].definitions[0].definition;
+        definitionDiv.innerHTML = `La definizione di "${word}" è "${definition}".`;
+      } else {
+        console.error('Errore nella richiesta AJAX!');
+      }
+    }
+  };
+
+  xhr.open('GET', `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+  xhr.send();
+});
+Salvare i file index.html e script.js.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per gestire la richiesta HTTP GET utilizzando Express:
+javascript
+Copy code
+const express = require('express');
+const app = express();
+
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
+app.listen(3000, () => {
+  console.log('Il server è in ascolto sulla porta 3000!');
+});
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il server.
+Aprire il browser e digitare l'indirizzo http://localhost:3000 per visualizzare la pagina.
+Inserire una parola nel form e fare clic sul pulsante "Cerca" per visualizzare la definizione.
+Questo esercizio è solo un esempio di base per gestire una richiesta HTTP asincrona utilizzando AJAX e Node.js con Visual Studio Code. È possibile
+
+
+
+info@delectablerecords.com
+1 esercizio NODE JS MONGO DB in VISUAL STUDIO CODE per principianti crea il database con 1 tabella con 3 campi
+Ecco un esempio di come creare un database con una tabella e tre campi utilizzando Node.js e MongoDB in Visual Studio Code per principianti:
+
+Aprire Visual Studio Code e creare una nuova cartella di progetto.
+Aprire il terminale integrato di Visual Studio Code (Ctrl + Shift + `).
+Inserire il comando npm init e seguire le istruzioni per creare un file package.json, che descrive il progetto e le sue dipendenze.
+Installare il pacchetto mongodb utilizzando il comando npm install mongodb.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per connettersi a un'istanza locale di MongoDB e creare un database con una tabella e tre campi:
+php
+Copy code
+const { MongoClient } = require('mongodb');
+
+const uri = 'mongodb://localhost:27017';
+const client = new MongoClient(uri);
+
+async function run() {
+  try {
+    await client.connect();
+
+    const database = client.db('mydb');
+    const collection = database.collection('mycollection');
+
+    await collection.insertMany([
+      { name: 'Mario', age: 30, city: 'Roma' },
+      { name: 'Luigi', age: 25, city: 'Napoli' },
+      { name: 'Giovanni', age: 35, city: 'Milano' }
+    ]);
+
+    console.log('Dati inseriti correttamente!');
+  } catch (err) {
+    console.error(err);
+  } finally {
+    await client.close();
+  }
+}
+
+run().catch(console.error);
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Controllare la console per verificare che i dati siano stati inseriti correttamente nel database.
+Questo esercizio è solo un esempio di base per creare un database con una tabella e tre campi utilizzando Node.js e MongoDB in Visual Studio Code. È possibile modificare il codice per creare un database con una struttura più complessa o aggiungere funzionalità per leggere, aggiornare o eliminare i dati dal database.
+
+
+
+info@delectablerecords.com
+2 esercizio NODE JS MONGO DB in VISUAL STUDIO CODE per principianti per leggere i dati
+Ecco un esempio di come leggere i dati da un database MongoDB utilizzando Node.js in Visual Studio Code per principianti:
+
+Aprire Visual Studio Code e aprire la cartella di progetto in cui è stato creato il database MongoDB nel precedente esercizio.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per connettersi all'istanza locale di MongoDB e leggere i dati dalla tabella:
+javascript
+Copy code
+const { MongoClient } = require('mongodb');
+
+const uri = 'mongodb://localhost:27017';
+const client = new MongoClient(uri);
+
+async function run() {
+  try {
+    await client.connect();
+
+    const database = client.db('mydb');
+    const collection = database.collection('mycollection');
+
+    const cursor = collection.find();
+
+    await cursor.forEach(doc => {
+      console.log(doc);
+    });
+  } catch (err) {
+    console.error(err);
+  } finally {
+    await client.close();
+  }
+}
+
+run().catch(console.error);
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Controllare la console per verificare che i dati siano stati letti correttamente dalla tabella.
+In questo esempio, il metodo find() viene utilizzato per selezionare tutti i documenti nella tabella. Il metodo forEach() viene utilizzato per iterare sui documenti e visualizzarli nella console. È possibile modificare il metodo find() per selezionare documenti specifici, ad esempio utilizzando filtri o limiti.
+
+Questo esercizio è solo un esempio di base per leggere i dati da un database MongoDB utilizzando Node.js in Visual Studio Code. È possibile personalizzare ulteriormente il codice in base alle esigenze del progetto, ad esempio utilizzando metodi per ordinare, aggiornare o eliminare i dati dal database.
+
+
+
+info@delectablerecords.com
+3 esercizio NODE JS MONGO DB in VISUAL STUDIO CODE per principianti aggiornare i dati
+Ecco un esempio di come aggiornare i dati in un database MongoDB utilizzando Node.js in Visual Studio Code per principianti:
+
+Aprire Visual Studio Code e aprire la cartella di progetto in cui è stato creato il database MongoDB nel precedente esercizio.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per connettersi all'istanza locale di MongoDB e aggiornare i dati nella tabella:
+javascript
+Copy code
+const { MongoClient } = require('mongodb');
+
+const uri = 'mongodb://localhost:27017';
+const client = new MongoClient(uri);
+
+async function run() {
+  try {
+    await client.connect();
+
+    const database = client.db('mydb');
+    const collection = database.collection('mycollection');
+
+    const filter = { name: 'Mario' };
+    const update = { $set: { age: 40 } };
+
+    const result = await collection.updateOne(filter, update);
+
+    console.log(`${result.modifiedCount} documento/i modificato/i.`);
+  } catch (err) {
+    console.error(err);
+  } finally {
+    await client.close();
+  }
+}
+
+run().catch(console.error);
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Controllare la console per verificare che i dati siano stati aggiornati correttamente nella tabella.
+In questo esempio, il metodo updateOne() viene utilizzato per aggiornare un singolo documento nella tabella. Il primo parametro è un oggetto che specifica quale documento aggiornare, mentre il secondo parametro è un oggetto che specifica i nuovi valori da aggiungere o modificare. Il metodo restituisce un oggetto che descrive il numero di documenti modificati.
+
+È possibile utilizzare altri metodi per aggiornare più documenti contemporaneamente o per eliminare documenti.
+
+Questo esercizio è solo un esempio di base per aggiornare i dati in un database MongoDB utilizzando Node.js in Visual Studio Code. È possibile personalizzare ulteriormente il codice in base alle esigenze del progetto, ad esempio utilizzando filtri più complessi o aggiungendo altre funzionalità di aggiornamento dei dati.
+
+
+
+info@delectablerecords.com
+4 esercizio NODE JS MONGO DB in VISUAL STUDIO CODE per principianti eliminare i dati
+Ecco un esempio di come eliminare i dati da un database MongoDB utilizzando Node.js in Visual Studio Code per principianti:
+
+Aprire Visual Studio Code e aprire la cartella di progetto in cui è stato creato il database MongoDB nel precedente esercizio.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per connettersi all'istanza locale di MongoDB e eliminare i dati dalla tabella:
+javascript
+Copy code
+const { MongoClient } = require('mongodb');
+
+const uri = 'mongodb://localhost:27017';
+const client = new MongoClient(uri);
+
+async function run() {
+  try {
+    await client.connect();
+
+    const database = client.db('mydb');
+    const collection = database.collection('mycollection');
+
+    const filter = { age: { $gte: 30 } };
+
+    const result = await collection.deleteMany(filter);
+
+    console.log(`${result.deletedCount} documento/i eliminato/i.`);
+  } catch (err) {
+    console.error(err);
+  } finally {
+    await client.close();
+  }
+}
+
+run().catch(console.error);
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Controllare la console per verificare che i dati siano stati eliminati correttamente dalla tabella.
+In questo esempio, il metodo deleteMany() viene utilizzato per eliminare tutti i documenti nella tabella che hanno un valore di età maggiore o uguale a 30. Il metodo restituisce un oggetto che descrive il numero di documenti eliminati.
+
+È possibile utilizzare altri metodi per eliminare singoli documenti o per eliminare documenti basati su altri filtri.
+
+Questo esercizio è solo un esempio di base per eliminare i dati da un database MongoDB utilizzando Node.js in Visual Studio Code. È possibile personalizzare ulteriormente il codice in base alle esigenze del progetto, ad esempio utilizzando filtri più complessi o aggiungendo altre funzionalità di eliminazione dei dati.
+
+
+
+info@delectablerecords.com
+1 esercizio NODE JS SQLITE in VISUAL STUDIO CODE per principianti crea il database con 1 tabella con 3 campi
+Ecco un esempio di come creare un database con una tabella e tre campi utilizzando Node.js e SQLite in Visual Studio Code per principianti:
+
+Aprire Visual Studio Code e creare una nuova cartella di progetto.
+Aprire il terminale integrato di Visual Studio Code (Ctrl + Shift + `).
+Inserire il comando npm init e seguire le istruzioni per creare un file package.json, che descrive il progetto e le sue dipendenze.
+Installare il pacchetto sqlite3 utilizzando il comando npm install sqlite3.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per creare un database con una tabella e tre campi:
+javascript
+Copy code
+const sqlite3 = require('sqlite3').verbose();
+
+const db = new sqlite3.Database('mydb.db');
+
+db.serialize(() => {
+  db.run('CREATE TABLE mytable (name TEXT, age INTEGER, city TEXT)');
+
+  const stmt = db.prepare('INSERT INTO mytable VALUES (?, ?, ?)');
+  stmt.run('Mario', 30, 'Roma');
+  stmt.run('Luigi', 25, 'Napoli');
+  stmt.run('Giovanni', 35, 'Milano');
+  stmt.finalize();
+
+  console.log('Dati inseriti correttamente!');
+});
+
+db.close();
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Controllare la console per verificare che i dati siano stati inseriti correttamente nel database.
+Questo esercizio è solo un esempio di base per creare un database con una tabella e tre campi utilizzando Node.js e SQLite in Visual Studio Code. È possibile modificare il codice per creare un database con una struttura più complessa o aggiungere funzionalità per leggere, aggiornare o eliminare i dati dal database.
+
+
+
+info@delectablerecords.com
+2 esercizio NODE JS SQLITE in VISUAL STUDIO CODE per principianti per leggere i dati
+Ecco un esempio di come leggere i dati da un database SQLite utilizzando Node.js in Visual Studio Code per principianti:
+
+Aprire Visual Studio Code e aprire la cartella di progetto in cui è stato creato il database SQLite nel precedente esercizio.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per connettersi al database SQLite e leggere i dati dalla tabella:
+javascript
+Copy code
+const sqlite3 = require('sqlite3').verbose();
+
+const db = new sqlite3.Database('mydb.db');
+
+db.all('SELECT * FROM mytable', (err, rows) => {
+  if (err) {
+    console.error(err.message);
+  }
+
+  rows.forEach(row => {
+    console.log(row.name, row.age, row.city);
+  });
+});
+
+db.close();
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Controllare la console per verificare che i dati siano stati letti correttamente dalla tabella.
+In questo esempio, il metodo all() viene utilizzato per eseguire una query SQL che seleziona tutti i dati nella tabella. La funzione di callback viene eseguita una volta che la query è stata completata, e i risultati vengono passati come parametro rows. Il metodo forEach() viene utilizzato per iterare sui risultati e visualizzarli nella console.
+
+È possibile modificare la query SQL per selezionare solo i dati specifici necessari, ad esempio utilizzando filtri o ordinamenti.
+
+Questo esercizio è solo un esempio di base per leggere i dati da un database SQLite utilizzando Node.js in Visual Studio Code. È possibile personalizzare ulteriormente il codice in base alle esigenze del progetto, ad esempio utilizzando altre funzioni di query o aggiungendo altre funzionalità di lettura dei dati.
+
+
+
+info@delectablerecords.com
+3 esercizio NODE JS SQLITE in VISUAL STUDIO CODE per principianti aggiornare i dati
+Ecco un esempio di come aggiornare i dati in un database SQLite utilizzando Node.js in Visual Studio Code per principianti:
+
+Aprire Visual Studio Code e aprire la cartella di progetto in cui è stato creato il database SQLite nel precedente esercizio.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per connettersi al database SQLite e aggiornare i dati nella tabella:
+javascript
+Copy code
+const sqlite3 = require('sqlite3').verbose();
+
+const db = new sqlite3.Database('mydb.db');
+
+const id = 1;
+const newAge = 40;
+
+db.run(`UPDATE mytable SET age = ${newAge} WHERE rowid = ${id}`, err => {
+  if (err) {
+    console.error(err.message);
+  }
+
+  console.log(`Dato con id ${id} aggiornato correttamente!`);
+});
+
+db.close();
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Controllare la console per verificare che i dati siano stati aggiornati correttamente nella tabella.
+In questo esempio, il metodo run() viene utilizzato per eseguire una query SQL che aggiorna un singolo dato nella tabella. La query utilizza il valore di id per selezionare il dato da aggiornare e il valore di newAge per impostare il nuovo valore dell'età. La funzione di callback viene eseguita una volta che la query è stata completata, e viene visualizzato un messaggio nella console.
+
+È possibile utilizzare altri metodi per aggiornare più dati contemporaneamente o per eliminare dati.
+
+Questo esercizio è solo un esempio di base per aggiornare i dati in un database SQLite utilizzando Node.js in Visual Studio Code. È possibile personalizzare ulteriormente il codice in base alle esigenze del progetto, ad esempio utilizzando filtri più complessi o aggiungendo altre funzionalità di aggiornamento dei dati.
+
+
+
+info@delectablerecords.com
+4 esercizio NODE JS SQLITE in VISUAL STUDIO CODE per principianti eliminare i dati
+Ecco un esempio di come eliminare i dati da un database SQLite utilizzando Node.js in Visual Studio Code per principianti:
+
+Aprire Visual Studio Code e aprire la cartella di progetto in cui è stato creato il database SQLite nel precedente esercizio.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per connettersi al database SQLite e eliminare i dati dalla tabella:
+javascript
+Copy code
+const sqlite3 = require('sqlite3').verbose();
+
+const db = new sqlite3.Database('mydb.db');
+
+const id = 1;
+
+db.run(`DELETE FROM mytable WHERE rowid = ${id}`, err => {
+  if (err) {
+    console.error(err.message);
+  }
+
+  console.log(`Dato con id ${id} eliminato correttamente!`);
+});
+
+db.close();
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Controllare la console per verificare che i dati siano stati eliminati correttamente dalla tabella.
+In questo esempio, il metodo run() viene utilizzato per eseguire una query SQL che elimina un singolo dato dalla tabella. La query utilizza il valore di id per selezionare il dato da eliminare. La funzione di callback viene eseguita una volta che la query è stata completata, e viene visualizzato un messaggio nella console.
+
+È possibile utilizzare altri metodi per eliminare più dati contemporaneamente o per eliminare dati basati su altri filtri.
+
+Questo esercizio è solo un esempio di base per eliminare i dati da un database SQLite utilizzando Node.js in Visual Studio Code. È possibile personalizzare ulteriormente il codice in base alle esigenze del progetto, ad esempio utilizzando filtri più complessi o aggiungendo altre funzionalità di eliminazione dei dati.
+
+
+
+info@delectablerecords.com
+1 esercizio NODE JS SQL SERVER in VISUAL STUDIO CODE per principianti crea il database con 1 tabella con 3 campi
+Ecco un esempio di come creare un database con una tabella e tre campi utilizzando Node.js e SQL Server in Visual Studio Code per principianti:
+
+Aprire Visual Studio Code e creare una nuova cartella di progetto.
+Aprire il terminale integrato di Visual Studio Code (Ctrl + Shift + `).
+Inserire il comando npm init e seguire le istruzioni per creare un file package.json, che descrive il progetto e le sue dipendenze.
+Installare il pacchetto mssql utilizzando il comando npm install mssql.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per creare una connessione al database SQL Server e creare una tabella con tre campi:
+javascript
+Copy code
+const sql = require('mssql');
+
+const config = {
+  user: 'username',
+  password: 'password',
+  server: 'localhost',
+  database: 'mydb',
+  options: {
+    trustServerCertificate: true,
+  },
+};
+
+const pool = new sql.ConnectionPool(config);
+
+pool.connect(err => {
+  if (err) {
+    console.error(err);
+  } else {
+    const request = new sql.Request(pool);
+
+    request.query(`
+      CREATE TABLE mytable (
+        id INT PRIMARY KEY,
+        name VARCHAR(50),
+        age INT
+      )
+    `, (err, result) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log('Tabella creata correttamente!');
+      }
+
+      pool.close();
+    });
+  }
+});
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Controllare la console per verificare che la tabella sia stata creata correttamente nel database.
+Questo esercizio è solo un esempio di base per creare un database con una tabella e tre campi utilizzando Node.js e SQL Server in Visual Studio Code. È possibile modificare il codice per creare un database con una struttura più complessa o aggiungere funzionalità per leggere, aggiornare o eliminare i dati dal database.
+
+
+
+info@delectablerecords.com
+2 esercizio NODE JS SQL SERVER in VISUAL STUDIO CODE per principianti per leggere i dati
+Ecco un esempio di come leggere i dati da un database SQL Server utilizzando Node.js in Visual Studio Code per principianti:
+
+Aprire Visual Studio Code e aprire la cartella di progetto in cui è stato creato il database SQL Server nel precedente esercizio.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per connettersi al database SQL Server e leggere i dati dalla tabella:
+javascript
+Copy code
+const sql = require('mssql');
+
+const config = {
+  user: 'username',
+  password: 'password',
+  server: 'localhost',
+  database: 'mydb',
+  options: {
+    trustServerCertificate: true,
+  },
+};
+
+const pool = new sql.ConnectionPool(config);
+
+pool.connect(err => {
+  if (err) {
+    console.error(err);
+  } else {
+    const request = new sql.Request(pool);
+
+    request.query('SELECT * FROM mytable', (err, result) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(result.recordset);
+      }
+
+      pool.close();
+    });
+  }
+});
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Controllare la console per verificare che i dati siano stati letti correttamente dalla tabella.
+In questo esempio, il pacchetto mssql viene utilizzato per creare una connessione al database SQL Server e eseguire una query che seleziona tutti i dati nella tabella. La funzione di callback viene eseguita una volta che la query è stata completata, e i risultati vengono passati come parametro result. Il campo recordset del parametro result contiene i risultati della query.
+
+È possibile modificare la query SQL per selezionare solo i dati specifici necessari, ad esempio utilizzando filtri o ordinamenti.
+
+Questo esercizio è solo un esempio di base per leggere i dati da un database SQL Server utilizzando Node.js in Visual Studio Code. È possibile personalizzare ulteriormente il codice in base alle esigenze del progetto, ad esempio utilizzando altre funzioni di query o aggiungendo altre funzionalità di lettura dei dati.
+
+
+
+info@delectablerecords.com
+3 esercizio NODE JS SQL SERVER in VISUAL STUDIO CODE per principianti aggiornare i dati
+Ecco un esempio di come aggiornare i dati in un database SQL Server utilizzando Node.js in Visual Studio Code per principianti:
+
+Aprire Visual Studio Code e aprire la cartella di progetto in cui è stato creato il database SQL Server nel primo esercizio.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per connettersi al database SQL Server e aggiornare i dati nella tabella:
+javascript
+Copy code
+const sql = require('mssql');
+
+const config = {
+  user: 'username',
+  password: 'password',
+  server: 'localhost',
+  database: 'mydb',
+  options: {
+    trustServerCertificate: true,
+  },
+};
+
+const pool = new sql.ConnectionPool(config);
+
+pool.connect(err => {
+  if (err) {
+    console.error(err);
+  } else {
+    const request = new sql.Request(pool);
+
+    request.query(`
+      UPDATE mytable
+      SET age = 30
+      WHERE id = 1
+    `, (err, result) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log('Dati aggiornati correttamente!');
+      }
+
+      pool.close();
+    });
+  }
+});
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Controllare la console per verificare che i dati siano stati aggiornati correttamente nella tabella.
+In questo esempio, il pacchetto mssql viene utilizzato per creare una connessione al database SQL Server e eseguire una query che aggiorna il valore di un campo nella tabella. La query utilizza la clausola WHERE per selezionare il dato specifico da aggiornare, in questo caso utilizzando l'id = 1. La funzione di callback viene eseguita una volta che la query è stata completata, e viene visualizzato un messaggio nella console.
+
+È possibile utilizzare altri metodi per aggiornare più dati contemporaneamente o per aggiornare dati basati su altri filtri.
+
+Questo esercizio è solo un esempio di base per aggiornare i dati in un database SQL Server utilizzando Node.js in Visual Studio Code. È possibile personalizzare ulteriormente il codice in base alle esigenze del progetto, ad esempio utilizzando filtri più complessi o aggiungendo altre funzionalità di aggiornamento dei dati.
+
+
+
+info@delectablerecords.com
+4 esercizio NODE JS SQL SERVER in VISUAL STUDIO CODE per principianti elimina i dati
+Ecco un esempio di come eliminare i dati da un database SQL Server utilizzando Node.js in Visual Studio Code per principianti:
+
+Aprire Visual Studio Code e aprire la cartella di progetto in cui è stato creato il database SQL Server nel primo esercizio.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per connettersi al database SQL Server ed eliminare i dati nella tabella:
+javascript
+Copy code
+const sql = require('mssql');
+
+const config = {
+  user: 'username',
+  password: 'password',
+  server: 'localhost',
+  database: 'mydb',
+  options: {
+    trustServerCertificate: true,
+  },
+};
+
+const pool = new sql.ConnectionPool(config);
+
+pool.connect(err => {
+  if (err) {
+    console.error(err);
+  } else {
+    const request = new sql.Request(pool);
+
+    request.query(`
+      DELETE FROM mytable
+      WHERE id = 1
+    `, (err, result) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log('Dati eliminati correttamente!');
+      }
+
+      pool.close();
+    });
+  }
+});
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per eseguire il codice.
+Controllare la console per verificare che i dati siano stati eliminati correttamente dalla tabella.
+In questo esempio, il pacchetto mssql viene utilizzato per creare una connessione al database SQL Server e eseguire una query che elimina un dato specifico dalla tabella. La query utilizza la clausola WHERE per selezionare il dato da eliminare, in questo caso utilizzando l'id = 1. La funzione di callback viene eseguita una volta che la query è stata completata, e viene visualizzato un messaggio nella console.
+
+È possibile utilizzare altri metodi per eliminare più dati contemporaneamente o per eliminare dati basati su altri filtri.
+
+Questo esercizio è solo un esempio di base per eliminare i dati da un database SQL Server utilizzando Node.js in Visual Studio Code. È possibile personalizzare ulteriormente il codice in base alle esigenze del progetto, ad esempio utilizzando filtri più complessi o aggiungendo altre funzionalità di eliminazione dei dati.
+
+
+
+info@delectablerecords.com
+1 esercizio NODE JS MVC senza DB in VISUAL STUDIO CODE per principianti
+Ecco un esempio di come creare un'applicazione web MVC senza database utilizzando Node.js in Visual Studio Code per principianti:
+
+Aprire Visual Studio Code e creare una nuova cartella di progetto.
+Aprire il terminale integrato di Visual Studio Code e digitare il comando npm init per inizializzare un nuovo progetto Node.js.
+Digitare npm install express per installare il framework Express per Node.js.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per creare una applicazione web con Express:
+javascript
+Copy code
+const express = require('express');
+const app = express();
+
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  res.render('index');
+});
+
+app.listen(3000, () => {
+  console.log('Server avviato sulla porta 3000');
+});
+Salvare il file app.js.
+Creare una nuova cartella views nella cartella di progetto.
+Creare un nuovo file index.ejs nella cartella views.
+Aggiungere il seguente codice HTML per creare la pagina principale dell'applicazione:
+php
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Applicazione web MVC</title>
+  </head>
+  <body>
+    <h1>Benvenuti nell'applicazione web MVC</h1>
+    <p>Questa è la pagina principale dell'applicazione.</p>
+  </body>
+</html>
+Salvare il file index.ejs.
+Creare una nuova cartella public nella cartella di progetto.
+Creare un nuovo file style.css nella cartella public.
+Aggiungere il seguente codice CSS per personalizzare lo stile della pagina principale:
+css
+Copy code
+body {
+  font-family: Arial, sans-serif;
+  background-color: #eee;
+  text-align: center;
+  padding-top: 50px;
+}
+
+h1 {
+  font-size: 36px;
+  color: #333;
+}
+
+p {
+  font-size: 18px;
+  color: #666;
+}
+Salvare il file style.css.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per avviare il server web.
+Aprire un browser web e digitare http://localhost:3000 per accedere alla pagina principale dell'applicazione.
+In questo esempio, il framework Express viene utilizzato per creare una applicazione web MVC. Il pacchetto ejs viene utilizzato per rendere la pagina HTML dinamica, mentre la cartella public viene utilizzata per ospitare file statici come fogli di stile CSS e immagini.
+
+L'applicazione web è composta da un unico controller che gestisce la richiesta di base all'URL '/', e restituisce la vista corrispondente. La vista è creata utilizzando il motore di rendering ejs e viene visualizzata nella pagina HTML. Il risultato è una semplice applicazione web MVC senza database.
+
+Questo esercizio è solo un esempio di base di come creare un'applicazione web MVC senza database utilizzando Node.js in Visual Studio Code. È possibile personalizzare ulteriormente il codice in base alle
+
+
+
+info@delectablerecords.com
+2 esercizio NODE JS MVC senza DB in VISUAL STUDIO CODE per principianti layout con 3 viste ed un unico menu condivisi
+Ecco un esempio di come creare un'applicazione web MVC senza database utilizzando Node.js in Visual Studio Code per principianti, con un layout comune condiviso tra 3 viste e un menu di navigazione:
+
+Aprire Visual Studio Code e aprire la cartella di progetto in cui si desidera creare l'applicazione web.
+Digitare il comando npm init nel terminale integrato di Visual Studio Code per inizializzare un nuovo progetto Node.js.
+Digitare npm install express ejs per installare il framework Express e il motore di rendering EJS.
+Creare una nuova cartella views nella cartella di progetto.
+Creare un nuovo file layout.ejs nella cartella views.
+Aggiungere il seguente codice HTML per creare il layout comune dell'applicazione:
+php
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/page1">Pagina 1</a></li>
+          <li><a href="/page2">Pagina 2</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <%= content %>
+    </main>
+  </body>
+</html>
+Salvare il file layout.ejs.
+Creare un nuovo file home.ejs nella cartella views.
+Aggiungere il seguente codice HTML per creare la vista della pagina principale dell'applicazione:
+css
+Copy code
+<h1>Benvenuti nell'applicazione web MVC</h1>
+<p>Questa è la pagina principale dell'applicazione.</p>
+Salvare il file home.ejs.
+Creare un nuovo file page1.ejs nella cartella views.
+Aggiungere il seguente codice HTML per creare la vista della prima pagina dell'applicazione:
+css
+Copy code
+<h1>Pagina 1</h1>
+<p>Questa è la pagina 1 dell'applicazione.</p>
+Salvare il file page1.ejs.
+Creare un nuovo file page2.ejs nella cartella views.
+Aggiungere il seguente codice HTML per creare la vista della seconda pagina dell'applicazione:
+css
+Copy code
+<h1>Pagina 2</h1>
+<p>Questa è la pagina 2 dell'applicazione.</p>
+Salvare il file page2.ejs.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per creare una applicazione web con Express che utilizza il layout comune e le viste specifiche:
+javascript
+Copy code
+const express = require('express');
+const app = express();
+
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  res.render('layout', { title: 'Home', content: 'home' });
+});
+
+app.get('/page1', (req, res) => {
+  res.render('layout', { title: 'Pagina 1', content: 'page1' });
+});
+
+app.get('/page2', (req, res) => {
+  res.render('layout',
+
+
+
+info@delectablerecords.com
+continua
+{ title: 'Pagina 2', content: 'page2' });
+});
+
+app.listen(3000, () => {
+console.log('Server avviato sulla porta 3000');
+});
+
+markdown
+Copy code
+
+19. Salvare il file `app.js`.
+20. Creare una nuova cartella `public` nella cartella di progetto.
+21. Creare un nuovo file `style.css` nella cartella `public`.
+22. Aggiungere il seguente codice CSS per personalizzare lo stile della pagina principale:
+
+body {
+font-family: Arial, sans-serif;
+background-color: #eee;
+text-align: center;
+padding-top: 50px;
+}
+
+h1 {
+font-size: 36px;
+color: #333;
+}
+
+p {
+font-size: 18px;
+color: #666;
+}
+
+header {
+background-color: #333;
+color: #fff;
+padding: 10px;
+}
+
+nav ul {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+nav li {
+display: inline-block;
+}
+
+nav a {
+color: #fff;
+text-decoration: none;
+padding: 10px;
+}
+
+nav a:hover {
+background-color: #fff;
+color: #333;
+}
+
+markdown
+Copy code
+
+23. Salvare il file `style.css`.
+24. Aprire il terminale integrato di Visual Studio Code e digitare `node app.js` per avviare il server web.
+25. Aprire un browser web e digitare `http://localhost:3000` per accedere alla pagina principale dell'applicazione.
+
+In questo esempio, il layout comune viene definito nel file `layout.ejs`, mentre le specifiche viste della pagina sono definite nei file `home.ejs`, `page1.ejs` e `page2.ejs`. Il pacchetto `ejs` viene utilizzato per rendere le pagine HTML dinamiche, mentre la cartella `public` viene utilizzata per ospitare file statici come fogli di stile CSS e immagini.
+
+L'applicazione web utilizza il framework Express per creare le rotte per le viste specifiche, che vengono quindi renderizzate nel layout comune tramite il motore di rendering `ejs`. Il risultato è un'applicazione web MVC condivisa da un menu di navigazione e un layout comune tra tutte le pagine.
+
+Questo esercizio è solo un esempio di base di come creare un'applicazione web MVC senza database utilizzando Node.js in Visual Studio Code. È possibile personalizzare ulteriormente il codice in base alle proprie esigenze e aggiungere funzionalità più avanzate come la gestione degli errori, l'autenticazione degli utenti e l'utilizzo di database.
+
+
+
+info@delectablerecords.com
+3 esercizio NODE JS MVC con SQLITE in VISUAL STUDIO CODE per principianti layout con 3 viste di cui 1 vista che verifica se c’è il database altrimenti fa creare il database se non c’è già, 1 vista per amministrare i dati, 1 vista per eliminare il database, ed un unico menu condivisi
+Ecco un esempio di come creare un'applicazione web MVC con un database SQLite utilizzando Node.js in Visual Studio Code per principianti, con un layout comune condiviso tra 3 viste e un menu di navigazione che permette di verificare la presenza del database, amministrare i dati e eliminare il database:
+
+Aprire Visual Studio Code e aprire la cartella di progetto in cui si desidera creare l'applicazione web.
+Digitare il comando npm init nel terminale integrato di Visual Studio Code per inizializzare un nuovo progetto Node.js.
+Digitare npm install express ejs sqlite3 per installare il framework Express, il motore di rendering EJS e il driver per SQLite.
+Creare una nuova cartella views nella cartella di progetto.
+Creare un nuovo file layout.ejs nella cartella views.
+Aggiungere il seguente codice HTML per creare il layout comune dell'applicazione:
+php
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/admin">Amministra Dati</a></li>
+          <li><a href="/delete">Elimina Database</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <%= content %>
+    </main>
+  </body>
+</html>
+Salvare il file layout.ejs.
+Creare un nuovo file home.ejs nella cartella views.
+Aggiungere il seguente codice HTML per creare la vista della pagina principale dell'applicazione, che verifica la presenza del database:
+php
+Copy code
+<h1>Benvenuti nell'applicazione web MVC con SQLite</h1>
+<% if (dbExists) { %>
+  <p>Il database esiste già.</p>
+<% } else { %>
+  <p>Il database non esiste ancora. <a href="/create">Crea Database</a></p>
+<% } %>
+Salvare il file home.ejs.
+Creare un nuovo file admin.ejs nella cartella views.
+Aggiungere il seguente codice HTML per creare la vista della pagina di amministrazione dei dati dell'applicazione, che permette di visualizzare i dati presenti nel database:
+css
+Copy code
+<h1>Amministra Dati</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Cognome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (let i = 0; i < rows.length; i++) { %>
+      <tr>
+        <td><%= rows[i].id %></td>
+        <td><%= rows[i].name %></td>
+        <td><%= rows[i].surname %></td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+Salvare il file admin.ejs.
+Creare un nuovo file create.ejs nella cartella views.
+Aggiungere il seguente codice HTML per creare la vista della pagina di creazione del
+
+
+
+info@delectablerecords.com
+continua 
+database dell'applicazione:
+
+php
+Copy code
+<h1>Crea Database</h1>
+<p>Sei sicuro di voler creare il database?</p>
+<form method="POST" action="/create">
+  <button type="submit">Crea Database</button>
+</form>
+Salvare il file create.ejs.
+Creare un nuovo file delete.ejs nella cartella views.
+Aggiungere il seguente codice HTML per creare la vista della pagina di eliminazione del database dell'applicazione:
+php
+Copy code
+<h1>Elimina Database</h1>
+<p>Sei sicuro di voler eliminare il database?</p>
+<form method="POST" action="/delete">
+  <button type="submit">Elimina Database</button>
+</form>
+Salvare il file delete.ejs.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per creare il server web, le rotte per le viste e la connessione al database SQLite:
+javascript
+Copy code
+const express = require('express');
+const ejs = require('ejs');
+const sqlite3 = require('sqlite3');
+
+const app = express();
+
+app.set('view engine', 'ejs');
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+
+const db = new sqlite3.Database('data.db', (err) => {
+  if (err) {
+    console.error(err.message);
+  }
+  console.log('Connesso al database SQLite.');
+});
+
+app.get('/', (req, res) => {
+  db.get('SELECT name FROM sqlite_master WHERE type="table" AND name="users"', (err, row) => {
+    if (row) {
+      res.render('home', { title: 'Home', dbExists: true });
+    } else {
+      res.render('home', { title: 'Home', dbExists: false });
+    }
+  });
+});
+
+app.get('/admin', (req, res) => {
+  db.all('SELECT * FROM users', [], (err, rows) => {
+    if (err) {
+      console.error(err.message);
+    }
+    res.render('admin', { title: 'Amministra Dati', rows: rows });
+  });
+});
+
+app.get('/create', (req, res) => {
+  res.render('create', { title: 'Crea Database' });
+});
+
+app.post('/create', (req, res) => {
+  db.run('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, surname TEXT)', (err) => {
+    if (err) {
+      console.error(err.message);
+    }
+    console.log('Tabella utenti creata.');
+  });
+  res.redirect('/');
+});
+
+app.get('/delete', (req, res) => {
+  res.render('delete', { title: 'Elimina Database' });
+});
+
+app.post('/delete', (req, res) => {
+  db.run('DROP TABLE IF EXISTS users', (err) => {
+    if (err) {
+      console.error(err.message);
+    }
+    console.log('Tabella utenti eliminata.');
+  });
+  res.redirect('/');
+});
+
+app.listen(3000, () => {
+  console.log('Server avviato sulla porta 3000');
+});
+Salvare il file app.js.
+Aprire il terminale integrato di Visual Studio Code e digitare node app.js per avviare il server web.
+Aprire un browser web e digitare http://localhost:3000 per accedere alla pagina principale dell'applicazione
+
+
+
+info@delectablerecords.com
+continua
+Verificare se il database esiste già. Se non esiste, cliccare sul link "Crea Database" per creare il database.
+Cliccare sul link "Amministra Dati" per visualizzare i dati presenti nel database.
+Cliccare sul link "Elimina Database" per eliminare il database.
+Verificare che il database sia stato eliminato. Se non è stato eliminato, chiudere il server web nel terminale integrato di Visual Studio Code e cancellare il file data.db dalla cartella di progetto.
+Modificare i file delle viste e del layout secondo le proprie esigenze, aggiungere ulteriori rotte e funzionalità all'applicazione web MVC con SQLite in Node.js in base alle proprie esigenze.
+
+
+
+info@delectablerecords.com
+1 esercizio NODE JS ANGULAR JS in VISUAL STUDIO CODE per principianti
+Ecco un esempio di esercizio per creare una semplice applicazione web con Node.js e AngularJS in Visual Studio Code:
+
+Creare una nuova cartella di progetto.
+Aprire la cartella di progetto in Visual Studio Code.
+Aprire il terminale integrato di Visual Studio Code e digitare il seguente comando per inizializzare un nuovo progetto Node.js:
+csharp
+Copy code
+npm init
+Seguire le istruzioni per creare il file package.json per il progetto Node.js.
+Digitare il seguente comando per installare il modulo Express:
+Copy code
+npm install express
+Digitare il seguente comando per installare il modulo body-parser:
+css
+Copy code
+npm install body-parser
+Digitare il seguente comando per installare il modulo sqlite3:
+Copy code
+npm install sqlite3
+Creare un nuovo file index.html nella cartella di progetto.
+Aggiungere il seguente codice HTML per creare la pagina principale dell'applicazione web:
+php
+Copy code
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Applicazione AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <h1>Applicazione AngularJS</h1>
+  <div ng-view></div>
+</body>
+</html>
+Salvare il file index.html.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per creare l'applicazione AngularJS, il controller e le rotte per le viste:
+php
+Copy code
+const app = angular.module('myApp', ['ngRoute']);
+
+app.config(function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      templateUrl: 'home.html',
+      controller: 'HomeController'
+    })
+    .when('/about', {
+      templateUrl: 'about.html',
+      controller: 'AboutController'
+    })
+    .when('/contact', {
+      templateUrl: 'contact.html',
+      controller: 'ContactController'
+    })
+    .otherwise({
+      redirectTo: '/'
+    });
+});
+
+app.controller('HomeController', function($scope) {
+  $scope.message = 'Benvenuti nell\'applicazione AngularJS!';
+});
+
+app.controller('AboutController', function($scope) {
+  $scope.message = 'Informazioni sull\'applicazione AngularJS.';
+});
+
+app.controller('ContactController', function($scope) {
+  $scope.message = 'Contattaci!';
+});
+Salvare il file app.js.
+Creare tre nuovi file home.html, about.html e contact.html nella cartella di progetto.
+Aggiungere il seguente codice HTML per creare le viste delle tre pagine dell'applicazione web:
+home.html:
+
+css
+Copy code
+<h2>{{ message }}</h2>
+<p>Questa è la pagina principale dell'applicazione AngularJS.</p>
+about.html:
+
+css
+Copy code
+<h2>{{ message }}</h2>
+<p>Questa pagina fornisce informazioni sull'applicazione AngularJS.</p>
+contact.html:
+
+css
+Copy code
+<h2>{{ message }}</h2>
+<p>Contattaci per ulteriori informazioni sull'applicazione AngularJS.</p>
+Salvare
+
+
+
+info@delectablerecords.com
+continua
+Creare un nuovo file server.js nella cartella di progetto.
+Aggiungere il seguente codice per creare un server Express, servire i file statici, gestire le rotte delle viste e avviare il server:
+javascript
+Copy code
+const express = require('express');
+const bodyParser = require('body-parser');
+const sqlite3 = require('sqlite3').verbose();
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
+app.listen(port, function() {
+  console.log(`Server avviato sulla porta ${port}`);
+});
+Salvare il file server.js.
+Digitare il seguente comando per avviare il server Node.js:
+Copy code
+node server.js
+Aprire il browser e digitare l'URL http://localhost:3000 per visualizzare l'applicazione web.
+Cliccare sui link nel menu per visualizzare le tre viste dell'applicazione AngularJS.
+Modificare i file delle viste e del layout secondo le proprie esigenze, aggiungere ulteriori rotte e funzionalità all'applicazione web AngularJS in Node.js in base alle proprie esigenze.
+
+
+
+info@delectablerecords.com
+in questo caso ANGULAR JS ci ha avvantaggiati
+Sì, AngularJS ha offerto numerosi vantaggi nell'esempio di esercizio descritto. Alcuni di questi vantaggi includono:
+
+Modularità: AngularJS consente di suddividere l'applicazione in moduli separati e riutilizzabili, semplificando la gestione del codice e la manutenzione dell'applicazione.
+Due-way data binding: AngularJS offre un sistema di data binding bidirezionale che consente di mantenere i dati e la UI sincronizzati, semplificando la gestione dell'applicazione e migliorando l'esperienza utente.
+Routing: AngularJS fornisce un sistema di routing integrato che semplifica la gestione delle rotte delle viste dell'applicazione, semplificando la creazione di applicazioni web complesse e multi-pagina.
+Template: AngularJS offre un sistema di template per la creazione delle viste, semplificando la creazione di pagine web dinamiche e interattive.
+Ampia comunità di sviluppatori: AngularJS ha una vasta comunità di sviluppatori che offrono supporto e risorse online, semplificando la creazione di applicazioni web robuste e scalabili.
+
+
+
+info@delectablerecords.com
+2 esercizio NODE JS ANGULAR JS in VISUAL STUDIO CODE per principianti per amministrare un semplice sito WEB personale
+Ecco un esempio di esercizio per creare un semplice sito web personale con Node.js e AngularJS in Visual Studio Code:
+
+Creare una nuova cartella di progetto.
+Aprire la cartella di progetto in Visual Studio Code.
+Aprire il terminale integrato di Visual Studio Code e digitare il seguente comando per inizializzare un nuovo progetto Node.js:
+csharp
+Copy code
+npm init
+Seguire le istruzioni per creare il file package.json per il progetto Node.js.
+Digitare il seguente comando per installare il modulo Express:
+Copy code
+npm install express
+Digitare il seguente comando per installare il modulo body-parser:
+css
+Copy code
+npm install body-parser
+Digitare il seguente comando per installare il modulo sqlite3:
+Copy code
+npm install sqlite3
+Creare un nuovo file index.html nella cartella di progetto.
+Aggiungere il seguente codice HTML per creare la pagina principale del sito web personale:
+php
+Copy code
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Il mio sito web personale</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#/">Home</a></li>
+      <li><a href="#/bio">Biografia</a></li>
+      <li><a href="#/portfolio">Portfolio</a></li>
+      <li><a href="#/contatti">Contatti</a></li>
+    </ul>
+  </nav>
+  <div ng-view></div>
+</body>
+</html>
+Salvare il file index.html.
+Creare un nuovo file app.js nella cartella di progetto.
+Aggiungere il seguente codice per creare l'applicazione AngularJS, il controller e le rotte per le viste:
+php
+Copy code
+const app = angular.module('myApp', ['ngRoute']);
+
+app.config(function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      templateUrl: 'home.html',
+      controller: 'HomeController'
+    })
+    .when('/bio', {
+      templateUrl: 'bio.html',
+      controller: 'BioController'
+    })
+    .when('/portfolio', {
+      templateUrl: 'portfolio.html',
+      controller: 'PortfolioController'
+    })
+    .when('/contatti', {
+      templateUrl: 'contatti.html',
+      controller: 'ContattiController'
+    })
+    .otherwise({
+      redirectTo: '/'
+    });
+});
+
+app.controller('HomeController', function($scope) {
+  $scope.message = 'Benvenuti nel mio sito web personale!';
+});
+
+app.controller('BioController', function($scope) {
+  $scope.message = 'La mia biografia.';
+});
+
+app.controller('PortfolioController', function($scope, $http) {
+  $http.get('/api/portfolio')
+    .then(function(response) {
+      $scope.projects = response.data;
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+});
+
+app.controller('ContattiController', function($scope) {
+  $scope.message = 'Contattami!';
+});
+Salvare il file app.js.
+
+
+
+info@delectablerecords.com
+continua
+Creare un nuovo file home.html nella cartella di progetto.
+Aggiungere il seguente codice HTML per la vista della home page:
+css
+Copy code
+<div>
+  <h1>{{message}}</h1>
+</div>
+Salvare il file home.html.
+Creare un nuovo file bio.html nella cartella di progetto.
+Aggiungere il seguente codice HTML per la vista della biografia:
+css
+Copy code
+<div>
+  <h1>{{message}}</h1>
+</div>
+Salvare il file bio.html.
+Creare un nuovo file portfolio.html nella cartella di progetto.
+Aggiungere il seguente codice HTML per la vista del portfolio:
+php
+Copy code
+<div>
+  <h1>Portfolio</h1>
+  <ul>
+    <li ng-repeat="project in projects">
+      <h3>{{project.title}}</h3>
+      <p>{{project.description}}</p>
+    </li>
+  </ul>
+</div>
+Salvare il file portfolio.html.
+Creare un nuovo file contatti.html nella cartella di progetto.
+Aggiungere il seguente codice HTML per la vista dei contatti:
+css
+Copy code
+<div>
+  <h1>{{message}}</h1>
+</div>
+Salvare il file contatti.html.
+Creare un nuovo file server.js nella cartella di progetto.
+Aggiungere il seguente codice per creare un server Express, servire i file statici, gestire le rotte delle viste e avviare il server:
+javascript
+Copy code
+const express = require('express');
+const bodyParser = require('body-parser');
+const sqlite3 = require('sqlite3').verbose();
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
+app.get('/api/portfolio', function(req, res) {
+  const db = new sqlite3.Database('portfolio.db');
+  const sql = 'SELECT * FROM projects';
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    res.send(rows);
+    db.close();
+  });
+});
+
+app.listen(port, function() {
+  console.log(`Server avviato sulla porta ${port}`);
+});
+Salvare il file server.js.
+Digitare il seguente comando per avviare il server Node.js:
+Copy code
+node server.js
+Aprire il browser e digitare l'URL http://localhost:3000 per visualizzare l'applicazione web.
+Cliccare sui link nel menu per visualizzare le tre viste dell'applicazione AngularJS.
+Modificare i file delle viste e del layout secondo le proprie esigenze, aggiungere ulteriori rotte e funzionalità all'applicazione web AngularJS in Node.js in base alle proprie esigenze.
+
+
+
+info@delectablerecords.com
+portfolio.db
+portfolio.db è il nome del database SQLite che viene creato e utilizzato nell'esempio di esercizio per la gestione di un semplice sito web personale con Node.js e AngularJS.
+
+Il database portfolio.db contiene una tabella chiamata projects con tre colonne:
+
+id: un numero intero che identifica univocamente ogni progetto.
+title: una stringa che rappresenta il titolo del progetto.
+description: una stringa che rappresenta la descrizione del progetto.
+Il database viene utilizzato nella vista del portfolio dell'applicazione AngularJS per recuperare e visualizzare la lista dei progetti.
+
+
+
+info@delectablerecords.com
+Esercitazione crea una app di configurazione per creare il database portfolio.db se non c’è già ed inserire 3 dati di esempio
+Ecco un esempio di come creare una app di configurazione in Node.js per creare il database portfolio.db se non esiste già e inserire tre esempi di dati nella tabella projects.
+
+Aprire Visual Studio Code e creare una nuova cartella di progetto.
+Aprire la console integrata di Visual Studio Code (Ctrl + Shift + `).
+Digitare il seguente comando per creare un nuovo file package.json:
+csharp
+Copy code
+npm init -y
+Digitare il seguente comando per installare il modulo sqlite3:
+Copy code
+npm install sqlite3
+Creare un nuovo file config.js nella cartella di progetto.
+Aggiungere il seguente codice per creare una connessione al database e creare la tabella projects se non esiste già:
+javascript
+Copy code
+const sqlite3 = require('sqlite3').verbose();
+
+const db = new sqlite3.Database('portfolio.db');
+
+db.serialize(() => {
+  db.run('CREATE TABLE IF NOT EXISTS projects (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT)');
+});
+
+db.close();
+Salvare il file config.js.
+Digitare il seguente comando per eseguire il file config.js e creare il database e la tabella:
+lua
+Copy code
+node config.js
+Creare un nuovo file populate.js nella cartella di progetto.
+Aggiungere il seguente codice per inserire tre esempi di dati nella tabella projects:
+scss
+Copy code
+const sqlite3 = require('sqlite3').verbose();
+
+const db = new sqlite3.Database('portfolio.db');
+
+const projects = [  { title: 'Progetto 1', description: 'Primo progetto di esempio' },  { title: 'Progetto 2', description: 'Secondo progetto di esempio' },  { title: 'Progetto 3', description: 'Terzo progetto di esempio' }];
+
+db.serialize(() => {
+  const stmt = db.prepare('INSERT INTO projects (title, description) VALUES (?, ?)');
+
+  for (const project of projects) {
+    stmt.run(project.title, project.description);
+  }
+
+  stmt.finalize();
+});
+
+db.close();
+Salvare il file populate.js.
+Digitare il seguente comando per eseguire il file populate.js e inserire i dati di esempio nella tabella projects:
+Copy code
+node populate.js
+Verificare che il database portfolio.db contenga i dati di esempio eseguendo la seguente query SQL:
+sql
+Copy code
+SELECT * FROM projects;
+Il risultato della query dovrebbe essere una tabella con tre righe contenenti i dati di esempio inseriti nella tabella projects.
+
+
+
+info@delectablerecords.com
+continua
+Ora puoi utilizzare il database portfolio.db nella tua applicazione Node.js e AngularJS per visualizzare i progetti nel portfolio. Ad esempio, puoi creare un endpoint API REST in Node.js per recuperare i progetti dal database e utilizzarli per popolare la vista del portfolio nell'applicazione AngularJS.
+Per creare un endpoint API REST in Node.js, puoi utilizzare il modulo express e il modulo sqlite3. Ecco un esempio di come creare un endpoint API REST per recuperare i progetti dal database portfolio.db:
+
+Installa i moduli express e sqlite3:
+Copy code
+npm install express sqlite3
+Crea un nuovo file index.js nella cartella del progetto e inserisci il seguente codice:
+javascript
+Copy code
+const express = require('express');
+const sqlite3 = require('sqlite3').verbose();
+
+const app = express();
+
+const db = new sqlite3.Database('portfolio.db');
+
+app.get('/api/projects', (req, res) => {
+  db.all('SELECT * FROM projects', (err, rows) => {
+    if (err) {
+      console.error(err.message);
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+
+    res.json(rows);
+  });
+});
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+});
+Salva il file index.js.
+Esegui il comando node index.js per avviare il server Node.js.
+Apri il browser e accedi all'URL http://localhost:3000/api/projects. Dovresti vedere un elenco di progetti restituiti dall'API REST.
+Questo è solo un esempio di come utilizzare il database portfolio.db in un'applicazione Node.js e AngularJS. Potresti utilizzare un approccio diverso in base alle tue esigenze specifiche.
+
+
+
+info@delectablerecords.com
+Crea un foglio di stile minimale ed professionale a sfondo scuro con flex box ed icone di fontawesome che si adatti al sito web personale
+
+Ecco un esempio di foglio di stile minimale ed professionale a sfondo scuro con flex box ed icone di fontawesome:
+
+css
+Copy code
+/* Impostazioni di base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a1a;
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Layout flessibile */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu-item {
+  margin-left: 1rem;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.menu-link i {
+  margin-right: 0.5rem;
+}
+
+/* Sezione del portfolio */
+section {
+  padding: 2rem;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+}
+
+.project {
+  background-color: #262626;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-description {
+  font-size: 1.2rem;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  background-color: #000;
+  color: #fff;
+}
+Per utilizzare icone di fontawesome, devi inserire il seguente codice nell'elemento <head> del tuo file HTML:
+
+bash
+Copy code
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-3sVvTf/Q/dT6RqhU6XYG53LNrHbZoRz8c4veJd/G4G4vB3qTu1Q9mJlxBpxlSgn+DsN5uhme8Zz5M5ue5Q5DKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+In questo modo, sarai in grado di utilizzare le icone di fontawesome nel tuo foglio di stile utilizzando il formato HTML, ad esempio:
+
+php
+Copy code
+<i class="fas fa-user"></i>
+Questo esempio di foglio di stile è solo un'idea e puoi personalizzarlo in base alle tue preferenze e esigenze specifiche.
+
+
+
+info@delectablerecords.com
+Crea un foglio di stile minimale ed professionale a sfondo scuro con dominanti blu con flex box ed icone di fontawesome che si adatti al sito web personale
+Ecco un esempio di foglio di stile minimale ed professionale a sfondo scuro con dominanti blu con flex box ed icone di fontawesome:
+
+css
+Copy code
+/* Impostazioni di base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0f0f1c;
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Layout flessibile */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #090912;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00e6e6;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu-item {
+  margin-left: 1rem;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.menu-link i {
+  margin-right: 0.5rem;
+}
+
+/* Sezione del portfolio */
+section {
+  padding: 2rem;
+  background-color: #090912;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+}
+
+.project {
+  background-color: #0f0f1c;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.project:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.8);
+}
+
+.project-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #00e6e6;
+}
+
+.project-description {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  background-color: #090912;
+  color: #fff;
+}
+Per utilizzare icone di fontawesome, devi inserire il seguente codice nell'elemento <head> del tuo file HTML:
+
+bash
+Copy code
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-3sVvTf/Q/dT6RqhU6XYG53LNrHbZoRz8c4veJd/G4G4vB3qTu1Q9mJlxBpxlSgn+DsN5uhme8Zz5M5ue5Q5DKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+In questo modo, sarai in grado di utilizzare le icone di fontawesome nel tuo foglio di stile utilizzando il formato HTML, ad esempio:
+
+php
+Copy code
+<i class="fas fa-user"></i>
+Questo esempio di foglio di stile
+
+
+
+info@delectablerecords.com
+Crea un foglio di stile minimale ed professionale a sfondo chiaro con dominanti fucsia con flex box ed icone di fontawesome che si adatti al sito web personale
+Ecco un esempio di foglio di stile minimale ed professionale a sfondo chiaro con dominanti fucsia con flex box ed icone di fontawesome:
+
+css
+Copy code
+/* Impostazioni di base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Layout flessibile */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f9c3d3;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu-item {
+  margin-left: 1rem;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.menu-link i {
+  margin-right: 0.5rem;
+}
+
+/* Sezione del portfolio */
+section {
+  padding: 2rem;
+  background-color: #f2f2f2;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+}
+
+.project {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.project:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+}
+
+.project-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #f9c3d3;
+}
+
+.project-description {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  background-color: #f9c3d3;
+  color: #fff;
+}
+Per utilizzare icone di fontawesome, devi inserire il seguente codice nell'elemento <head> del tuo file HTML:
+
+bash
+Copy code
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-3sVvTf/Q/dT6RqhU6XYG53LNrHbZoRz8c4veJd/G4G4vB3qTu1Q9mJlxBpxlSgn+DsN5uhme8Zz5M5ue5Q5DKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+In questo modo, sarai in grado di utilizzare le icone di fontawesome nel tuo foglio di stile utilizzando il formato HTML, ad esempio:
+
+php
+Copy code
+<i class="fas fa-user"></i>
+Questo esempio di

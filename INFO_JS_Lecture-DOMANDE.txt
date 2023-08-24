@@ -1,0 +1,42 @@
+In che senso javascript è una parte essenziale della progettazione web?
+
+In quali modi javascript può essere utilizzato in visual studio code?
+
+Cosa significa web design?
+
+cosa significa interazione con gli utenti?
+
+cos'è la validazione dei form?
+
+in cosa consiste l'aggiornamento dinamico dei contenuti?
+
+in che senso js è funzionale alle animazioni?
+
+cosa è il DOM? 
+
+cosa vuol dire controllo del DOM?
+
+In che modo JavaScript può essere utilizzato per gestire gli eventi dell'utente, come clic del mouse, movimenti del mouse, scorrimento e tastiera, e reagire di conseguenza?
+
+Cosa significa che JavaScript può essere utilizzato per comunicare con il server e scambiare dati con esso, utilizzando AJAX (Asynchronous JavaScript and XML) o altre tecnologie simili? significa interattività lato client?
+
+Che animazioni, grafici e visualizzazioni dinamiche possono essere prodotte con js?
+
+In che modo js può essere utilizzato per ottimizzare le prestazioni di una pagina web?
+
+cos'è una libreria di javascript?
+
+cos'è un framework di javascript?
+
+
+
+
+
+
+
+
+
+
+1) JS permette agli utenti di interagire dinamicamente con le pagine web, attraverso la manipolazione del DOM.
+15) vedi: oggetto documento
+

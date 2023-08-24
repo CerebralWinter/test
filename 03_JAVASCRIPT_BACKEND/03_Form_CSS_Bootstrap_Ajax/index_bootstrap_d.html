@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esempio Elementi Form</title>
+
+  <!-- Collegamento a Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+
+<body class="bg-dark text-light">
+  <div class="container">
+    <h1 class="mt-5">Esempio Elementi del Form</h1>
+
+    <form class="mt-5">
+      <h2>Pulsanti</h2>
+      <button type="submit" class="btn btn-primary">Invia</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+
+      <h2>Menu a Tendina</h2>
+      <label for="color-select" class="form-label">Seleziona un colore:</label>
+      <select id="color-select" name="color" class="form-select">
+        <option value="red">Rosso</option>
+        <option value="green">Verde</option>
+        <option value="blue">Blu</option>
+      </select>
+
+      <h2>Selezione Multipla</h2>
+      <label for="fruit-select" class="form-label">Seleziona la tua frutta preferita:</label>
+      <select id="fruit-select" name="fruit" multiple class="form-select">
+        <option value="apple">Mela</option>
+        <option value="banana">Banana</option>
+        <option value="orange">Arancia</option>
+        <option value="strawberry">Fragola</option>
+      </select>
+
+      <h2>Caselle di Controllo</h2>
+      <div class="form-check">
+        <input type="checkbox" id="checkbox1" name="checkbox1" class="form-check-input">
+        <label for="checkbox1" class="form-check-label">Opzione 1</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" id="checkbox2" name="checkbox2" class="form-check-input">
+        <label for="checkbox2" class="form-check-label">Opzione 2</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" id="checkbox3" name="checkbox3" class="form-check-input">
+        <label for="checkbox3" class="form-check-label">Opzione 3</label>
+      </div>
+
+      <h2>Radio Buttons</h2>
+      <div class="form-check">
+        <input type="radio" id="radio1" name="radio" value="option1" class="form-check-input">
+        <label for="radio1" class="form-check-label">Opzione 1</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" id="radio2" name="radio" value="option2" class="form-check-input">
+        <label for="radio2" class="form-check-label">Opzione 2</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" id="radio3" name="radio" value="option3" class="form-check-input">
+        <label for="radio3" class="form-check-label">Opzione 3</label>
+      </div>
+
+      <h2>Campo di Testo</h2>
+      <label for="name-input" class="form-label">Nome:</label>
+      <input type="text" id="name-input" name="name" class="form-control">
+
+      <h2>Area di Testo</h2>
+      <label for="message-textarea" class="form-label">Messaggio:</label>
+      <textarea id="message-textarea" name="message" rows="4" class="form-control"></textarea>
+
+      <h2>Data</h2>
+      <label for="date-input" class="form-label">Data di nascita:</label>
+      <input type="date" id="date-input" name="birthdate" class="form-control">
+
+      <h2>Email</h2>
+      <label for="email-input" class="form-label">Email:</label>
+      <input type="email" id="email-input" name="email" class="form-control">
+
+      <h2>Password</h2>
+      <label for="password-input" class="form-label">Password:</label>
+      <input type="password" id="password-input" name="password" class="form-control">
+
+      <h2>File</h2>
+      <label for="file-input" class="form-label">Carica un file:</label>
+      <input type="file" id="file-input" name="file" class="form-control">
+
+      <h2>Submit</h2>
+      <input type="submit" value="Invia" class="btn btn-primary">
+    </form>
+  </div>
+
+  <!-- Collegamento a Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

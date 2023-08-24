@@ -1,0 +1,12 @@
+#form{
+   width: 900px;
+    border: solid 1px;
+    padding: 10px;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+}
+
+h1
+{
+   text-align: center;
+}

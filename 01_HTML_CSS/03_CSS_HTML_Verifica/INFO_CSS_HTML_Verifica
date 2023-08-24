@@ -1,0 +1,443 @@
+
+Semplice sito web HTML5 per la presentazione di un prodotto di 5 pagine senza stili CSS
+
+Pagina 1 - Index:
+
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <title>Prodotti di Bellezza</title>
+  </head>
+  <body>
+    <header>
+      <h1>Prodotti di Bellezza</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="prodotti.html">Prodotti</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h2>Bentornato!</h2>
+      <p>Benvenuto nel nostro sito web dedicato alla bellezza e al benessere.</p>
+      <p>Scopri la nostra vasta gamma di prodotti di alta qualità per la cura della pelle e dei capelli.</p>
+    </main>
+    <footer>
+      <p>Tutti i diritti riservati &copy; 2023 Prodotti di Bellezza</p>
+    </footer>
+  </body>
+</html>
+
+Pagina 2 - Prodotti:
+
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <title>Prodotti di Bellezza - Prodotti</title>
+  </head>
+  <body>
+    <header>
+      <h1>Prodotti di Bellezza</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="prodotti.html">Prodotti</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h2>Prodotti di alta qualità</h2>
+      <p>Scopri la nostra vasta gamma di prodotti di alta qualità per la cura della pelle e dei capelli:</p>
+      <ul>
+        <li>Creme viso</li>
+        <li>Lozioni corpo</li>
+        <li>Shampoo</li>
+        <li>Balsami</li>
+      </ul>
+    </main>
+    <footer>
+      <p>Tutti i diritti riservati &copy; 2023 Prodotti di Bellezza</p>
+    </footer>
+  </body>
+</html>
+
+Pagina 3 - Contatti
+
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <title>Prodotti di Bellezza - Contatti</title>
+  </head>
+  <body>
+    <header>
+      <h1>Prodotti di Bellezza</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="prodotti.html">Prodotti</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h2>Contattaci</h2>
+      <p>Per qualsiasi domanda o informazione sui nostri prodotti, non esitare a contattarci:</p>
+<ul>
+<li>Telefono: 0123456789</li>
+<li>Email: info@prodottidibellezza.it</li>
+<li>Indirizzo: Via dei Mille, 10 - 20121 Milano</li>
+</ul>
+</main>
+<footer>
+<p>Tutti i diritti riservati © 2023 Prodotti di Bellezza</p>
+</footer>
+  </body>
+</html>
+
+Pagina 4 - Chi siamo
+
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <title>Prodotti di Bellezza - Chi Siamo</title>
+  </head>
+  <body>
+    <header>
+      <h1>Prodotti di Bellezza</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="prodotti.html">Prodotti</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h2>Chi Siamo</h2>
+      <p>Siamo un'azienda italiana che si occupa della produzione e vendita di prodotti per la cura della persona dal 1990.</p>
+      <p>Crediamo che la bellezza sia importante per il benessere interno ed esterno delle persone e per questo ci impegniamo ogni giorno per offrire prodotti di alta qualità e soddisfare le esigenze dei nostri clienti.</p>
+    </main>
+    <footer>
+      <p>Tutti i diritti riservati &copy; 2023 Prodotti di Bellezza</p>
+    </footer>
+  </body>
+</html>
+
+Pagina 5 - Privacy:
+
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <title>Prodotti di Bellezza - Privacy</title>
+  </head>
+  <body>
+    <header>
+      <h1>Prodotti di Bellezza</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="prodotti.html">Prodotti</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h2>Informativa sulla Privacy</h2>
+      <p>Il nostro sito web rispetta la privacy dei nostri utenti e garantisce la tutela dei dati personali secondo la normativa vigente.</p>
+      <p>Per maggiori informazioni sulla nostra politica sulla privacy, visitate la nostra pagina dedicata.</p>
+    </main>
+    <footer>
+      <p>Tutti i diritti riservati &copy; 2023 Prodotti di Bellezza</p>
+    </footer>
+  </body>
+</html>
+
+
+<link rel="stylesheet" href="style.css">
+
+/***********************************************************************************************************************
+ * Implementa un CSS semplice e minimale per il sito di prodotti                                                       *
+ ***********************************************************************************************************************/
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Stili globali */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+nav {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+main {
+  padding: 20px;
+}
+
+ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+footer {
+  background-color: #eee;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+
+/***********************************************************************************************************************
+ * codice CSS alternativo                                                                                              *
+ ***********************************************************************************************************************/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+header {
+  background-color: #f8f8f8;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: normal;
+  color: #333;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #333;
+  overflow: hidden;
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: #4CAF50;
+}
+
+main {
+  margin: 20px;
+}
+
+main h2 {
+  font-size: 28px;
+  font-weight: normal;
+}
+
+footer {
+  background-color: #f8f8f8;
+  padding: 20px;
+  text-align: center;
+}
+
+.prodotti-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.prodotto {
+  flex-basis: calc(33.33% - 20px);
+  margin: 10px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.prodotto img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.prodotto h3 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.prodotto p {
+  margin: 10px 0;
+}
+
+.prodotto button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.prodotto button:hover {
+  background-color: #2e8b57;
+}
+
+.contatti-container {
+  display: flex;
+  justify-content: center;
+}
+
+.contatto {
+  margin: 20px;
+  text-align: center;
+}
+
+.contatto h3 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.contatto ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chi-siamo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chi-siamo-info {
+  margin: 20px;
+  width: 50%;
+  text-align: justify;
+}
+
+.chi-siamo-info h3 {
+  font-size: 24px;
+  margin: 0 0 20px;
+}
+
+.chi-siamo-info p {
+margin: 10px 0;
+}
+
+.chi-siamo-image {
+margin: 20px;
+width: 50%;
+text-align: center;
+}
+
+.chi-siamo-image img {
+width: 100%;
+height: auto;
+}
+
+.privacy-container {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.privacy-info {
+margin: 20px;
+width: 50%;
+text-align: justify;
+}
+
+.privacy-info h3 {
+font-size: 24px;
+margin: 0 0 20px;
+}
+
+.privacy-info p {
+margin: 10px 0;
+}
+
+.privacy-info ul {
+margin: 20px 0;
+padding-left: 20px;
+}
+
+.privacy-image {
+margin: 20px;
+width: 50%;
+text-align: center;
+}
+
+.privacy-image img {
+width: 100%;
+height: auto;
+}
+
+Questo stile CSS include molte più regole di stile rispetto a quello precedente e fornisce un aspetto più elaborato e professionale al sito web.
+Ad esempio, i prodotti nella pagina "Prodotti" sono ora visualizzati come griglia con immagini e pulsanti di aggiunta al carrello,
+mentre la pagina "Chi siamo" ha una sezione a due colonne con testo descrittivo e un'immagine correlata.
+La pagina "Contatti" ha tre sezioni a colonna singola per telefono, email e indirizzo, mentre la pagina
+"Privacy" ha una sezione a due colonne con testo descrittivo e un'immagine correlata,
+nonché un elenco puntato per le informazioni sulla privacy.
+Il nuovo stile CSS utilizza anche un sistema di griglia flessibile e l'uso di `flex` per il layout delle sezioni,
+il che lo rende più adattabile ai dispositivi mobili

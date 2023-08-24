@@ -1,0 +1,28 @@
+chiaro {
+    color-scheme: light;
+
+}
+a:hover {
+    color-scheme: dark;
+}
+
+a:visited {
+    color-scheme: dark;
+    text-decoration: none;
+}
+
+h1 {
+    color-scheme: dark;
+}
+
+#contatore {
+    color-scheme: dark;
+}
+
+#aumenta {
+    color-scheme: dark;
+}
+
+#azzera {
+    color-scheme: light;
+}

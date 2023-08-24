@@ -1,0 +1,2844 @@
+
+/**********************
+ * JAVASCRIPT NEL WEB *
+ **********************/
+
+Per far partire un file JavaScript in una pagina web, puoi utilizzare l'elemento HTML <script> nel tuo codice HTML.
+
+Puoi utilizzare l'attributo "src" dell'elemento <script> per specificare il file JavaScript da caricare.
+Ad esempio:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>La mia pagina web</title>
+	<script src="script.js"></script>
+</head>
+<body>
+	<!-- Il contenuto della pagina -->
+</body>
+</html>
+
+
+/*************************************************************************
+ * 1 ESERCITAZIONE CON JAVASCRIPT IN VISUAL STUDIO CODE PER PRINCIPIANTI *
+ *************************************************************************/
+
+Crea un nuovo file HTML vuoto e un nuovo file JavaScript vuoto nella stessa cartella utilizzando Visual Studio Code.
+Aggiungi il seguente codice HTML al file HTML:
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione 1</title>
+  </head>
+  <body>
+    <button id="btn">Clicca qui</button>
+    <p id="testo"></p>
+    <script src="esercitazione1.js"></script>
+  </body>
+</html>
+
+Questo codice crea una pagina HTML con un bottone e un paragrafo vuoto.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+
+const btn = document.getElementById("btn");
+const testo = document.getElementById("testo");
+
+btn.addEventListener("click", function() {
+  testo.textContent = "Hai cliccato sul bottone!";
+});
+
+Questo codice aggiunge un listener per l'evento "click" del bottone e cambia il testo del paragrafo quando il bottone viene cliccato.
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione. Quando si clicca sul bottone, il testo del paragrafo viene modificato.
+
+
+
+
+/*************************************************************************
+ * 2 ESERCITAZIONE CON JAVASCRIPT IN VISUAL STUDIO CODE PER PRINCIPIANTI *
+ *************************************************************************/
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione 2</title>
+  </head>
+  <body>
+    <h1>Contatore: <span id="contatore">0</span></h1>
+    <button id="aumenta">Aumenta</button>
+    <button id="azzera">Azzera</button>
+    <script src="esercitazione2.js"></script>
+  </body>
+</html>
+
+Questo codice crea una pagina HTML con un titolo e due bottoni per aumentare o azzerare un contatore.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+
+const contatore = document.getElementById("contatore");
+const btnAumenta = document.getElementById("aumenta");
+const btnAzzera = document.getElementById("azzera");
+
+let valoreContatore = 0;
+
+btnAumenta.addEventListener("click", function() {
+  valoreContatore++;
+  contatore.textContent = valoreContatore;
+});
+
+btnAzzera.addEventListener("click", function() {
+  valoreContatore = 0;
+  contatore.textContent = valoreContatore;
+});
+Questo codice aggiunge due listener per gli eventi "click" dei bottoni e aumenta o azzera il valore del contatore e il testo del paragrafo quando i bottoni vengono cliccati.
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione. Quando si clicca sui bottoni, il valore del contatore viene aumentato o azzerato.
+
+/*************************************************************************
+ * 3 ESERCITAZIONE CON JAVASCRIPT IN VISUAL STUDIO CODE PER PRINCIPIANTI *
+ *************************************************************************/
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione 3</title>
+  </head>
+  <body>
+    <h1>Lista della spesa</h1>
+    <input type="text" id="input" placeholder="Aggiungi un elemento alla lista">
+    <button id="aggiungi">Aggiungi</button>
+    <ul id="lista"></ul>
+    <script src="esercitazione3.js"></script>
+  </body>
+</html>
+Questo codice crea una pagina HTML con un titolo, un campo di input, un bottone e una lista vuota.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+
+const input = document.getElementById("input");
+const btnAggiungi = document.getElementById("aggiungi");
+const lista = document.getElementById("lista");
+
+btnAggiungi.addEventListener("click", function() {
+  const elemento = document.createElement("li");
+  elemento.textContent = input.value;
+  lista.appendChild(elemento);
+  input.value = "";
+});
+Questo codice aggiunge un listener per l'evento "click" del bottone e crea un nuovo elemento della lista con il testo del campo di input quando il bottone viene cliccato.
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione.
+Quando si inserisce un elemento nella lista e si clicca sul bottone "Aggiungi", l'elemento viene aggiunto alla lista.
+
+/*************************************************************************
+ * 4 ESERCITAZIONE CON JAVASCRIPT IN VISUAL STUDIO CODE PER PRINCIPIANTI *
+ *************************************************************************/
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione 4</title>
+  </head>
+  <body>
+    <h1>Cambio Colore</h1>
+    <div id="quadrato"></div>
+    <button id="cambia-colore">Cambia Colore</button>
+    <script src="esercitazione4.js"></script>
+  </body>
+</html>
+
+Questo codice crea una pagina HTML con un titolo, un quadrato vuoto e un bottone per cambiare il colore del quadrato.
+
+Aggiungi il seguente codice CSS al file CSS:
+
+#quadrato {
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+}
+
+Questo codice aggiunge uno stile di base al quadrato, impostandone le dimensioni e il colore di sfondo.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+
+const quadrato = document.getElementById("quadrato");
+const btnCambiaColore = document.getElementById("cambia-colore");
+
+btnCambiaColore.addEventListener("click", function() {
+  const nuovoColore = generaColoreCasuale();
+  quadrato.style.backgroundColor = nuovoColore;
+});
+
+function generaColoreCasuale() {
+  const simboli = "0123456789ABCDEF";
+  let colore = "#";
+  for (let i = 0; i < 6; i++) {
+    colore += simboli[Math.floor(Math.random() * 16)];
+  }
+  return colore;
+}
+
+Questo codice aggiunge un listener per l'evento "click" del bottone e cambia il colore del quadrato generando un colore casuale ogni volta che il bottone viene cliccato.
+Salva il file HTML, il file CSS e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione.
+Quando si clicca sul bottone "Cambia Colore", il colore del quadrato viene cambiato in modo casuale.
+
+/*************************************************************************
+ * 5 ESERCITAZIONE CON JAVASCRIPT IN VISUAL STUDIO CODE PER PRINCIPIANTI *
+ *************************************************************************/
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione 5</title>
+  </head>
+  <body>
+    <h1>Calcolatrice</h1>
+    <input type="number" id="input1">
+    <select id="operazione">
+      <option value="somma">+</option>
+      <option value="sottrazione">-</option>
+      <option value="moltiplicazione">*</option>
+      <option value="divisione">/</option>
+    </select>
+    <input type="number" id="input2">
+    <button id="calcola">Calcola</button>
+    <p id="risultato"></p>
+    <script src="esercitazione5.js"></script>
+  </body>
+</html>
+
+Questo codice crea una pagina HTML con un titolo, due campi di input per i numeri,
+una selezione per l'operazione, un bottone per calcolare il risultato e un paragrafo vuoto per visualizzare il risultato.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+
+const input1 = document.getElementById("input1");
+const input2 = document.getElementById("input2");
+const operazione = document.getElementById("operazione");
+const btnCalcola = document.getElementById("calcola");
+const risultato = document.getElementById("risultato");
+
+btnCalcola.addEventListener("click", function() {
+  const numero1 = Number(input1.value);
+  const numero2 = Number(input2.value);
+  let risultatoOperazione;
+
+  switch (operazione.value) {
+    case "somma":
+      risultatoOperazione = numero1 + numero2;
+      break;
+    case "sottrazione":
+      risultatoOperazione = numero1 - numero2;
+      break;
+    case "moltiplicazione":
+      risultatoOperazione = numero1 * numero2;
+      break;
+    case "divisione":
+      risultatoOperazione = numero1 / numero2;
+      break;
+    default:
+      risultatoOperazione = "Operazione non valida";
+  }
+
+  risultato.textContent = `Il risultato dell'operazione è ${risultatoOperazione}`;
+});
+
+Questo codice aggiunge un listener per l'evento "click" del bottone e calcola
+il risultato dell'operazione selezionata utilizzando i numeri inseriti nei campi di input.
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione.
+Quando si inseriscono due numeri, si seleziona un'operazione e si clicca sul bottone "Calcola",
+il risultato dell'operazione viene visualizzato nel paragrafo sotto il bottone.
+
+/*************************************************************************
+ * 6 ESERCITAZIONE CON JAVASCRIPT IN VISUAL STUDIO CODE PER PRINCIPIANTI *
+ *************************************************************************/
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione 6</title>
+  </head>
+  <body>
+    <h1>Lista della spesa</h1>
+    <input type="text" id="input" placeholder="Aggiungi un elemento alla lista">
+    <button id="aggiungi">Aggiungi</button>
+    <ul id="lista"></ul>
+    <script src="esercitazione6.js"></script>
+  </body>
+</html>
+
+Questo codice crea una pagina HTML con un titolo, un campo di input, un bottone e una lista vuota.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+
+const input = document.getElementById("input");
+const btnAggiungi = document.getElementById("aggiungi");
+const lista = document.getElementById("lista");
+let elementiLista = [];
+
+btnAggiungi.addEventListener("click", function() {
+  const elemento = input.value.trim();
+  if (elemento !== "") {
+    elementiLista.push(elemento);
+    aggiornaLista();
+  }
+  input.value = "";
+});
+
+function aggiornaLista() {
+  lista.innerHTML = "";
+  for (let i = 0; i < elementiLista.length; i++) {
+    const elemento = document.createElement("li");
+    elemento.textContent = elementiLista[i];
+    lista.appendChild(elemento);
+  }
+}
+
+Questo codice aggiunge un listener per l'evento "click" del bottone e aggiunge il testo del campo di input all'array degli elementi della lista,
+a condizione che non sia vuoto, e aggiorna la lista chiamando la funzione "aggiornaLista".
+La funzione "aggiornaLista" rimuove tutti gli elementi della lista,
+crea un nuovo elemento della lista per ogni elemento nell'array degli elementi della lista e li aggiunge alla lista.
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione.
+Quando si inserisce un elemento nella lista e si clicca sul bottone "Aggiungi", l'elemento viene aggiunto alla lista.
+
+/*************************************************************************
+ * 7 ESERCITAZIONE CON JAVASCRIPT IN VISUAL STUDIO CODE PER PRINCIPIANTI *
+ *************************************************************************/
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione 7</title>
+  </head>
+  <body>
+    <h1>Timer</h1>
+    <p id="timer">00:00</p>
+    <button id="avvia">Avvia</button>
+    <button id="ferma">Ferma</button>
+    <button id="azzera">Azzera</button>
+    <script src="esercitazione7.js"></script>
+  </body>
+</html>
+
+Questo codice crea una pagina HTML con un titolo,
+un timer inizialmente impostato su "00:00" e tre bottoni per avviare, fermare e azzerare il timer.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+
+const timer = document.getElementById("timer");
+const btnAvvia = document.getElementById("avvia");
+const btnFerma = document.getElementById("ferma");
+const btnAzzera = document.getElementById("azzera");
+let intervallo;
+let secondi = 0;
+let minuti = 0;
+
+function avviaTimer() {
+  intervallo = setInterval(function() {
+    secondi++;
+    if (secondi === 60) {
+      minuti++;
+      secondi = 0;
+    }
+    const minutiFormattati = minuti < 10 ? "0" + minuti : minuti;
+    const secondiFormattati = secondi < 10 ? "0" + secondi : secondi;
+    timer.textContent = `${minutiFormattati}:${secondiFormattati}`;
+  }, 1000);
+}
+
+function fermaTimer() {
+  clearInterval(intervallo);
+}
+
+function azzeraTimer() {
+  clearInterval(intervallo);
+  secondi = 0;
+  minuti = 0;
+  timer.textContent = "00:00";
+}
+
+btnAvvia.addEventListener("click", function() {
+  avviaTimer();
+});
+
+btnFerma.addEventListener("click", function() {
+  fermaTimer();
+});
+
+btnAzzera.addEventListener("click", function() {
+  azzeraTimer();
+});
+
+Questo codice aggiunge tre listener per gli eventi "click" dei bottoni e definisce tre funzioni per avviare, fermare e azzerare il timer.
+La funzione "avviaTimer" incrementa i secondi e i minuti ogni secondo utilizzando un intervallo,
+formatta i valori di tempo in un formato "MM:SS" e aggiorna il contenuto del timer.
+La funzione "fermaTimer" cancella l'intervallo del timer. La funzione "azzeraTimer" cancella l'intervallo del timer,
+azzera i secondi e i minuti e aggiorna il contenuto del timer.
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione.
+Quando si clicca sul bottone "Avvia", il timer inizia a contare i secondi e i minuti.
+Quando si cliccamsul bottone "Ferma", il timer si ferma e quando si clicca sul bottone "Azzera", il timer si azzera.
+
+
+/*************************************************************************
+ * 8 ESERCITAZIONE CON JAVASCRIPT IN VISUAL STUDIO CODE PER PRINCIPIANTI *
+ *************************************************************************/
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione 8</title>
+  </head>
+  <body>
+    <h1>Crea una tabella</h1>
+    <button id="aggiungi-riga">Aggiungi riga</button>
+    <button id="rimuovi-riga">Rimuovi riga</button>
+    <button id="aggiungi-colonna">Aggiungi colonna</button>
+    <button id="rimuovi-colonna">Rimuovi colonna</button>
+    <table id="tabella"></table>
+    <script src="esercitazione8.js"></script>
+  </body>
+</html>
+
+Questo codice crea una pagina HTML con un titolo, quattro bottoni per aggiungere o rimuovere righe o colonne e una tabella vuota.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+
+const btnAggiungiRiga = document.getElementById("aggiungi-riga");
+const btnRimuoviRiga = document.getElementById("rimuovi-riga");
+const btnAggiungiColonna = document.getElementById("aggiungi-colonna");
+const btnRimuoviColonna = document.getElementById("rimuovi-colonna");
+const tabella = document.getElementById("tabella");
+let righe = 0;
+let colonne = 0;
+
+btnAggiungiRiga.addEventListener("click", function() {
+  const riga = tabella.insertRow();
+  for (let i = 0; i < colonne; i++) {
+    const cella = riga.insertCell();
+    cella.textContent = `Riga ${righe}, Colonna ${i}`;
+  }
+  righe++;
+});
+
+btnRimuoviRiga.addEventListener("click", function() {
+  if (righe > 0) {
+    tabella.deleteRow(-1);
+    righe--;
+  }
+});
+
+btnAggiungiColonna.addEventListener("click", function() {
+  for (let i = 0; i < righe; i++) {
+    const riga = tabella.rows[i];
+    const cella = riga.insertCell();
+    cella.textContent = `Riga ${i}, Colonna ${colonne}`;
+  }
+  colonne++;
+});
+
+btnRimuoviColonna.addEventListener("click", function() {
+  if (colonne > 0) {
+    for (let i = 0; i < righe; i++) {
+      const riga = tabella.rows[i];
+      riga.deleteCell(-1);
+    }
+    colonne--;
+  }
+});
+
+Questo codice aggiunge quattro listener per gli eventi "click" dei bottoni e definisce quattro funzioni per aggiungere o rimuovere righe o colonne dalla tabella.
+La funzione "aggiungiRiga" aggiunge una nuova riga alla tabella e crea una nuova cella per ogni colonna,
+impostando il contenuto della cella su "Riga {numero della riga}, Colonna {numero della colonna}".
+La funzione "rimuoviRiga" rimuove l'ultima riga dalla tabella.
+La funzione "aggiungiColonna" aggiunge una nuova colonna alla tabella e crea una nuova cella per ogni riga,
+impostando il contenuto della cella su "Riga {numero della riga},Colonna {numero della colonna}". La funzione "rimuoviColonna" rimuove l'ultima colonna dalla tabella.
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione.
+Quando si clicca sui bottoni "Aggiungi riga" o "Aggiungi colonna", la tabella viene aggiornata con una nuova riga o colonna.
+Quando si clicca sui bottoni "Rimuovi riga" o "Rimuovi colonna", l'ultima riga o colonna viene rimossa dalla tabella.
+Questa esercitazione semplice illustra come utilizzare JavaScript per creare una tabella
+HTML dinamicamente e utilizzare gli eventi per aggiungere o rimuovere righe o colonne dalla tabella.
+
+
+/*************************************************************************
+ * 9 ESERCITAZIONE CON JAVASCRIPT IN VISUAL STUDIO CODE PER PRINCIPIANTI *
+ *************************************************************************/
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione 9</title>
+    <style>
+      .rosso {
+        color: red;
+      }
+      .verde {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Cambia colore del testo</h1>
+    <p>Inserisci del testo:</p>
+    <input type="text" id="testo">
+    <p>Seleziona un colore:</p>
+    <select id="colore">
+      <option value="rosso">Rosso</option>
+      <option value="verde">Verde</option>
+    </select>
+    <br><br>
+    <button id="cambia-colore">Cambia colore</button>
+    <script src="esercitazione9.js"></script>
+  </body>
+</html>
+
+Questo codice crea una pagina HTML con un titolo, un campo di testo per inserire del testo,
+un menu a tendina per selezionare un colore e un bottone per cambiare il colore del testo.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+
+const testo = document.getElementById("testo");
+const colore = document.getElementById("colore");
+const btnCambiaColore = document.getElementById("cambia-colore");
+
+btnCambiaColore.addEventListener("click", function() {
+  if (colore.value === "rosso") {
+    testo.classList.remove("verde");
+    testo.classList.add("rosso");
+  } else if (colore.value === "verde") {
+    testo.classList.remove("rosso");
+    testo.classList.add("verde");
+  }
+});
+
+Questo codice aggiunge un listener per l'evento "click" del bottone e definisce una
+funzione per cambiare il colore del testo in base al colore selezionato nel menu a tendina.
+La funzione rimuove la classe "verde" o "rosso" dal campo di testo e aggiunge la classe "rosso" o "verde" a seconda del colore selezionato.
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione.
+Quando si inserisce del testo nel campo di testo e si seleziona un colore dal menu a tendina,
+il colore del testo cambia in base al colore selezionato quando si clicca sul bottone "Cambia colore".
+
+
+/**************************************************************************
+ * 10 ESERCITAZIONE CON JAVASCRIPT IN VISUAL STUDIO CODE PER PRINCIPIANTI *
+ **************************************************************************/
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione 10</title>
+  </head>
+  <body>
+    <h1>Calcola l'età</h1>
+    <p>Inserisci la tua data di nascita:</p>
+    <input type="date" id="data-nascita">
+    <br><br>
+    <button id="calcola-eta">Calcola età</button>
+    <p id="risultato"></p>
+    <script src="esercitazione10.js"></script>
+  </body>
+</html>
+
+Questo codice crea una pagina HTML con un titolo, un campo di inserimento della data di nascita,
+un bottone per calcolare l'età e un paragrafo per visualizzare il risultato del calcolo.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+
+const btnCalcolaEta = document.getElementById("calcola-eta");
+const risultato = document.getElementById("risultato");
+btnCalcolaEta.addEventListener("click", function() {
+const dataNascita = new Date(document.getElementById("data-nascita").value);
+const oggi = new Date();
+const etaInMillisecondi = oggi.getTime() - dataNascita.getTime();
+const anni = Math.floor(etaInMillisecondi / (1000 * 60 * 60 * 24 * 365));
+risultato.textContent = `Hai ${anni} anni`;
+});
+
+Questo codice aggiunge un listener per l'evento "click" del bottone e definisce una funzione per calcolare l'età
+della persona in base alla data di nascita inserita nel campo di inserimento della data di nascita.
+La funzione crea due oggetti Date per la data di nascita e l'oggi, calcola la differenza in millisecondi tra le due date,
+converte la differenza in anni e visualizza il risultato nel paragrafo.
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione.
+Quando si inserisce la data di nascita e si clicca sul bottone "Calcola età", il risultato viene visualizzato nel paragrafo.
+
+/**************************************************************************
+ * 11 ESERCITAZIONE CON JAVASCRIPT IN VISUAL STUDIO CODE PER PRINCIPIANTI *
+ **************************************************************************/
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione 11</title>
+  </head>
+  <body>
+    <h1>Quiz di matematica</h1>
+    <p>1. Qual è la somma di 2 + 2?</p>
+    <input type="text" id="risposta1">
+    <p>2. Qual è la radice quadrata di 16?</p>
+    <input type="text" id="risposta2">
+    <p>3. Qual è il prodotto di 7 x 8?</p>
+    <input type="text" id="risposta3">
+    <br><br>
+    <button id="controlla-risposte">Controlla risposte</button>
+    <p id="risultato"></p>
+    <script src="esercitazione11.js"></script>
+  </body>
+</html>
+
+Questo codice crea una pagina HTML con un titolo, tre domande di matematica, tre campi di inserimento delle risposte,
+un bottone per controllare le risposte e un paragrafo per visualizzare il risultato del controllo.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+
+const btnControllaRisposte = document.getElementById("controlla-risposte");
+const risultato = document.getElementById("risultato");
+
+btnControllaRisposte.addEventListener("click", function() {
+  const risposta1 = Number(document.getElementById("risposta1").value);
+  const risposta2 = Number(document.getElementById("risposta2").value);
+  const risposta3 = Number(document.getElementById("risposta3").value);
+  let punteggio = 0;
+  
+  if (risposta1 === 4) {
+    punteggio++;
+  }
+  if (risposta2 === 4) {
+    punteggio++;
+  }
+  if (risposta3 === 56) {
+    punteggio++;
+  }
+  
+  risultato.textContent = `Hai ottenuto ${punteggio} su 3`;
+});
+
+Questo codice aggiunge un listener per l'evento "click" del bottone e definisce una funzione per controllare le risposte delle domande di matematica e calcolare il punteggio.
+La funzione converte le risposte in numeri, confronta le risposte corrette e aumenta il punteggio di uno per ogni risposta corretta, quindi visualizza il punteggio nel paragrafo.
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione.
+Quando si inseriscono le risposte alle domande di matematica e si clicca sul bottone "Controlla risposte",
+il risultato viene visualizzato nel paragrafo.
+
+
+2 / 2
+
+
+
+
+
+
+1 esercitazione Interazione con gli utenti per principianti
+
+
+Ecco un'attività di esercitazione semplice ma utile per i principianti che vogliono imparare ad utilizzare JavaScript per creare interazioni con gli utenti in Visual Studio Code:
+Crea un nuovo file HTML vuoto e un nuovo file JavaScript vuoto nella stessa cartella utilizzando Visual Studio Code.
+Aggiungi il seguente codice HTML al file HTML:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione Interazione con gli utenti</title>
+  </head>
+  <body>
+    <h1>Contatore di clic</h1>
+    <p>Numero di clic effettuati: <span id="clic"></span></p>
+    <button id="clicca">Clicca qui</button>
+    <script src="esercitazione-interazione-utenti.js"></script>
+  </body>
+</html>
+Questo codice crea una pagina HTML con un titolo, un paragrafo che mostra il numero di clic effettuati e un bottone per effettuare un clic.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+js
+
+Copy code
+const btnClicca = document.getElementById("clicca");
+const spanClic = document.getElementById("clic");
+let contatoreClic = 0;
+
+btnClicca.addEventListener("click", function() {
+  contatoreClic++;
+  spanClic.textContent = contatoreClic;
+});
+Questo codice aggiunge un listener per l'evento "click" del bottone e definisce una funzione che incrementa il contatore di clic e visualizza il nuovo valore del contatore nel paragrafo.
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione. Quando si clicca sul bottone "Clicca qui", il numero di clic effettuati viene visualizzato nel paragrafo.
+Questa esercitazione semplice illustra come utilizzare JavaScript per creare un contatore di clic che aggiorna il numero di clic effettuati ogni volta che si clicca su un bottone. Visual Studio Code offre molte funzionalità utili per la scrittura di codice JavaScript, come il completamento automatico, la formattazione del codice, il controllo della sintassi e la correzione automatica degli errori, che possono semplificare il processo di sviluppo.
+
+
+
+
+2 esercitazione Interazione con gli utenti con JAVASCRIPT in VISUAL STUDIO CODE per principianti
+
+
+Ecco un'altra attività di esercitazione semplice ma utile per i principianti che vogliono imparare ad utilizzare JavaScript per creare interazioni con gli utenti in Visual Studio Code:
+Crea un nuovo file HTML vuoto e un nuovo file JavaScript vuoto nella stessa cartella utilizzando Visual Studio Code.
+Aggiungi il seguente codice HTML al file HTML:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione Interazione con gli utenti 2</title>
+  </head>
+  <body>
+    <h1>Indovina il numero</h1>
+    <p>Il computer ha scelto un numero compreso tra 1 e 100. Prova ad indovinarlo!</p>
+    <input type="text" id="tentativo">
+    <button id="controlla">Controlla</button>
+    <p id="risultato"></p>
+    <script src="esercitazione-interazione-utenti-2.js"></script>
+  </body>
+</html>
+Questo codice crea una pagina HTML con un titolo, una descrizione del gioco, un campo di inserimento per l'utente, un bottone per controllare il tentativo e un paragrafo per visualizzare il risultato del controllo.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+js
+
+Copy code
+const numeroCasuale = Math.floor(Math.random() * 100) + 1;
+const btnControlla = document.getElementById("controlla");
+const risultato = document.getElementById("risultato");
+
+btnControlla.addEventListener("click", function() {
+  const tentativo = Number(document.getElementById("tentativo").value);
+  
+  if (tentativo === numeroCasuale) {
+    risultato.textContent = "Hai indovinato!";
+  } else if (tentativo < numeroCasuale) {
+    risultato.textContent = "Il numero è più grande!";
+  } else if (tentativo > numeroCasuale) {
+    risultato.textContent = "Il numero è più piccolo!";
+  }
+});
+Questo codice genera un numero casuale compreso tra 1 e 100, aggiunge un listener per l'evento "click" del bottone e definisce una funzione che confronta il numero inserito dall'utente con il numero casuale generato e visualizza un messaggio di feedback sul paragrafo.
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione. Quando si inserisce un numero e si clicca sul bottone "Controlla", viene visualizzato un messaggio di feedback sul paragrafo.
+Questa esercitazione semplice illustra come utilizzare JavaScript per creare un gioco "Indovina il numero" che genera un numero casuale compreso tra 1 e 100 e visualizza un messaggio di feedback all'utente in base al numero inserito. Visual Studio Code offre molte funzionalità utili per la scrittura di codice JavaScript, come il completamento automatico, la formattazione del codice, il controllo della sintassi e la correzione automatica degli errori, che possono semplificare il processo di sviluppo.
+
+
+
+
+3 esercitazione Interazione con gli utenti  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+Ecco un'altra attività di esercitazione semplice ma utile per i principianti che vogliono imparare ad utilizzare JavaScript per creare interazioni con gli utenti in Visual Studio Code:
+Crea un nuovo file HTML vuoto e un nuovo file JavaScript vuoto nella stessa cartella utilizzando Visual Studio Code.
+Aggiungi il seguente codice HTML al file HTML:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione Interazione con gli utenti 3</title>
+  </head>
+  <body>
+    <h1>Quiz di matematica</h1>
+    <p>Qual è la risposta corretta alla seguente domanda?</p>
+    <p><strong>Quanto fa 2 + 2?</strong></p>
+    <input type="radio" id="risposta1" name="risposta" value="0">
+    <label for="risposta1">0</label><br>
+    <input type="radio" id="risposta2" name="risposta" value="1">
+    <label for="risposta2">1</label><br>
+    <input type="radio" id="risposta3" name="risposta" value="2">
+    <label for="risposta3">2</label><br>
+    <input type="radio" id="risposta4" name="risposta" value="3">
+    <label for="risposta4">3</label><br>
+    <button id="controlla">Controlla</button>
+    <p id="risultato"></p>
+    <script src="esercitazione-interazione-utenti-3.js"></script>
+  </body>
+</html>
+Questo codice crea una pagina HTML con un titolo, una domanda di quiz, quattro opzioni di risposta, un bottone per controllare la risposta e un paragrafo per visualizzare il risultato del controllo.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+js
+
+Copy code
+const risposte = document.getElementsByName("risposta");
+const btnControlla = document.getElementById("controlla");
+const risultato = document.getElementById("risultato");
+
+btnControlla.addEventListener("click", function() {
+  let rispostaScelta;
+  for (let i = 0; i < risposte.length; i++) {
+    if (risposte[i].checked) {
+      rispostaScelta = risposte[i].value;
+      break;
+    }
+  }
+  
+  if (rispostaScelta === "2") {
+    risultato.textContent = "Risposta corretta!";
+  } else {
+    risultato.textContent = "Risposta sbagliata. Riprova.";
+  }
+});
+Questo codice aggiunge un listener per l'evento "click" del bottone e definisce una funzione che cerca l'opzione di risposta selezionata dall'utente e confronta la risposta con quella corretta, visualizzando un messaggio di feedback sul paragrafo.
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione. Quando si seleziona un'opzione di risposta e si clicca sul bottone "Controlla", viene visualizzato un messaggio di feedback sul paragrafo.
+
+
+
+
+continua
+
+
+Questa esercitazione semplice illustra come utilizzare JavaScript per creare un quiz di matematica che chiede all'utente di selezionare la risposta corretta a una domanda e visualizza un messaggio di feedback. Visual Studio Code offre molte funzionalità utili per la scrittura di codice JavaScript, come il completamento automatico, la formattazione del codice, il controllo della sintassi e la correzione automatica degli errori, che possono semplificare il processo di sviluppo.
+
+
+
+
+4 esercitazione Interazione con gli utenti  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+Ecco un'altra attività di esercitazione semplice ma utile per i principianti che vogliono imparare ad utilizzare JavaScript per creare interazioni con gli utenti in Visual Studio Code:
+Crea un nuovo file HTML vuoto e un nuovo file JavaScript vuoto nella stessa cartella utilizzando Visual Studio Code.
+Aggiungi il seguente codice HTML al file HTML:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione Interazione con gli utenti 4</title>
+  </head>
+  <body>
+    <h1>Contatore clic</h1>
+    <p>Clicca sul bottone per incrementare il contatore:</p>
+    <button id="contatore">0</button>
+    <script src="esercitazione-interazione-utenti-4.js"></script>
+  </body>
+</html>
+Questo codice crea una pagina HTML con un titolo, una descrizione e un bottone che fungerà da contatore.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+js
+
+Copy code
+let contatore = 0;
+const btnContatore = document.getElementById("contatore");
+
+btnContatore.addEventListener("click", function() {
+  contatore++;
+  btnContatore.textContent = contatore;
+});
+Questo codice definisce una variabile contatore che viene incrementata ogni volta che si clicca sul bottone e viene visualizzata sul bottone stesso.
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione. Ogni volta che si clicca sul bottone, il contatore viene incrementato di 1 e visualizzato sul bottone.
+Questa esercitazione semplice illustra come utilizzare JavaScript per creare un contatore clic che conta il numero di volte che un bottone viene cliccato e visualizza il numero sul bottone stesso. Visual Studio Code offre molte funzionalità utili per la scrittura di codice JavaScript, come il completamento automatico, la formattazione del codice, il controllo della sintassi e la correzione automatica degli errori, che possono semplificare il processo di sviluppo.
+
+
+
+
+5 esercitazione Interazione con gli utenti  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+Ecco un'altra attività di esercitazione semplice ma utile per i principianti che vogliono imparare ad utilizzare JavaScript per creare interazioni con gli utenti in Visual Studio Code:
+Crea un nuovo file HTML vuoto e un nuovo file JavaScript vuoto nella stessa cartella utilizzando Visual Studio Code.
+Aggiungi il seguente codice HTML al file HTML:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione Interazione con gli utenti 5</title>
+  </head>
+  <body>
+    <h1>Galleria immagini</h1>
+    <img id="immagine" src="https://picsum.photos/400/300" alt="Immagine">
+    <br>
+    <button id="precedente">Precedente</button>
+    <button id="successivo">Successivo</button>
+    <script src="esercitazione-interazione-utenti-5.js"></script>
+  </body>
+</html>
+Questo codice crea una pagina HTML con un titolo, una galleria immagini rappresentata da un'immagine e due pulsanti per navigare avanti e indietro nella galleria.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+js
+
+Copy code
+const immagine = document.getElementById("immagine");
+const btnPrecedente = document.getElementById("precedente");
+const btnSuccessivo = document.getElementById("successivo");
+let indice = 1;
+
+btnPrecedente.addEventListener("click", function() {
+  indice--;
+  if (indice === 0) {
+    indice = 5;
+  }
+  immagine.src = `https://picsum.photos/400/300?random=${indice}`;
+});
+
+btnSuccessivo.addEventListener("click", function() {
+  indice++;
+  if (indice === 6) {
+    indice = 1;
+  }
+  immagine.src = `https://picsum.photos/400/300?random=${indice}`;
+});
+Questo codice definisce tre variabili che rappresentano l'immagine e i due pulsanti, e una variabile indice che tiene traccia dell'immagine corrente nella galleria. Il codice aggiunge due listener per l'evento "click" dei pulsanti e definisce due funzioni che aumentano o diminuiscono l'indice a seconda del pulsante premuto e cambiano l'immagine visualizzata utilizzando il servizio di generazione di immagini "Picsum.photos".
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione. Quando si clicca sul pulsante "Precedente" o "Successivo", l'immagine cambia di conseguenza.
+Questa esercitazione semplice illustra come utilizzare JavaScript per creare una galleria immagini che consente all'utente di navigare avanti e indietro attraverso le immagini. Visual Studio Code offre molte funzionalità utili per la scrittura di codice JavaScript, come il completamento automatico, la formattazione del codice, il controllo della sintassi e la correzione automatica degli errori, che possono semplificare il processo di sviluppo.
+
+
+
+
+6 esercitazione Interazione con gli utenti  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+Ecco un'altra attività di esercitazione semplice ma utile per i principianti che vogliono imparare ad utilizzare JavaScript per creare interazioni con gli utenti in Visual Studio Code:
+Crea un nuovo file HTML vuoto e un nuovo file JavaScript vuoto nella stessa cartella utilizzando Visual Studio Code.
+Aggiungi il seguente codice HTML al file HTML:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione Interazione con gli utenti 6</title>
+  </head>
+  <body>
+    <h1>Conversione valuta</h1>
+    <form>
+      <label for="valuta">Seleziona la valuta:</label>
+      <select id="valuta">
+        <option value="EUR">Euro</option>
+        <option value="USD">Dollari USA</option>
+        <option value="GBP">Sterline Inglesi</option>
+      </select>
+      <br>
+      <label for="importo">Inserisci l'importo:</label>
+      <input type="number" id="importo" value="0">
+      <br>
+      <button type="button" id="converti">Converti</button>
+      <br>
+      <label for="risultato">Il risultato è:</label>
+      <input type="text" id="risultato" disabled>
+    </form>
+    <script src="esercitazione-interazione-utenti-6.js"></script>
+  </body>
+</html>
+Questo codice crea una pagina HTML con un titolo, un form con una selezione valuta, un input di testo per l'importo e un pulsante "Converti". In basso, viene visualizzato il risultato della conversione.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+js
+
+Copy code
+const selectValuta = document.getElementById("valuta");
+const inputImporto = document.getElementById("importo");
+const btnConverti = document.getElementById("converti");
+const inputRisultato = document.getElementById("risultato");
+
+btnConverti.addEventListener("click", function() {
+  const valuta = selectValuta.value;
+  const importo = parseFloat(inputImporto.value);
+  let risultato;
+
+  if (valuta === "EUR") {
+    risultato = importo;
+  } else if (valuta === "USD") {
+    risultato = importo * 1.2;
+  } else if (valuta === "GBP") {
+    risultato = importo * 0.9;
+  }
+
+  inputRisultato.value = `${risultato.toFixed(2)} ${valuta}`;
+});
+Questo codice definisce quattro variabili che rappresentano la selezione valuta, l'input di testo per l'importo, il pulsante "Converti" e l'input di testo per il risultato. Il codice aggiunge un listener per l'evento "click" del pulsante e definisce una funzione che legge i valori delle variabili di input, calcola il risultato della conversione valuta e lo visualizza nell'input di testo per il risultato.
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione. Quando si seleziona una valuta, si immette
+
+
+
+
+continua
+
+
+un importo e si fa clic sul pulsante "Converti", il risultato della conversione viene visualizzato nell'input di testo per il risultato.
+Questa esercitazione semplice illustra come utilizzare JavaScript per creare un convertitore di valuta in una pagina web. Visual Studio Code offre molte funzionalità utili per la scrittura di codice JavaScript, come il completamento automatico, la formattazione del codice, il controllo della sintassi e la correzione automatica degli errori, che possono semplificare il processo di sviluppo.
+
+
+
+
+7 esercitazione Interazione con gli utenti  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+Ecco un'altra attività di esercitazione semplice ma utile per i principianti che vogliono imparare ad utilizzare JavaScript per creare interazioni con gli utenti in Visual Studio Code:
+Crea un nuovo file HTML vuoto e un nuovo file JavaScript vuoto nella stessa cartella utilizzando Visual Studio Code.
+Aggiungi il seguente codice HTML al file HTML:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione Interazione con gli utenti 7</title>
+  </head>
+  <body>
+    <h1>Crea la tua lista della spesa</h1>
+    <input type="text" id="elemento">
+    <button type="button" id="aggiungi">Aggiungi</button>
+    <ul id="lista"></ul>
+    <script src="esercitazione-interazione-utenti-7.js"></script>
+  </body>
+</html>
+Questo codice crea una pagina HTML con un titolo, un input di testo per l'elemento della lista della spesa e un pulsante "Aggiungi". In basso, viene visualizzata una lista in cui gli elementi vengono aggiunti.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+js
+
+Copy code
+const inputElemento = document.getElementById("elemento");
+const btnAggiungi = document.getElementById("aggiungi");
+const lista = document.getElementById("lista");
+
+btnAggiungi.addEventListener("click", function() {
+  const elemento = inputElemento.value.trim();
+  if (elemento !== "") {
+    const li = document.createElement("li");
+    li.textContent = elemento;
+    lista.appendChild(li);
+    inputElemento.value = "";
+    inputElemento.focus();
+  }
+});
+
+inputElemento.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    btnAggiungi.click();
+  }
+});
+Questo codice definisce tre variabili che rappresentano l'input di testo per l'elemento della lista della spesa, il pulsante "Aggiungi" e la lista in cui gli elementi vengono aggiunti. Il codice aggiunge due listener: un listener per l'evento "click" del pulsante "Aggiungi" e una funzione che legge il valore dell'input di testo, crea un nuovo elemento di lista, lo aggiunge alla lista e cancella il valore dell'input di testo. Inoltre, viene aggiunto un listener per l'evento "keydown" dell'input di testo, che verifica se il tasto premuto è "Invio" e, in tal caso, fa clic sul pulsante "Aggiungi".
+Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+Apri il file HTML in un browser per vedere il risultato dell'esercitazione. Quando si immette un elemento nella lista della spesa e si fa clic sul pulsante "Aggiungi" o si preme il tasto "Invio", l'elemento viene aggiunto alla lista.
+Questa esercitazione semplice illustra come utilizzare JavaScript per creare una lista della spesa interattiva in una pagina web. Visual Studio Code offre molte funzionalità utili per la scrittura di codice JavaScript, come il completamento automatico, la formattazione del codice, il controllo della sintassi e la correzione
+
+
+
+
+continua
+
+
+automatica degli errori, che possono semplificare il processo di sviluppo.
+È possibile personalizzare ulteriormente l'esercitazione aggiungendo funzionalità come la possibilità di eliminare gli elementi della lista, ordinare gli elementi della lista in ordine alfabetico o salvare la lista della spesa in un cookie o in un database. Queste funzionalità possono richiedere conoscenze più avanzate di JavaScript, ma rappresentano un'ottima opportunità per migliorare le proprie competenze e creare esperienze utente più sofisticate e personalizzate.
+
+
+
+
+8 esercitazione Interazione con gli utenti  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, creeremo un quiz a scelta multipla utilizzando JavaScript in Visual Studio Code. L'utente avrà la possibilità di selezionare una risposta e alla fine del quiz vedrà il suo punteggio totale.
+Crea un nuovo file HTML vuoto e un nuovo file JavaScript vuoto nella stessa cartella utilizzando Visual Studio Code.
+Aggiungi il seguente codice HTML al file HTML:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Esercitazione Interazione con gli utenti 8</title>
+  </head>
+  <body>
+    <h1>Quiz a scelta multipla</h1>
+    <p id="domanda"></p>
+    <ul id="risposte">
+      <li><button type="button" class="risposta"></button></li>
+      <li><button type="button" class="risposta"></button></li>
+      <li><button type="button" class="risposta"></button></li>
+      <li><button type="button" class="risposta"></button></li>
+    </ul>
+    <button type="button" id="conferma">Conferma</button>
+    <p id="risultato"></p>
+    <script src="esercitazione-interazione-utenti-8.js"></script>
+  </body>
+</html>
+Questo codice crea una pagina HTML con un titolo, una domanda, una lista di risposte (rappresentate da pulsanti), un pulsante di conferma e un elemento di testo in cui viene visualizzato il risultato del quiz.
+Aggiungi il seguente codice JavaScript al file JavaScript:
+js
+
+Copy code
+const domanda = document.getElementById("domanda");
+const risposte = Array.from(document.querySelectorAll(".risposta"));
+const btnConferma = document.getElementById("conferma");
+const risultato = document.getElementById("risultato");
+
+const quiz = [
+  {
+    domanda: "Qual è la capitale dell'Italia?",
+    risposte: ["Roma", "Milano", "Firenze", "Torino"],
+    rispostaCorretta: "Roma"
+  },
+  {
+    domanda: "Quando è stata fondata l'Unione Europea?",
+    risposte: ["1957", "1973", "1986", "1993"],
+    rispostaCorretta: "1957"
+  },
+  {
+    domanda: "Qual è il più grande oceano del mondo?",
+    risposte: ["Oceano Atlantico", "Oceano Pacifico", "Oceano Indiano", "Oceano Artico"],
+    rispostaCorretta: "Oceano Pacifico"
+  }
+];
+
+let indiceQuiz = 0;
+let punteggio = 0;
+
+function mostraDomanda() {
+  const quizAttuale = quiz[indiceQuiz];
+  domanda.textContent = quizAttuale.domanda;
+  quizAttuale.risposte.forEach(function(risposta, index) {
+    risposte[index].textContent = risposta;
+    risposte[index].classList.remove("selezionato");
+  });
+  btnConferma.disabled = true;
+}
+
+function mostraRisultato() {
+  risultato.textContent = `Hai risposto correttamente a ${punteggio} domande su ${quiz.length}!`;
+  btnConferma.textContent = "Riprova";
+ 
+
+
+
+
+continua
+
+
+}
+function gestisciRisposta() {
+const quizAttuale = quiz[indiceQuiz];
+const rispostaSelezionata = this.textContent;
+if (rispostaSelezionata === quizAttuale.rispostaCorretta) {
+punteggio++;
+risultato.textContent = "Risposta corretta!";
+} else {
+risultato.textContent = Risposta sbagliata! La risposta corretta era: ${quizAttuale.rispostaCorretta};
+}
+btnConferma.disabled = false;
+risposte.forEach(function(risposta) {
+risposta.classList.add("disabilitato");
+});
+this.classList.add("selezionato");
+}
+function riprovaQuiz() {
+indiceQuiz = 0;
+punteggio = 0;
+mostraDomanda();
+risultato.textContent = "";
+btnConferma.textContent = "Conferma";
+}
+mostraDomanda();
+risposte.forEach(function(risposta) {
+risposta.addEventListener("click", gestisciRisposta);
+});
+btnConferma.addEventListener("click", function() {
+if (btnConferma.textContent === "Conferma") {
+if (risposte.some(function(risposta) {
+return risposta.classList.contains("selezionato");
+})) {
+indiceQuiz++;
+if (indiceQuiz < quiz.length) {
+mostraDomanda();
+} else {
+mostraRisultato();
+}
+}
+} else {
+riprovaQuiz();
+}
+});
+vbnet
+
+Copy code
+Questo codice definisce variabili che rappresentano la domanda, le risposte (rappresentate da pulsanti), il pulsante di conferma e l'elemento di testo in cui viene visualizzato il risultato del quiz. Inoltre, viene creato un array di oggetti che rappresentano le domande del quiz, le risposte possibili e la risposta corretta per ciascuna domanda. Viene anche definita una variabile che tiene traccia dell'indice della domanda corrente e del punteggio corrente del giocatore.
+
+Le funzioni `mostraDomanda()` e `mostraRisultato()` vengono utilizzate per visualizzare la domanda corrente e il risultato del quiz, rispettivamente. La funzione `gestisciRisposta()` viene utilizzata per verificare se la risposta selezionata dall'utente è corretta e per disabilitare le altre risposte.
+
+La funzione `riprovaQuiz()` viene utilizzata per ripristinare il quiz allo stato iniziale dopo che l'utente ha visualizzato il risultato.
+
+Infine, gli eventi "click" sui pulsanti di risposta e sul pulsante di conferma vengono gestiti in modo appropriato per consentire all'utente di selezionare una risposta, passare alla domanda successiva e visualizzare il risultato finale del quiz.
+
+4. Salva il file HTML e il file JavaScript con lo stesso nome della cartella in cui sono salvati.
+
+5. Apri il file HTML in un browser per vedere il risultato dell'esercitazione. Segui le istruzioni per completare il quiz a scelta multipla e visualizzare il tuo punteggio finale.
+
+Questa esercitazione illustra come utilizzare JavaScript per creare un quiz a scelta multipla interattivo in una pagina web. Visual Studio Code offre molte funzionalità utili per
+
+
+
+
+continua
+
+
+sviluppare applicazioni web interattive e personalizzate utilizzando JavaScript. Conoscere le funzioni e le variabili di base di JavaScript e come interagire con il DOM può essere molto utile per creare esperienze utente dinamiche e coinvolgenti. L'aggiunta di funzionalità avanzate come l'archiviazione dei dati e la gestione degli errori può rendere le tue applicazioni web ancora più sofisticate e affidabili. Con la pratica e l'utilizzo di risorse online, puoi imparare a utilizzare JavaScript in Visual Studio Code per creare applicazioni web avanzate che soddisfino le esigenze dei tuoi utenti.
+
+
+
+
+9 esercitazione Interazione con gli utenti  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per creare una semplice applicazione di conto alla rovescia che consentirà all'utente di impostare un tempo limite e visualizzare il tempo rimanente fino a quando il conto alla rovescia termina.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Conto alla rovescia</title>
+  </head>
+  <body>
+    <h1>Conto alla rovescia</h1>
+    <form>
+      <label for="minuti">Minuti:</label>
+      <input type="number" id="minuti" name="minuti" required>
+      <label for="secondi">Secondi:</label>
+      <input type="number" id="secondi" name="secondi" required>
+      <br>
+      <button type="submit">Inizia conto alla rovescia</button>
+    </form>
+    <h2 id="timer"></h2>
+    <button id="reset" hidden>Reset</button>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e un modulo che consente all'utente di inserire il tempo limite per il conto alla rovescia (in minuti e secondi). Inoltre, vengono definiti un elemento di testo in cui verrà visualizzato il tempo rimanente, un pulsante nascosto per ripristinare il conto alla rovescia e un collegamento al file JavaScript.
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const form = document.querySelector("form");
+const timer = document.getElementById("timer");
+const resetBtn = document.getElementById("reset");
+let countdown;
+
+function startCountdown(e) {
+  e.preventDefault();
+  const minutes = parseInt(form.minutes.value);
+  const seconds = parseInt(form.secondi.value);
+  const totalSeconds = (minutes * 60) + seconds;
+  if (totalSeconds) {
+    startTimer(totalSeconds);
+    form.reset();
+    resetBtn.hidden = false;
+  }
+}
+
+function startTimer(seconds) {
+  clearInterval(countdown);
+  const now = Date.now();
+  const then = now + (seconds * 1000);
+  displayTimeLeft(seconds);
+  displayEndTime(then);
+  countdown = setInterval(() => {
+    const secondsLeft = Math.round((then - Date.now()) / 1000);
+    if (secondsLeft < 0) {
+      clearInterval(countdown);
+      timer.textContent = "Conto alla rovescia terminato!";
+      resetBtn.hidden = true;
+      return;
+    }
+    displayTimeLeft(secondsLeft);
+  }, 1000);
+}
+
+function displayTimeLeft(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  const display = `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  document.title = display;
+  timer.textContent = display;
+}
+
+function displayEndTime(timestamp) {
+  const end = new Date(timestamp);
+  const hours = end.getHours();
+  const adjusted
+
+
+
+
+continua
+
+
+function displayEndTime(timestamp) {
+const end = new Date(timestamp);
+const hours = end.getHours();
+const adjustedHours = hours > 12 ? hours - 12 : hours;
+const minutes = end.getMinutes();
+const adjustedMinutes = minutes < 10 ? 0${minutes} : minutes;
+const amPm = hours >= 12 ? 'pm' : 'am';
+const display = Conto alla rovescia termina alle ${adjustedHours}:${adjustedMinutes}${amPm};
+timer.textContent = display;
+}
+function resetCountdown() {
+clearInterval(countdown);
+timer.textContent = "";
+document.title = "Conto alla rovescia";
+resetBtn.hidden = true;
+}
+form.addEventListener("submit", startCountdown);
+resetBtn.addEventListener("click", resetCountdown);
+vbnet
+
+Copy code
+Questo codice definisce diverse funzioni per gestire il conto alla rovescia. In particolare, la funzione `startCountdown` viene chiamata quando l'utente invia il modulo e avvia il conto alla rovescia utilizzando i valori inseriti dall'utente nel modulo. La funzione `startTimer` utilizza la funzione `setInterval` per eseguire il conto alla rovescia e la funzione `clearInterval` per fermarlo quando il tempo è scaduto. Le funzioni `displayTimeLeft` e `displayEndTime` sono utilizzate per visualizzare il tempo rimanente e l'ora di fine del conto alla rovescia. Infine, la funzione `resetCountdown` consente all'utente di ripristinare il conto alla rovescia e nasconde il pulsante di ripristino quando il conto alla rovescia è terminato.
+
+6. Apri il file HTML in un browser web per testare l'applicazione. Inserisci un valore valido per il tempo limite e fai clic sul pulsante "Inizia conto alla rovescia". Il tempo rimanente dovrebbe essere visualizzato nell'elemento di testo e l'ora di fine del conto alla rovescia dovrebbe essere visualizzata nella finestra del titolo del browser. Quando il conto alla rovescia termina, il pulsante di ripristino dovrebbe essere visualizzato e l'elemento di testo dovrebbe visualizzare il messaggio "Conto alla rovescia terminato!".
+
+Questa è solo una delle molte cose che puoi fare utilizzando JavaScript in Visual Studio Code per creare applicazioni web interattive. Con la pratica e l'esperienza, puoi imparare a utilizzare JavaScript per creare esperienze utente personalizzate e coinvolgenti per i tuoi utenti.
+
+
+
+
+10 esercitazione Interazione con gli utenti  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per creare un gioco di quiz a scelta multipla che consentirà all'utente di rispondere a domande e visualizzare i risultati.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quiz a scelta multipla</title>
+  </head>
+  <body>
+    <h1>Quiz a scelta multipla</h1>
+    <h2 id="question"></h2>
+    <form>
+      <div id="answers"></div>
+      <br>
+      <button type="submit">Rispondi</button>
+    </form>
+    <div id="results" hidden>
+      <h2>Risultati</h2>
+      <p id="score"></p>
+    </div>
+    <button id="reset" hidden>Gioca di nuovo</button>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e un modulo vuoto che verrà utilizzato per presentare le domande del quiz. Viene anche definito un elemento di testo in cui verrà visualizzata la domanda, un contenitore per le risposte multiple, un pulsante per rispondere alle domande e un collegamento al file JavaScript. Inoltre, viene definito un elemento di testo nascosto per visualizzare i risultati del quiz e un pulsante nascosto per giocare di nuovo il quiz.
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const quizData = [
+  {
+    question: "Qual è la capitale dell'Italia?",
+    answers: [
+      { text: "Roma", correct: true },
+      { text: "Milano", correct: false },
+      { text: "Firenze", correct: false },
+      { text: "Napoli", correct: false },
+    ],
+  },
+  {
+    question: "Qual è il fiume più lungo del mondo?",
+    answers: [
+      { text: "Nilo", correct: true },
+      { text: "Amazzonia", correct: false },
+      { text: "Mississippi", correct: false },
+      { text: "Yangtze", correct: false },
+    ],
+  },
+  {
+    question: "Qual è il più grande animale terrestre?",
+    answers: [
+      { text: "Elefante africano", correct: true },
+      { text: "Rinoceronte bianco", correct: false },
+      { text: "Ippopotamo", correct: false },
+      { text: "Orso polare", correct: false },
+    ],
+  },
+  {
+    question: "Qual è il più alto grattacielo del mondo?",
+    answers: [
+      { text: "Burj Khalifa", correct: true },
+      { text: "Shanghai Tower", correct: false },
+      { text: "Abraj Al Bait", correct: false },
+      { text: "Taipei 101", correct: false },
+    ],
+  },
+];
+
+const
+
+
+
+
+continua
+
+
+Continua inserendo il seguente codice JavaScript:
+js
+
+Copy code
+const quizContainer = document.getElementById("answers");
+const questionElement = document.getElementById("question");
+const submitButton = document.querySelector("button[type='submit']");
+const scoreElement = document.getElementById("score");
+const resultsContainer = document.getElementById("results");
+const resetButton = document.getElementById("reset");
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function showQuestion(question) {
+  questionElement.innerText = question.question;
+  quizContainer.innerHTML = "";
+  question.answers.forEach((answer) => {
+    const button = document.createElement("button");
+    button.innerText = answer.text;
+    button.addEventListener("click", () => {
+      if (answer.correct) {
+        score++;
+      }
+      if (currentQuestionIndex < quizData.length - 1) {
+        currentQuestionIndex++;
+        showQuestion(quizData[currentQuestionIndex]);
+      } else {
+        showResults();
+      }
+    });
+    quizContainer.appendChild(button);
+  });
+}
+
+function showResults() {
+  quizContainer.hidden = true;
+  resultsContainer.hidden = false;
+  scoreElement.innerText = `Hai risposto correttamente a ${score} domande su ${quizData.length}.`;
+  document.title = `Risultati del quiz - Hai ottenuto ${score} punti!`;
+  resetButton.hidden = false;
+}
+
+function resetQuiz() {
+  currentQuestionIndex = 0;
+  score = 0;
+  showQuestion(quizData[currentQuestionIndex]);
+  quizContainer.hidden = false;
+  resultsContainer.hidden = true;
+  resetButton.hidden = true;
+  document.title = "Quiz a scelta multipla";
+}
+
+showQuestion(quizData[currentQuestionIndex]);
+resetButton.addEventListener("click", resetQuiz);
+Questo codice definisce diverse funzioni per gestire il quiz. In particolare, la funzione showQuestion viene chiamata per visualizzare la domanda corrente e le risposte multiple sullo schermo. La funzione showResults viene chiamata quando il quiz è stato completato per visualizzare i risultati e il pulsante di ripristino. La funzione resetQuiz consente all'utente di ripristinare il quiz e nasconde il pulsante di ripristino quando il quiz è stato completato. La variabile quizData contiene le domande e le risposte multiple del quiz. Inoltre, sono definite diverse variabili per accedere agli elementi HTML e gestire lo stato del quiz.
+Apri il file HTML in un browser web per testare l'applicazione. Il quiz dovrebbe presentare la prima domanda con le risposte multiple elencate sotto di essa. Quando l'utente seleziona una risposta e fa clic sul pulsante "Rispondi", il quiz dovrebbe passare alla domanda successiva. Quando tutte le domande sono state risposte, i risultati del quiz dovrebbero essere visualizzati insieme a un pulsante "Gioca di nuovo".
+
+
+
+
+
+1 / 2
+
+3 esercitazione Interazione con gli utenti  con JAVASCRIPT in VISUAL STUDIO CODE  per principiantiSave & SubmitCancel
+
+Aggiungi altre domande e risposte multiple al file JavaScript per creare un quiz più grande e impegnativo.
+js
+
+Copy code
+const quizData = [
+  {
+    question: "Qual è la capitale dell'Italia?",
+    answers: [
+      { text: "Roma", correct: true },
+      { text: "Milano", correct: false },
+      { text: "Firenze", correct: false
+
+
+
+
+1 esercitazione manipolare il DOM  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per manipolare il Document Object Model (DOM) di una pagina HTML, aggiungendo e rimuovendo elementi e modificando il contenuto.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manipolazione del DOM con JavaScript</title>
+  </head>
+  <body>
+    <h1>Manipolazione del DOM con JavaScript</h1>
+    <div id="content">
+      <p>Questo è un paragrafo.</p>
+      <ul>
+        <li>Primo elemento</li>
+        <li>Secondo elemento</li>
+        <li>Terzo elemento</li>
+      </ul>
+    </div>
+    <button id="add-button">Aggiungi elemento</button>
+    <button id="remove-button">Rimuovi elemento</button>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e un contenitore di testo vuoto. Sono presenti anche due pulsanti che verranno utilizzati per aggiungere e rimuovere elementi dal contenitore di testo.
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const content = document.getElementById("content");
+const addButton = document.getElementById("add-button");
+const removeButton = document.getElementById("remove-button");
+
+addButton.addEventListener("click", () => {
+  const newElement = document.createElement("p");
+  newElement.innerText = "Questo è un nuovo elemento.";
+  content.appendChild(newElement);
+});
+
+removeButton.addEventListener("click", () => {
+  const lastElement = content.lastChild;
+  if (lastElement) {
+    content.removeChild(lastElement);
+  }
+});
+Questo codice definisce due funzioni che vengono chiamate quando l'utente fa clic sui pulsanti "Aggiungi elemento" o "Rimuovi elemento". La funzione addButton crea un nuovo elemento p e lo aggiunge al contenitore di testo. La funzione removeButton rimuove l'ultimo elemento dal contenitore di testo, se presente. Inoltre, sono definite diverse variabili per accedere agli elementi HTML e gestire lo stato dell'applicazione.
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente fa clic sul pulsante "Aggiungi elemento", un nuovo elemento p contenente il testo "Questo è un nuovo elemento" dovrebbe essere aggiunto al contenitore di testo. Quando l'utente fa clic sul pulsante "Rimuovi elemento", l'ultimo elemento aggiunto dovrebbe essere rimosso dal contenitore di testo.
+
+
+
+
+2 esercitazione manipolare il DOM  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per manipolare il Document Object Model (DOM) di una pagina HTML, modificando gli attributi degli elementi esistenti.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manipolazione del DOM con JavaScript</title>
+  </head>
+  <body>
+    <h1>Manipolazione del DOM con JavaScript</h1>
+    <div id="content">
+      <img src="https://picsum.photos/200" alt="Immagine di esempio" />
+      <p>Questo è un paragrafo.</p>
+      <ul>
+        <li>Primo elemento</li>
+        <li>Secondo elemento</li>
+        <li>Terzo elemento</li>
+      </ul>
+    </div>
+    <button id="change-button">Modifica attributi</button>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e un contenitore di testo che include un'immagine e un elenco puntato. È presente anche un pulsante che verrà utilizzato per modificare gli attributi dell'immagine.
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const image = document.querySelector("img");
+const changeButton = document.getElementById("change-button");
+
+changeButton.addEventListener("click", () => {
+  image.setAttribute("src", "https://picsum.photos/300");
+  image.setAttribute("alt", "Nuova immagine di esempio");
+});
+Questo codice definisce una funzione che viene chiamata quando l'utente fa clic sul pulsante "Modifica attributi". La funzione modifica gli attributi src e alt dell'immagine. Inoltre, sono definite diverse variabili per accedere agli elementi HTML e gestire lo stato dell'applicazione.
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente fa clic sul pulsante "Modifica attributi", l'immagine dovrebbe essere sostituita con una nuova immagine di dimensioni maggiori e con un testo alternativo diverso.
+
+
+
+
+3 esercitazione manipolare il DOM  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per manipolare il Document Object Model (DOM) di una pagina HTML, modificando lo stile degli elementi esistenti.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manipolazione del DOM con JavaScript</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Manipolazione del DOM con JavaScript</h1>
+    <div id="content">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <button id="change-button">Modifica stile</button>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e un contenitore di testo che include tre elementi div con la classe box. È presente anche un pulsante che verrà utilizzato per modificare lo stile degli elementi div.
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const boxes = document.querySelectorAll(".box");
+const changeButton = document.getElementById("change-button");
+
+changeButton.addEventListener("click", () => {
+  boxes.forEach((box) => {
+    box.style.backgroundColor = "blue";
+    box.style.margin = "20px";
+  });
+});
+Questo codice definisce una funzione che viene chiamata quando l'utente fa clic sul pulsante "Modifica stile". La funzione modifica il colore di sfondo e il margine degli elementi div con la classe box. Inoltre, sono definite diverse variabili per accedere agli elementi HTML e gestire lo stato dell'applicazione.
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente fa clic sul pulsante "Modifica stile", il colore di sfondo e il margine degli elementi div dovrebbero essere modificati.
+
+
+
+
+4 esercitazione manipolare il DOM  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per manipolare il Document Object Model (DOM) di una pagina HTML, aggiungendo e rimuovendo elementi.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manipolazione del DOM con JavaScript</title>
+  </head>
+  <body>
+    <h1>Manipolazione del DOM con JavaScript</h1>
+    <div id="content">
+      <ul>
+        <li>Primo elemento</li>
+        <li>Secondo elemento</li>
+        <li>Terzo elemento</li>
+      </ul>
+    </div>
+    <button id="add-button">Aggiungi elemento</button>
+    <button id="remove-button">Rimuovi elemento</button>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e un contenitore di testo che include un elenco puntato. È presente anche un pulsante "Aggiungi elemento" e un pulsante "Rimuovi elemento" che verranno utilizzati per aggiungere e rimuovere elementi dall'elenco.
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const list = document.querySelector("ul");
+const addButton = document.getElementById("add-button");
+const removeButton = document.getElementById("remove-button");
+
+addButton.addEventListener("click", () => {
+  const newItem = document.createElement("li");
+  newItem.textContent = "Nuovo elemento";
+  list.appendChild(newItem);
+});
+
+removeButton.addEventListener("click", () => {
+  const lastItem = list.lastElementChild;
+  if (lastItem) {
+    list.removeChild(lastItem);
+  }
+});
+Questo codice definisce due funzioni che vengono chiamate quando l'utente fa clic sui pulsanti "Aggiungi elemento" e "Rimuovi elemento". La funzione "Aggiungi elemento" crea un nuovo elemento li, gli assegna un testo e lo aggiunge all'elenco. La funzione "Rimuovi elemento" rimuove l'ultimo elemento dell'elenco. Inoltre, sono definite diverse variabili per accedere agli elementi HTML e gestire lo stato dell'applicazione.
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente fa clic sul pulsante "Aggiungi elemento", un nuovo elemento dovrebbe essere aggiunto all'elenco. Quando l'utente fa clic sul pulsante "Rimuovi elemento", l'ultimo elemento dell'elenco dovrebbe essere rimosso.
+
+
+
+
+
+2 / 2
+
+5 esercitazione manipolare il DOM  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per manipolare il Document Object Model (DOM) di una pagina HTML, modificando il testo degli elementi esistenti.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manipolazione del DOM con JavaScript</title>
+  </head>
+  <body>
+    <h1>Manipolazione del DOM con JavaScript</h1>
+    <div id="content">
+      <p>Questo è un paragrafo di esempio.</p>
+    </div>
+    <button id="change-button">Modifica testo</button>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e un contenitore di testo che include un paragrafo. È presente anche un pulsante che verrà utilizzato per modificare il testo del paragrafo.
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const paragraph = document.querySelector("p");
+const changeButton = document.getElementById("change-button");
+
+changeButton.addEventListener("click", () => {
+  paragraph.textContent = "Il testo è stato modificato con successo!";
+});
+Questo codice definisce una funzione che viene chiamata quando l'utente fa clic sul pulsante "Modifica testo". La funzione modifica il testo del paragrafo selezionato utilizzando la proprietà textContent. Inoltre, sono definite diverse variabili per accedere agli elementi HTML e gestire lo stato dell'applicazione.
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente fa clic sul pulsante "Modifica testo", il testo del paragrafo dovrebbe essere modificato.
+
+
+
+
+6 esercitazione manipolare il DOM  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per manipolare il Document Object Model (DOM) di una pagina HTML, aggiungendo e rimuovendo classi CSS.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manipolazione del DOM con JavaScript</title>
+    <style>
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Manipolazione del DOM con JavaScript</h1>
+    <p>Questo è un paragrafo di esempio.</p>
+    <button id="add-class-button">Aggiungi classe</button>
+    <button id="remove-class-button">Rimuovi classe</button>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e un contenitore di testo che include un paragrafo. È presente anche un pulsante "Aggiungi classe" e un pulsante "Rimuovi classe" che verranno utilizzati per aggiungere e rimuovere la classe "highlight" dal paragrafo. È inoltre definito un blocco di stile CSS che definisce la classe "highlight".
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const paragraph = document.querySelector("p");
+const addClassButton = document.getElementById("add-class-button");
+const removeClassButton = document.getElementById("remove-class-button");
+
+addClassButton.addEventListener("click", () => {
+  paragraph.classList.add("highlight");
+});
+
+removeClassButton.addEventListener("click", () => {
+  paragraph.classList.remove("highlight");
+});
+Questo codice definisce due funzioni che vengono chiamate quando l'utente fa clic sui pulsanti "Aggiungi classe" e "Rimuovi classe". La funzione "Aggiungi classe" aggiunge la classe "highlight" al paragrafo selezionato utilizzando il metodo classList.add(). La funzione "Rimuovi classe" rimuove la classe "highlight" dal paragrafo selezionato utilizzando il metodo classList.remove(). Inoltre, sono definite diverse variabili per accedere agli elementi HTML e gestire lo stato dell'applicazione.
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente fa clic sul pulsante "Aggiungi classe", la classe "highlight" dovrebbe essere aggiunta al paragrafo selezionato, cambiando il colore di sfondo del paragrafo in giallo. Quando l'utente fa clic sul pulsante "Rimuovi classe", la classe "highlight" dovrebbe essere rimossa dal paragrafo selezionato, ripristinando il colore di sfondo predefinito.
+
+
+
+
+7 esercitazione manipolare il DOM  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per manipolare il Document Object Model (DOM) di una pagina HTML, creando dinamicamente nuovi elementi HTML.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manipolazione del DOM con JavaScript</title>
+  </head>
+  <body>
+    <h1>Manipolazione del DOM con JavaScript</h1>
+    <div id="content"></div>
+    <button id="add-element-button">Aggiungi elemento</button>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e un contenitore di testo vuoto. È presente anche un pulsante "Aggiungi elemento" che verrà utilizzato per creare dinamicamente nuovi elementi HTML all'interno del contenitore.
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const content = document.getElementById("content");
+const addElementButton = document.getElementById("add-element-button");
+let counter = 0;
+
+addElementButton.addEventListener("click", () => {
+  const newElement = document.createElement("p");
+  newElement.textContent = "Elemento " + (++counter);
+  content.appendChild(newElement);
+});
+Questo codice definisce una funzione che viene chiamata quando l'utente fa clic sul pulsante "Aggiungi elemento". La funzione crea un nuovo elemento HTML p utilizzando il metodo document.createElement() e gli assegna un testo univoco utilizzando la variabile counter. Infine, l'elemento viene aggiunto al contenitore selezionato utilizzando il metodo appendChild(). Inoltre, sono definite diverse variabili per accedere agli elementi HTML e gestire lo stato dell'applicazione.
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente fa clic sul pulsante "Aggiungi elemento", un nuovo elemento HTML p con un testo univoco dovrebbe essere creato e aggiunto al contenitore.
+
+
+
+
+8 esercitazione manipolare il DOM  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per manipolare il Document Object Model (DOM) di una pagina HTML, modificando gli attributi di un elemento HTML.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manipolazione del DOM con JavaScript</title>
+  </head>
+  <body>
+    <h1>Manipolazione del DOM con JavaScript</h1>
+    <div id="content">
+      <img id="image" src="https://via.placeholder.com/150" alt="Immagine di esempio">
+    </div>
+    <button id="change-image-button">Cambia immagine</button>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e un'immagine di esempio all'interno di un contenitore di testo. È presente anche un pulsante "Cambia immagine" che verrà utilizzato per modificare l'attributo src dell'immagine.
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const image = document.getElementById("image");
+const changeImageButton = document.getElementById("change-image-button");
+
+changeImageButton.addEventListener("click", () => {
+  image.setAttribute("src", "https://via.placeholder.com/300");
+});
+Questo codice definisce una funzione che viene chiamata quando l'utente fa clic sul pulsante "Cambia immagine". La funzione utilizza il metodo document.getElementById() per accedere all'elemento HTML dell'immagine e il metodo setAttribute() per modificare il suo attributo src. L'immagine viene sostituita con una nuova immagine di dimensioni maggiori.
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente fa clic sul pulsante "Cambia immagine", l'immagine di esempio dovrebbe essere sostituita con una nuova immagine di dimensioni maggiori.
+
+
+
+
+9 esercitazione manipolare il DOM  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per manipolare il Document Object Model (DOM) di una pagina HTML, creando un menu a discesa (dropdown menu).
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manipolazione del DOM con JavaScript</title>
+  </head>
+  <body>
+    <h1>Manipolazione del DOM con JavaScript</h1>
+    <div id="content">
+      <label for="select">Seleziona un'opzione:</label>
+      <select id="select">
+        <option value="opzione1">Opzione 1</option>
+        <option value="opzione2">Opzione 2</option>
+        <option value="opzione3">Opzione 3</option>
+      </select>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e un menu a discesa (dropdown menu) con tre opzioni.
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const select = document.getElementById("select");
+
+select.addEventListener("change", () => {
+  const selectedOption = select.options[select.selectedIndex];
+  console.log(selectedOption.value);
+});
+Questo codice definisce una funzione che viene chiamata quando l'utente seleziona un'opzione dal menu a discesa. La funzione utilizza il metodo document.getElementById() per accedere all'elemento HTML del menu a discesa e il metodo addEventListener() per aggiungere un listener di evento che viene attivato quando l'utente seleziona un'opzione. L'opzione selezionata viene recuperata utilizzando la proprietà options dell'elemento HTML del menu a discesa e l'indice dell'opzione selezionata utilizzando la proprietà selectedIndex. Infine, il valore dell'opzione selezionata viene stampato sulla console utilizzando il metodo console.log().
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente seleziona un'opzione dal menu a discesa, il valore dell'opzione selezionata dovrebbe essere stampato sulla console.
+
+
+
+
+10 esercitazione manipolare il DOM  con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per manipolare il Document Object Model (DOM) di una pagina HTML, aggiungendo un nuovo elemento HTML al documento.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manipolazione del DOM con JavaScript</title>
+  </head>
+  <body>
+    <h1>Manipolazione del DOM con JavaScript</h1>
+    <div id="content">
+      <ul id="list">
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+      </ul>
+      <button id="add-button">Aggiungi elemento</button>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e una lista di elementi all'interno di un contenitore di testo. È presente anche un pulsante "Aggiungi elemento" che verrà utilizzato per aggiungere un nuovo elemento alla lista.
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const list = document.getElementById("list");
+const addButton = document.getElementById("add-button");
+
+addButton.addEventListener("click", () => {
+  const newElement = document.createElement("li");
+  const textNode = document.createTextNode("Nuovo elemento");
+  newElement.appendChild(textNode);
+  list.appendChild(newElement);
+});
+Questo codice definisce una funzione che viene chiamata quando l'utente fa clic sul pulsante "Aggiungi elemento". La funzione utilizza il metodo document.getElementById() per accedere all'elemento HTML della lista e il metodo addEventListener() per aggiungere un listener di evento che viene attivato quando l'utente fa clic sul pulsante "Aggiungi elemento". Viene creato un nuovo elemento HTML utilizzando il metodo document.createElement() e un nodo di testo utilizzando il metodo document.createTextNode(). Il nodo di testo viene quindi aggiunto al nuovo elemento HTML utilizzando il metodo appendChild(). Infine, il nuovo elemento viene aggiunto alla lista utilizzando il metodo appendChild().
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente fa clic sul pulsante "Aggiungi elemento", un nuovo elemento viene aggiunto alla lista.
+
+
+
+
+1 esercitazione Gestione degli eventi con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per gestire gli eventi all'interno di una pagina HTML.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gestione degli eventi con JavaScript</title>
+  </head>
+  <body>
+    <h1>Gestione degli eventi con JavaScript</h1>
+    <button id="my-button">Fai clic qui</button>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e un pulsante con un ID "my-button".
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const myButton = document.getElementById("my-button");
+
+myButton.addEventListener("click", () => {
+  alert("Hai fatto clic sul pulsante!");
+});
+Questo codice definisce una funzione che viene chiamata quando l'utente fa clic sul pulsante "my-button". La funzione utilizza il metodo document.getElementById() per accedere all'elemento HTML del pulsante e il metodo addEventListener() per aggiungere un listener di evento che viene attivato quando l'utente fa clic sul pulsante. Quando viene attivato, il listener di evento visualizza una finestra di avviso con il messaggio "Hai fatto clic sul pulsante!" utilizzando il metodo alert().
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente fa clic sul pulsante, viene visualizzata una finestra di avviso con il messaggio "Hai fatto clic sul pulsante!".
+
+
+
+
+2  esercitazione Gestione degli eventi con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per gestire gli eventi all'interno di una pagina HTML.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gestione degli eventi con JavaScript</title>
+  </head>
+  <body>
+    <h1>Gestione degli eventi con JavaScript</h1>
+    <div id="my-div" style="background-color: yellow; width: 200px; height: 200px;"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e un div con un ID "my-div".
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const myDiv = document.getElementById("my-div");
+
+myDiv.addEventListener("mouseenter", () => {
+  myDiv.style.backgroundColor = "green";
+});
+
+myDiv.addEventListener("mouseleave", () => {
+  myDiv.style.backgroundColor = "yellow";
+});
+Questo codice definisce due funzioni che vengono chiamate quando l'utente posiziona il mouse sopra il div ("mouseenter") e quando lo rimuove ("mouseleave"). Le funzioni utilizzano il metodo document.getElementById() per accedere all'elemento HTML del div e il metodo addEventListener() per aggiungere un listener di evento che viene attivato quando l'utente posiziona o rimuove il mouse dal div. Quando viene attivato, il listener di evento modifica il colore di sfondo del div utilizzando la proprietà style.backgroundColor.
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente posiziona il mouse sul div, il colore di sfondo diventa verde, mentre quando lo rimuove, il colore di sfondo torna a essere giallo.
+
+
+
+
+3  esercitazione Gestione degli eventi con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per gestire gli eventi all'interno di una pagina HTML.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gestione degli eventi con JavaScript</title>
+  </head>
+  <body>
+    <h1>Gestione degli eventi con JavaScript</h1>
+    <input id="my-input" type="text" placeholder="Inserisci del testo...">
+    <div id="my-div"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione, un campo di input con un ID "my-input" e un div con un ID "my-div".
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const myInput = document.getElementById("my-input");
+const myDiv = document.getElementById("my-div");
+
+myInput.addEventListener("input", () => {
+  myDiv.textContent = myInput.value;
+});
+Questo codice definisce una funzione che viene chiamata quando l'utente inserisce del testo nel campo di input. La funzione utilizza il metodo document.getElementById() per accedere all'elemento HTML del campo di input e del div e il metodo addEventListener() per aggiungere un listener di evento che viene attivato quando l'utente inserisce del testo nel campo di input. Quando viene attivato, il listener di evento aggiorna il contenuto del div con il testo inserito dall'utente utilizzando la proprietà textContent.
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente inserisce del testo nel campo di input, il testo viene visualizzato nel div.
+
+
+
+
+
+2 / 2
+
+4  esercitazione Gestione degli eventi con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per gestire un evento di clic su un pulsante all'interno di una pagina HTML.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gestione degli eventi con JavaScript</title>
+  </head>
+  <body>
+    <h1>Gestione degli eventi con JavaScript</h1>
+    <button id="my-button">Clicca qui</button>
+    <div id="my-div"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione, un pulsante con un ID "my-button" e un div con un ID "my-div".
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const myButton = document.getElementById("my-button");
+const myDiv = document.getElementById("my-div");
+
+myButton.addEventListener("click", () => {
+  myDiv.textContent = "Hai cliccato il pulsante!";
+});
+Questo codice definisce una funzione che viene chiamata quando l'utente fa clic sul pulsante. La funzione utilizza il metodo document.getElementById() per accedere all'elemento HTML del pulsante e del div e il metodo addEventListener() per aggiungere un listener di evento che viene attivato quando l'utente fa clic sul pulsante. Quando viene attivato, il listener di evento aggiorna il contenuto del div con il messaggio "Hai cliccato il pulsante!" utilizzando la proprietà textContent.
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente fa clic sul pulsante, il messaggio "Hai cliccato il pulsante!" viene visualizzato nel div.
+
+
+
+
+5  esercitazione Gestione degli eventi con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per gestire l'evento "submit" di un modulo HTML e impedire il comportamento predefinito del browser.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gestione degli eventi di form con JavaScript</title>
+  </head>
+  <body>
+    <h1>Gestione degli eventi di form con JavaScript</h1>
+    <form>
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" required>
+      <br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <br>
+      <input type="submit" value="Invia">
+    </form>
+    <div id="result"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione, un modulo con campi nome ed email e un pulsante di invio. Inoltre, c'è un div con ID "result" che verrà utilizzato per visualizzare i risultati dell'invio del modulo.
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const form = document.querySelector("form");
+const result = document.getElementById("result");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  result.textContent = `Nome: ${name}, Email: ${email}`;
+});
+Questo codice definisce una funzione che viene chiamata quando l'utente invia il modulo. La funzione utilizza il metodo querySelector() per accedere all'elemento HTML del modulo e il metodo addEventListener() per aggiungere un listener di evento che viene attivato quando l'utente invia il modulo. Quando viene attivato, il listener di evento utilizza il metodo preventDefault() per impedire al browser di eseguire il comportamento predefinito di inviare il modulo. Successivamente, la funzione utilizza il metodo getElementById() per accedere ai campi del nome e dell'email del modulo e il metodo textContent per aggiornare il contenuto del div "result" con il nome e l'email inseriti dall'utente.
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente invia il modulo, il contenuto del div "result" viene aggiornato con il nome e l'email inseriti.
+
+
+
+
+6  esercitazione Gestione degli eventi con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per gestire l'evento "click" di un bottone HTML e visualizzare un messaggio.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gestione degli eventi di click con JavaScript</title>
+  </head>
+  <body>
+    <h1>Gestione degli eventi di click con JavaScript</h1>
+    <button id="myButton">Cliccami!</button>
+    <div id="message"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione, un bottone con ID "myButton" e un div con ID "message" che verrà utilizzato per visualizzare il messaggio quando l'utente fa clic sul bottone.
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const myButton = document.getElementById("myButton");
+const message = document.getElementById("message");
+
+myButton.addEventListener("click", () => {
+  message.textContent = "Hai cliccato il bottone!";
+});
+Questo codice definisce una funzione che viene chiamata quando l'utente fa clic sul bottone. La funzione utilizza il metodo getElementById() per accedere all'elemento HTML del bottone e del div "message" e il metodo addEventListener() per aggiungere un listener di evento che viene attivato quando l'utente fa clic sul bottone. Quando viene attivato, il listener di evento utilizza il metodo textContent per aggiornare il contenuto del div "message" con un messaggio di testo.
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente fa clic sul bottone, il contenuto del div "message" viene aggiornato con il messaggio "Hai cliccato il bottone!".
+
+
+
+
+7  esercitazione Gestione degli eventi con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per gestire l'evento "submit" di un form HTML e visualizzare i dati inseriti dall'utente.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gestione degli eventi di submit con JavaScript</title>
+  </head>
+  <body>
+    <h1>Gestione degli eventi di submit con JavaScript</h1>
+    <form id="myForm">
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+      <button type="submit">Invia</button>
+    </form>
+    <div id="message"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e un form HTML con ID "myForm" che contiene due campi di input (nome e email) e un bottone di invio. Viene anche definito un div con ID "message" che verrà utilizzato per visualizzare i dati inseriti dall'utente.
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const myForm = document.getElementById("myForm");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const message = document.getElementById("message");
+
+myForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const name = nameInput.value;
+  const email = emailInput.value;
+  message.textContent = `Hai inserito il nome ${name} e l'email ${email}.`;
+});
+Questo codice definisce una funzione che viene chiamata quando l'utente invia il form. La funzione utilizza il metodo getElementById() per accedere all'elemento HTML del form, dei campi di input (nome e email) e del div "message". Il metodo addEventListener() viene utilizzato per aggiungere un listener di evento che viene attivato quando l'utente invia il form. Quando viene attivato, il listener di evento utilizza il metodo preventDefault() per impedire l'invio del form e il metodo value per accedere ai dati inseriti dall'utente nei campi di input. Infine, il listener di evento utilizza il metodo textContent per aggiornare il contenuto del div "message" con i dati inseriti dall'utente.
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente invia il form, il contenuto del div "message" viene aggiornato con i dati inseriti dall'utente.
+
+
+
+
+8  esercitazione Gestione degli eventi con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per gestire l'evento "click" di un pulsante HTML e visualizzare un messaggio di benvenuto.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gestione degli eventi di click con JavaScript</title>
+  </head>
+  <body>
+    <h1>Gestione degli eventi di click con JavaScript</h1>
+    <button id="myButton">Clicca qui!</button>
+    <div id="message"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e un pulsante HTML con ID "myButton". Viene anche definito un div con ID "message" che verrà utilizzato per visualizzare un messaggio di benvenuto.
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const myButton = document.getElementById("myButton");
+const message = document.getElementById("message");
+
+myButton.addEventListener("click", () => {
+  message.textContent = "Benvenuto!";
+});
+Questo codice definisce una funzione che viene chiamata quando l'utente fa clic sul pulsante. La funzione utilizza il metodo getElementById() per accedere all'elemento HTML del pulsante e del div "message". Il metodo addEventListener() viene utilizzato per aggiungere un listener di evento che viene attivato quando l'utente fa clic sul pulsante. Quando viene attivato, il listener di evento utilizza il metodo textContent per aggiornare il contenuto del div "message" con il messaggio di benvenuto.
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente fa clic sul pulsante, il contenuto del div "message" viene aggiornato con il messaggio di benvenuto.
+
+
+
+
+9  esercitazione Gestione degli eventi con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+In questa esercitazione, utilizzeremo JavaScript in Visual Studio Code per gestire l'evento "submit" di un form HTML e visualizzare i valori dei campi del form.
+Crea una nuova cartella in cui salvare i file dell'applicazione.
+Crea un nuovo file HTML all'interno della cartella e apri il file in Visual Studio Code.
+Inserisci il seguente codice HTML all'interno del file:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gestione degli eventi di submit con JavaScript</title>
+  </head>
+  <body>
+    <h1>Gestione degli eventi di submit con JavaScript</h1>
+    <form id="myForm">
+      <label for="firstName">Nome:</label>
+      <input type="text" id="firstName" name="firstName"><br>
+      <label for="lastName">Cognome:</label>
+      <input type="text" id="lastName" name="lastName"><br>
+      <button type="submit">Invia</button>
+    </form>
+    <div id="message"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
+Questo codice definisce una pagina HTML con un titolo, un'intestazione e un form HTML con ID "myForm". Il form contiene due campi di input, uno per il nome e uno per il cognome, e un pulsante "Invia". Viene anche definito un div con ID "message" che verrà utilizzato per visualizzare i valori dei campi del form.
+Crea un nuovo file JavaScript all'interno della cartella e salvalo con il nome "index.js".
+Inserisci il seguente codice JavaScript all'interno del file:
+js
+
+Copy code
+const myForm = document.getElementById("myForm");
+const message = document.getElementById("message");
+
+myForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const firstName = document.getElementById("firstName").value;
+  const lastName = document.getElementById("lastName").value;
+
+  message.textContent = `Benvenuto, ${firstName} ${lastName}!`;
+});
+Questo codice definisce una funzione che viene chiamata quando l'utente invia il form. La funzione utilizza il metodo getElementById() per accedere all'elemento HTML del form e del div "message". Il metodo addEventListener() viene utilizzato per aggiungere un listener di evento che viene attivato quando l'utente invia il form. La prima riga della funzione utilizza il metodo preventDefault() per evitare che la pagina venga ricaricata dopo l'invio del form. La funzione quindi utilizza il metodo getElementById() per accedere ai valori dei campi di input del form e li assegna a due variabili. Infine, la funzione utilizza il metodo textContent per aggiornare il contenuto del div "message" con un messaggio di benvenuto personalizzato.
+Apri il file HTML in un browser web per testare l'applicazione. Quando l'utente invia il form, il contenuto del div "message" viene aggiornato con un messaggio di benvenuto personalizzato che utilizza il nome e il cognome inseriti nel form.
+
+
+
+
+10  esercitazione Gestione degli eventi con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+Esercitazione: Gestione degli eventi con JavaScript in Visual Studio Code per principianti
+In questa esercitazione, impareremo come gestire gli eventi del mouse con JavaScript utilizzando Visual Studio Code.
+Prerequisiti: conoscenza di base di HTML, CSS e JavaScript.
+Passo 1: Preparare il file HTML
+Crea un nuovo file HTML vuoto chiamato "index.html" e inserisci il seguente codice:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gestione degli eventi con JavaScript</title>
+	<style>
+		button {
+			font-size: 24px;
+			padding: 10px;
+			margin: 10px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">Cliccami!</button>
+	<button id="btn2">Non cliccarmi!</button>
+	<script src="app.js"></script>
+</body>
+</html>
+Questo crea una semplice pagina HTML con due pulsanti. Il primo pulsante avrà l'id "btn1" e il secondo avrà l'id "btn2".
+Passo 2: Creare un file JavaScript
+Crea un nuovo file JavaScript chiamato "app.js" nella stessa cartella dell'index.html e inserisci il seguente codice:
+js
+
+Copy code
+// Seleziona il primo pulsante
+var btn1 = document.querySelector('#btn1');
+
+// Aggiungi un listener per il click
+btn1.addEventListener('click', function() {
+	alert('Hai cliccato il pulsante 1!');
+});
+
+// Seleziona il secondo pulsante
+var btn2 = document.querySelector('#btn2');
+
+// Aggiungi un listener per il click
+btn2.addEventListener('click', function() {
+	alert('Non ti ho detto di non cliccarmi?');
+});
+Questo codice seleziona i due pulsanti tramite il loro id e aggiunge un listener per il click a ciascuno di essi. Quando il primo pulsante viene cliccato, verrà visualizzato un avviso con il testo "Hai cliccato il pulsante 1!". Quando il secondo pulsante viene cliccato, verrà visualizzato un avviso con il testo "Non ti ho detto di non cliccarmi?".
+Passo 3: Visualizzare la pagina HTML
+Apri il file "index.html" in Visual Studio Code e premi F5 per avviare il debugger. Dovrebbe aprirsi una nuova finestra del browser con la pagina HTML. Clicca sui pulsanti e dovresti vedere gli alert corrispondenti.
+Congratulazioni, hai creato con successo una pagina HTML con due pulsanti che rispondono agli eventi del mouse con JavaScript utilizzando Visual Studio Code!
+
+
+
+
+
+2 / 2
+
+1 esercitazione Animazione e grafica con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+Esercitazione: Animazione e grafica con JavaScript in Visual Studio Code per principianti
+In questa esercitazione, impareremo come creare animazioni e grafica con JavaScript utilizzando Visual Studio Code.
+Prerequisiti: conoscenza di base di HTML, CSS e JavaScript.
+Passo 1: Preparare il file HTML
+Crea un nuovo file HTML vuoto chiamato "index.html" e inserisci il seguente codice:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animazione e grafica con JavaScript</title>
+	<style>
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas" width="500" height="500"></canvas>
+	<script src="app.js"></script>
+</body>
+</html>
+Questo crea una semplice pagina HTML con un canvas di dimensioni 500x500 pixel.
+Passo 2: Creare un file JavaScript
+Crea un nuovo file JavaScript chiamato "app.js" nella stessa cartella dell'index.html e inserisci il seguente codice:
+js
+
+Copy code
+// Seleziona il canvas
+var canvas = document.getElementById('myCanvas');
+
+// Prendi il contesto del canvas
+var ctx = canvas.getContext('2d');
+
+// Disegna un rettangolo blu sul canvas
+ctx.fillStyle = 'blue';
+ctx.fillRect(50, 50, 100, 100);
+
+// Aggiungi un'animazione al rettangolo
+var x = 50;
+var y = 50;
+var dx = 5;
+var dy = 5;
+
+function animate() {
+	requestAnimationFrame(animate);
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	ctx.fillStyle = 'blue';
+	ctx.fillRect(x, y, 100, 100);
+
+	if (x + 100 > canvas.width || x < 0) {
+		dx = -dx;
+	}
+
+	if (y + 100 > canvas.height || y < 0) {
+		dy = -dy;
+	}
+
+	x += dx;
+	y += dy;
+}
+
+animate();
+Questo codice seleziona il canvas, prende il suo contesto e disegna un rettangolo blu sullo stesso. In seguito, viene aggiunta un'animazione al rettangolo. La funzione "animate" viene chiamata continuamente utilizzando "requestAnimationFrame" e il rettangolo viene spostato di una certa quantità (dx e dy) ad ogni frame. Quando il rettangolo raggiunge il bordo del canvas, la direzione viene invertita.
+Passo 3: Visualizzare la pagina HTML
+Apri il file "index.html" in Visual Studio Code e premi F5 per avviare il debugger. Dovrebbe aprirsi una nuova finestra del browser con la pagina HTML e un rettangolo blu che si muove all'interno del canvas.
+Congratulazioni, hai creato con successo un'animazione e una grafica con JavaScript utilizzando Visual Studio Code!
+
+
+
+
+
+3 / 3
+
+2 esercitazione Animazione e grafica web con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+Esercitazione: Animazione e grafica web con JAVASCRIPT in VISUAL STUDIO CODE per principianti
+In questa esercitazione utilizzeremo JavaScript in Visual Studio Code per creare una semplice animazione. Utilizzeremo il tag canvas di HTML5 per disegnare e animare un cerchio sulla pagina web.
+Passo 1: Preparazione dell'ambiente di sviluppo
+Per iniziare, assicuriamoci di avere Visual Studio Code installato sul nostro computer. Apriamo un nuovo progetto in Visual Studio Code e creiamo un file HTML chiamato "index.html". Copiamo il seguente codice HTML nel nostro file "index.html":
+php
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Animazione e grafica web con JAVASCRIPT</title>
+  </head>
+  <body>
+    <canvas id="myCanvas"></canvas>
+    <script src="main.js"></script>
+  </body>
+</html>
+In questo codice, abbiamo definito un tag canvas che useremo per disegnare la nostra animazione. Abbiamo anche incluso un riferimento al nostro file JavaScript "main.js".
+Passo 2: Creazione di un oggetto Canvas
+Ora dobbiamo creare un oggetto Canvas nel nostro file JavaScript "main.js". Questo oggetto ci permetterà di disegnare la nostra animazione sul canvas HTML.
+Copiamo il seguente codice JavaScript nel nostro file "main.js":
+less
+
+Copy code
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+In questo codice, abbiamo definito una variabile chiamata "canvas" e abbiamo usato la funzione getElementById() per ottenere il tag canvas dal nostro file HTML. Poi, abbiamo creato una variabile chiamata "ctx" e abbiamo usato il metodo getContext() per ottenere il contesto del canvas.
+Passo 3: Disegno del cerchio
+Ora che abbiamo creato il nostro oggetto Canvas, possiamo disegnare il nostro cerchio sulla pagina web. Copiamo il seguente codice JavaScript nel nostro file "main.js":
+scss
+
+Copy code
+var x = canvas.width/2;
+var y = canvas.height/2;
+var radius = 50;
+
+function drawCircle() {
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, Math.PI*2);
+  ctx.fillStyle = "#0095DD";
+  ctx.fill();
+  ctx.closePath();
+}
+
+drawCircle();
+In questo codice, abbiamo definito le variabili "x", "y" e "radius" per specificare le dimensioni e la posizione del nostro cerchio. Abbiamo poi creato una funzione chiamata "drawCircle()" per disegnare il nostro cerchio sul canvas.
+Passo 4: Animazione del cerchio
+Ora possiamo animare il nostro cerchio facendolo muovere sul canvas. Copiamo il seguente codice JavaScript nel nostro file "main.js":
+scss
+
+Copy code
+var dx = 2;
+var dy = -2;
+
+function animateCircle() {
+  requestAnimationFrame(animateCircle);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawCircle();
+  x += dx;
+  y += dy;
+  if(x + radius > canvas.width || x - radius < 0) {
+    dx = -dx;
+  }
+  if(y + radius > canvas.height || y - radius < 0) {
+    dy = -dy;
+
+
+
+
+
+5 / 5
+
+3 esercitazione Animazione e grafica con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+Esercitazione: Creazione di un gioco della memoria con JAVASCRIPT in VISUAL STUDIO CODE
+In questa esercitazione utilizzeremo JAVASCRIPT per creare un semplice gioco della memoria. Il gioco della memoria prevede che il giocatore abbia a disposizione un insieme di carte coperte. Ogni carta ha un'immagine o un testo associato ad essa. Il giocatore dovrà girare le carte una alla volta cercando di trovare le corrispondenze tra le immagini o i testi associati ad esse. Se il giocatore trova due carte uguali, queste rimarranno scoperte e il giocatore potrà continuare a girare altre carte. Il gioco termina quando tutte le carte sono state scoperte.
+Passo 1: Creare la struttura HTML
+Per prima cosa, creiamo la struttura HTML del nostro gioco della memoria. Useremo una tabella per visualizzare le carte. Ogni cella della tabella conterrà una carta. Iniziamo creando un file HTML vuoto chiamato "index.html" e inseriamo il seguente codice:
+php
+
+Copy code
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gioco della memoria</title>
+</head>
+<body>
+	<table id="game-board">
+		<tr>
+			<td class="card"></td>
+			<td class="card"></td>
+			<td class="card"></td>
+			<td class="card"></td>
+		</tr>
+		<tr>
+			<td class="card"></td>
+			<td class="card"></td>
+			<td class="card"></td>
+			<td class="card"></td>
+		</tr>
+		<tr>
+			<td class="card"></td>
+			<td class="card"></td>
+			<td class="card"></td>
+			<td class="card"></td>
+		</tr>
+		<tr>
+			<td class="card"></td>
+			<td class="card"></td>
+			<td class="card"></td>
+			<td class="card"></td>
+		</tr>
+	</table>
+
+	<script src="app.js"></script>
+</body>
+</html>
+La tabella ha quattro righe e quattro colonne, per un totale di sedici carte. Ogni carta è rappresentata da una cella della tabella con la classe "card".
+Passo 2: Aggiungere lo stile CSS
+Aggiungiamo un po' di stile al nostro gioco della memoria. Creiamo un nuovo file chiamato "style.css" e inseriamo il seguente codice:
+css
+
+Copy code
+#game-board {
+	border-collapse: collapse;
+}
+
+.card {
+	background-color: #999;
+	height: 100px;
+	width: 100px;
+	cursor: pointer;
+}
+
+.card img {
+	display: none;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.card.visible {
+	background-color: #fff;
+}
+
+.card.visible img {
+	display: block;
+}
+In questo file CSS, abbiamo definito lo stile per la tabella e per le carte. Le carte hanno uno sfondo grigio e un'immagine nascosta al loro interno. Quando una carta viene scoperta, viene visualizzata l'immagine al suo interno.
+Passo 3: Aggiungere il codice JavaScript
+Ora che abbiamo creato la struttura HTML e lo stile CSS, possiamo aggiungere il codice JavaScript per il
+
+
+
+
+
+4 / 4
+
+continua dall’ultimo codice JAVASCRIPT
+
+
+Mi dispiace, ma non ho accesso all'ultimo codice JavaScript che hai utilizzato. Ti invito a fornirmi maggiori dettagli sul codice a cui fai riferimento e di cosa hai bisogno di aiuto.
+
+
+
+
+ 1 esercitazione Traversing del DOM con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+Ecco un' esercitazione sul Traversing del DOM con JavaScript in Visual Studio Code per principianti:
+Apri il tuo editor di codice preferito e crea un nuovo file HTML e un nuovo file JavaScript. Inserisci il seguente codice HTML nel file HTML:
+html
+
+Copy code
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Traversing del DOM con JavaScript</title>
+</head>
+<body>
+  <div id="container">
+    <h1>Titolo</h1>
+    <p>Paragrafo 1</p>
+    <p>Paragrafo 2</p>
+    <ul>
+      <li>Elemento 1</li>
+      <li>Elemento 2</li>
+      <li>Elemento 3</li>
+    </ul>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+Apri il file JavaScript e scrivi il seguente codice per selezionare il nodo del titolo e modificarne il testo:
+javascript
+
+Copy code
+var title = document.querySelector('h1');
+title.textContent = 'Nuovo titolo';
+Per selezionare il paragrafo 1 e rimuoverlo dal DOM, usa il seguente codice:
+javascript
+
+Copy code
+var p1 = document.querySelector('p');
+p1.parentNode.removeChild(p1);
+Per selezionare tutti i paragrafi e impostare il loro stile di sfondo su giallo, usa il seguente codice:
+javascript
+
+Copy code
+var paragraphs = document.querySelectorAll('p');
+for (var i = 0; i < paragraphs.length; i++) {
+  paragraphs[i].style.backgroundColor = 'yellow';
+}
+Per selezionare l'elemento 2 della lista e aggiungere una classe CSS, usa il seguente codice:
+javascript
+
+Copy code
+var listItem = document.querySelector('li:nth-of-type(2)');
+listItem.classList.add('highlight');
+Per selezionare tutti gli elementi della lista e rimuovere la classe CSS "highlight", usa il seguente codice:
+javascript
+
+Copy code
+var listItems = document.querySelectorAll('li');
+for (var i = 0; i < listItems.length; i++) {
+  listItems[i].classList.remove('highlight');
+}
+Questi sono solo alcuni esempi di come puoi usare il traversing del DOM con JavaScript in Visual Studio Code. Esplora ulteriormente la documentazione di JavaScript per ulteriori opzioni e funzionalità avanzate.
+
+
+
+
+2 esercitazione Traversing del DOM con JAVASCRIPT in VISUAL STUDIO CODE  per principianti
+
+
+Esercitazione: Traversing del DOM con JAVASCRIPT in VISUAL STUDIO CODE per principianti
+In questa esercitazione utilizzeremo JAVASCRIPT per attraversare e manipolare il DOM in una pagina HTML. Utilizzeremo Visual Studio Code come editor di codice.
+Passo 1: Preparare il file HTML
+Creiamo un nuovo file HTML in Visual Studio Code e aggiungiamo il seguente codice:
+php
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Traversing del DOM</title>
+  </head>
+  <body>
+    <h1>Traversing del DOM</h1>
+    <ul id="menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Chi siamo</a></li>
+      <li><a href="#">Prodotti</a></li>
+      <li><a href="#">Contatti</a></li>
+    </ul>
+    <div id="content">
+      <h2>Benvenuti!</h2>
+      <p>Questo è un esempio di traversing del DOM con JAVASCRIPT in Visual Studio Code.</p>
+      <button id="btn">Clicca qui</button>
+    </div>
+  </body>
+</html>
+Questo codice definisce una semplice pagina HTML con un titolo, un menu di navigazione, un contenuto e un pulsante.
+Passo 2: Aggiungere JAVASCRIPT alla pagina
+Aggiungiamo una sezione script alla fine del file HTML per inserire il nostro codice JAVASCRIPT:
+php
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Traversing del DOM</title>
+  </head>
+  <body>
+    <h1>Traversing del DOM</h1>
+    <ul id="menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Chi siamo</a></li>
+      <li><a href="#">Prodotti</a></li>
+      <li><a href="#">Contatti</a></li>
+    </ul>
+    <div id="content">
+      <h2>Benvenuti!</h2>
+      <p>Questo è un esempio di traversing del DOM con JAVASCRIPT in Visual Studio Code.</p>
+      <button id="btn">Clicca qui</button>
+    </div>
+    
+    <script>
+      // codice JAVASCRIPT qui
+    </script>
+  </body>
+</html>
+Passo 3: Selezionare gli elementi del DOM
+Utilizziamo JAVASCRIPT per selezionare gli elementi del DOM e manipolarli. Ad esempio, possiamo selezionare l'elemento h1 e modificarne il testo:
+php
+
+Copy code
+<script>
+  // seleziona l'elemento h1
+  const title = document.querySelector('h1');
+  
+  // modifica il testo dell'elemento h1
+  title.textContent = 'Benvenuti!';
+</script>
+Passo 4: Traversare il DOM
+Possiamo anche attraversare il DOM per selezionare elementi nidificati. Ad esempio, possiamo selezionare il primo elemento a all'interno dell'elemento ul:
+php
+
+Copy code
+<script>
+  // seleziona il primo elemento a all'interno dell'elemento ul
+  const firstLink = document.querySelector('ul li:first-child a');
+  
+  // modifica il
+
+
+
+
+continua
+
+
+Mi dispiace, ma non ho ricevuto alcuna istruzione per continuare con  esercitazioni su Traversing del DOM con JavaScript. Potresti fornirmi ulteriori dettagli o istruzioni su cosa vorresti vedere nella continuazione delle esercitazioni? Sarò felice di aiutarti

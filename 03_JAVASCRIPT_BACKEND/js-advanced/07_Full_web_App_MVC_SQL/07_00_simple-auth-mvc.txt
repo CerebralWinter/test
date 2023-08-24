@@ -1,0 +1,162 @@
+
+
+/***********************************************************************************************************************
+ * autenticazione utilizzando Node.js, Express e un file JSON per memorizzare le credenziali degli utenti.             *
+ ***********************************************************************************************************************/
+ 
+ implement MVC
+
+Seguendo il pattern MVC, la struttura della cartella del progetto dovrebbe avere la seguente struttura:
+
+your_project/
+|-- controllers/
+|   |-- userController.js
+|
+|-- models/
+|   |-- userModel.js
+|
+|-- views/
+|   |-- admin.html
+|   |-- index.html
+|   |-- user.html
+|
+|-- .gitignore
+|-- addUsers.js
+|-- createDb.js
+|-- login.js
+|-- package.json
+|-- package-lock.json
+|-- server.js
+|-- myDatabase.db
+
+Questi files e cartelle separano i diversi componenti della tua applicazione:
+
+controllers: contiene la logica dell'applicazione e gestisce l'input dell'utente (la parte Controller del pattern MVC).
+userController.js: contiene la logica per gestire l'accesso e la registrazione degli utenti.
+models: contiene la logica correlata ai dati e comunica con il database (la parte Model del pattern MVC).
+userModel.js: contiene la logica per interrogare e inserire gli utenti nel database SQLite.
+views: contiene i file HTML per la visualizzazione dell'interfaccia utente (la parte View del pattern MVC).
+admin.html: la pagina vuota riservata all'amministratore.
+index.html: i moduli di accesso e registrazione.
+user.html: la pagina vuota riservata all'utente.
+Gli altri file nella directory del progetto sono:
+.gitignore: contiene un elenco di file e cartelle da ignorare da Git.
+addUsers.js: uno script per inserire 3 utenti nel database SQLite.
+createDb.js: uno script per creare il database SQLite e la tabella degli utenti.
+login.js: il codice JavaScript frontend per gestire le sottomissioni dei moduli di accesso e registrazione.
+package.json: contiene i metadati del tuo progetto, come le dipendenze.
+package-lock.json: file generato automaticamente che memorizza la versione esatta dei pacchetti installati.
+server.js: il file principale che imposta e avvia Express.js
+
+/***********************************************************************************************************************
+ * Per implementare il Model-View-Controller (MVC) pattern                                                             *
+ ***********************************************************************************************************************/
+
+nella tua applicazione, devi ristrutturare il codice e organizzarlo in file separati per i modelli, le viste e i controller. Ecco un elenco dei passaggi necessari per ristrutturare la tua applicazione esistente:
+
+Crea le nuone cartelle models, controllers e views nella directory del progetto.
+
+Sposta i file HTML nella cartella views.
+
+<!-- Aggiorna i tag script alla fine dei files html -->
+<script src="/auth.js"></script>
+<script src="/login.js"></script>
+
+/***********************************************************************************************************************
+ * Aggiorna il file server.js per servire i file statici dalla cartella views                                          *
+ ***********************************************************************************************************************/
+
+app.use(serveStatic('views'));
+
+/***********************************************************************************************************************
+ * Crea un nuovo file denominato userModel.js all'interno della cartella models e aggiungi il seguente codice:         *
+ ***********************************************************************************************************************/
+
+const sqlite3 = require('sqlite3').verbose();
+
+const db = new sqlite3.Database('./myDatabase.db', (err) => {
+  if (err) {
+    console.error(err.message);
+  }
+  console.log('Connected to the myDatabase SQLite database.');
+});
+
+module.exports = {
+  getUserByUsername: (username, callback) => {
+    db.get('SELECT * FROM users WHERE username = ?', [username], callback);
+  },
+
+  createUser: (username, password, role, callback) => {
+    db.run('INSERT INTO users (username, password, role) VALUES (?, ?, ?)', [username, password, role], callback);
+  },
+};
+
+/***********************************************************************************************************************
+ * Crea un nuovo file denominato userController.js all'interno della cartella controllers e aggiungi il seguente codice: *
+ ***********************************************************************************************************************/
+
+const jwt = require('jsonwebtoken');
+const userModel = require('../models/userModel');
+const SECRET_KEY = 'your-secret-key';
+
+module.exports = {
+  login: (req, res) => {
+    const { username, password } = req.body;
+
+    userModel.getUserByUsername(username, (err, user) => {
+      if (err) {
+        console.error(err.message);
+        return res.status(500).json({ message: 'Internal server error' });
+      }
+
+      if (user && user.password === password) {
+        const token = jwt.sign({ username: user.username, role: user.role }, SECRET_KEY, {
+          expiresIn: '1h',
+        });
+
+        res.json({ message: 'Authentication successful', token });
+      } else {
+        res.status(401).json({ message: 'Invalid credentials' });
+      }
+    });
+  },
+
+  register: (req, res) => {
+    const { username, password, role } = req.body;
+
+    userModel.createUser(username, password, role, (err) => {
+      if (err) {
+        console.error(err.message);
+        return res.status(500).json({ message: 'Internal server error' });
+      }
+
+      res.status(201).json({ message: 'User created successfully' });
+    });
+  },
+};
+
+const userController = require('./controllers/userController');
+
+// ...
+
+// Login route
+app.post('/login', userController.login);
+
+// Register route
+app.post('/register', userController.register);
+
+/***********************************************************************************************************************
+ * Aggiorna il file server.js per utilizzare il userController:                                                        *
+ ***********************************************************************************************************************/
+ 
+const userController = require('./controllers/userController');
+
+// ...
+
+// Login route
+app.post('/login', userController.login);
+
+// Register route
+app.post('/register', userController.register);
+
+Adesso la tua applicazione è strutturata secondo il pattern MVC. Il file userModel.js contiene la logica correlata al database (Model), i files HTML nella cartella views rappresentano l'interfaccia utente (View) e il file userController.js gestisce l'input dell'utente e interagisce con il modello e la vista (Controller). Questa separazione delle responsabilità renderà il tuo codice più facile da comprendere, mantenere e modificare.

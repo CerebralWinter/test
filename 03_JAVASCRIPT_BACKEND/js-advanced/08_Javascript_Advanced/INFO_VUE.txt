@@ -1,0 +1,25 @@
+/***********************************************************************************************************************
+ * Per cosa è utilizzato principalmente VUE JS                                                                         *
+ ***********************************************************************************************************************/
+Vue.js è un framework JavaScript utilizzato principalmente per lo
+sviluppo di interfacce utente (UI) reattive e complesse per applicazioni web a singola pagina (Single Page Applications - SPA).
+
+Tra i principali utilizzi di Vue.js ci sono:
+
+Sviluppo di interfacce utente complesse:
+Vue.js offre un'architettura semplice e intuitiva per lo sviluppo di interfacce utente complesse e altamente personalizzabili.
+
+Reattività:
+Vue.js offre un sistema di reattività avanzato che consente di aggiornare automaticamente l'interfaccia utente in base ai
+dati in tempo reale, senza dover ricaricare la pagina.
+
+Modularità:
+Vue.js è altamente modulare e offre un'architettura che consente di sviluppare applicazioni
+web complesse con codice facilmente organizzabile e riutilizzabile.
+
+Routing:
+Vue.js consente di creare un routing delle pagine della SPA
+in modo da poter visualizzare e aggiornare il contenuto in modo dinamico senza dover ricaricare l'intera pagina.
+
+Testing: Vue.js include strumenti integrati per il testing,
+il che semplifica il processo di sviluppo e aiuta a garantire la qualità dell'applicazione finale.

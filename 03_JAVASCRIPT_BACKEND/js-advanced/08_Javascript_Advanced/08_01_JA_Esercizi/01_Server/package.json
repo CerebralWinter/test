@@ -1,0 +1,14 @@
+{
+  "name": "01_server",
+  "version": "1.0.0",
+  "description": "Server creation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http": "0.0.1-security"
+  }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Esercizio 8</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="app.js"></script>
+	<style>
+		#modal {
+			display: none;
+			position: fixed;
+			z-index: 1;
+			padding-top: 100px;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.9);
+		}
+		#contenuto-modal {
+			margin: auto;
+			display: block;
+			width: 80%;
+			max-width: 800px;
+		}
+		#immagine-modal {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	</style>
+</head>
+<body>
+	<h1>Il mio ottavo esercizio jQuery</h1>
+	<img id="immagine1" src="https://picsum.photos/400" alt="Immagine di esempio">
+	<div id="modal">
+		<img id="immagine-modal" src="" alt="Immagine modale">
+	</div>
+</body>
+</html>

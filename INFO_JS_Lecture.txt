@@ -1,0 +1,269 @@
+
+/****************************
+ * CORSO DI JAVASCRIPT BASE *
+ ****************************/
+
+Prerequisiti:
+OOP base
+HTML5 base
+CSS base
+
+/*****************************************
+ * GLI UTILIZZI PIÙ COMUNI DI JAVASCRIPT *
+ *****************************************/
+
+
+JavaScript è una parte essenziale della progettazione web e può essere utilizzato in molti modi diversi in Visual Studio Code.
+Ecco alcuni degli utilizzi più comuni di JavaScript in Visual Studio Code per il web design:
+
+Interazione con gli utenti:
+JavaScript può essere utilizzato per creare interazioni dinamiche e coinvolgenti con gli utenti, come la validazione dei form, l'aggiornamento dinamico dei contenuti e l'animazione.
+
+Controllo del DOM:
+JavaScript può essere utilizzato per manipolare il DOM (Document Object Model) e modificare il contenuto, lo stile e la struttura di una pagina HTML in tempo reale.
+
+Gestione degli eventi:
+JavaScript può essere utilizzato per gestire gli eventi dell'utente, come clic del mouse, movimenti del mouse, scorrimento e tastiera, e reagire di conseguenza.
+
+Comunicazione con il server:
+JavaScript può essere utilizzato per comunicare con il server e scambiare dati con esso, utilizzando AJAX (Asynchronous JavaScript and XML) o altre tecnologie simili.
+
+Animazione e grafica:
+JavaScript può essere utilizzato per creare animazioni, grafici e altre visualizzazioni dinamiche che rendono la pagina più accattivante e coinvolgente.
+
+Ottimizzazione delle prestazioni:
+JavaScript può essere utilizzato per ottimizzare le prestazioni della pagina, ad esempio riducendo il tempo di caricamento,
+migliorando la velocità di risposta e riducendo la quantità di dati scambiati con il server.
+
+In Visual Studio Code, gli sviluppatori possono utilizzare librerie e framework di JavaScript come jQuery, React, Vue.js e Angular per semplificare la scrittura del codice e accelerare lo sviluppo web.
+Inoltre, Visual Studio Code offre molte funzionalità utili per la scrittura di codice JavaScript,
+come il completamento automatico, la formattazione del codice, il controllo della sintassi e la correzione automatica degli errori,
+che possono semplificare il processo di sviluppo e migliorare la qualità del codice.
+
+/**********************************************************************************
+ * DOM (DOCUMENT OBJECT MODEL) E MANIPOLAZIONE DEGLI ELEMENTI HTML CON JAVASCRIPT *
+ **********************************************************************************/
+
+
+Cos'è il Document Object Model (DOM):
+il modello a oggetti del documento HTML, come è organizzato il DOM.
+
+Manipolazione degli elementi HTML con JavaScript:
+come accedere e modificare gli elementi HTML usando il DOM, come aggiungere, rimuovere o modificare elementi e attributi HTML.
+
+Eventi DOM:
+come utilizzare gli eventi DOM per aggiungere funzionalità interattive alle pagine web, come gestire eventi di clic, hover, focus e submit.
+
+Traversing del DOM:
+come navigare e selezionare gli elementi HTML nel DOM, come utilizzare i metodi parent, child, sibling, next, prev e find.
+
+Creazione dinamica di elementi HTML:
+come creare elementi HTML dinamicamente con JavaScript e aggiungerli al DOM.
+
+Stili CSS:
+come modificare i valori dei CSS usando il DOM, come aggiungere e rimuovere classi CSS.
+
+Animazioni con JavaScript:
+come utilizzare il DOM e gli eventi per creare animazioni in JavaScript.
+
+Framework JavaScript per la manipolazione del DOM:
+come utilizzare framework come jQuery o React per semplificare la manipolazione del DOM.
+
+Best practices per la manipolazione del DOM:
+come evitare la manipolazione eccessiva del DOM per migliorare le prestazioni della pagina web, come ottimizzare il codice per la velocità e l'efficienza.
+
+Strumenti di sviluppo per la manipolazione del DOM:
+come utilizzare il debugger JavaScript, la console del browser e altri strumenti per la diagnostica del codice.
+
+
+/***************************************
+ * GESTIONE DEGLI EVENTI IN JAVASCRIPT *
+ ***************************************/
+
+Cos'è un evento in JavaScript:
+un'azione o una situazione che accade in una pagina web, come un clic su un pulsante o il caricamento completo della pagina.
+
+Gestione degli eventi in JavaScript:
+come registrare e gestire eventi utilizzando gli addEventListener e removeEventListener.
+
+Eventi di mouse in JavaScript:
+come gestire gli eventi del mouse come clic, doppio clic, hover, trascinamento e rilascio.
+
+Eventi di tastiera in JavaScript:
+come gestire gli eventi della tastiera come la pressione di un tasto, il rilascio di un tasto e la combinazione di tasti.
+
+Eventi di form in JavaScript:
+come gestire gli eventi dei form come la sottomissione di un form, la validazione dei campi e la pulizia dei campi.
+
+Eventi di finestra in JavaScript:
+come gestire gli eventi della finestra come il caricamento della pagina, il ridimensionamento della finestra e la chiusura della finestra.
+
+Utilizzo di callback in JavaScript:
+come utilizzare le funzioni di callback per gestire eventi asincroni come il caricamento di un'immagine o la ricezione di dati dal server.
+
+Eventi personalizzati in JavaScript:
+come creare e utilizzare eventi personalizzati per aggiungere funzionalità personalizzate alle pagine web.
+
+Best practices per la gestione degli eventi:
+come utilizzare nomi di eventi significativi, evitare la creazione di troppi eventi, evitare l'annidamento eccessivo degli eventi e il codice complesso.
+
+Strumenti di sviluppo per la gestione degli eventi:
+come utilizzare il debugger JavaScript, la console del browser e altri strumenti per la diagnostica del codice.
+
+/***********************************************************************************************************************
+ * JSON:                                                                                                               *
+ ***********************************************************************************************************************/
+
+JSON (JavaScript Object Notation) è un formato di dati leggero e facile da leggere e scrivere utilizzato per lo scambio di dati tra applicazioni client-server.
+
+
+- oggettoJSON: {
+    "nome": "Mario",
+    "cognome": "Rossi",
+    "eta": 30
+  }
+
+/***************************
+ * IMPLEMENTAZIONE DI JSON *
+ ***************************/
+
+L'implementazione di JSON prevede la codifica e la decodifica dei dati in formato JSON
+
+- classe JSONImplementazione
+  + funzione codificaJSON(dati: Dati): JSON
+  + funzione decodificaJSON(json: JSON): Dati
+  
+/************************************************
+ * UTILIZZARE JAVASCRIPT CON VISUAL STUDIO CODE *
+ ************************************************/
+
+Crea un nuovo file JavaScript nella cartella del progetto utilizzando la combinazione di tasti
+"CTRL + N" (Windows/Linux) o "CMD + N" (Mac) o scegliendo "File" > "Nuovo file" dal menu principale.
+Inserisci il codice JavaScript nel nuovo file.
+Visual Studio Code offre molte funzionalità utili per la scrittura di codice, come il completamento automatico,
+la formattazione del codice, il controllo della sintassi e la correzione automatica degli errori.
+Utilizza gli strumenti di debug integrati di Visual Studio Code per trovare e correggere eventuali errori nel codice
+Visual Studio Code offre una vasta gamma di funzionalità di debug, come i breakpoint, la visualizzazione dello stack di chiamate, la valutazione delle espressioni, ecc.
+Utilizza le estensioni di Visual Studio Code per ottenere funzionalità aggiuntive specifiche per il linguaggio JavaScript,
+come l'autocompletamento, la generazione automatica di documentazione, la formattazione del codice, ecc.
+
+
+/*****************************
+ * ESTENSIONI PER JAVASCRIPT *
+ *****************************/
+
+
+Visual Studio Code offre molte estensioni utili per sviluppatori JavaScript. Ecco alcune delle estensioni più popolari per Visual Studio Code:
+ESLint:
+Questa estensione offre un controllo della sintassi e delle regole di codifica per aiutare a mantenere il codice JavaScript pulito e coerente.
+Prettier:
+Questa estensione formatta automaticamente il codice JavaScript secondo le regole specificate, rendendolo più facile da leggere e mantenere.
+Auto Import:
+Questa estensione aggiunge automaticamente gli import necessari per i moduli JavaScript utilizzati nel codice.
+Debugger for Chrome:
+Questa estensione consente di eseguire e debuggare il codice JavaScript in Google Chrome direttamente da Visual Studio Code.
+Bracket Pair Colorizer:
+Questa estensione visualizza i corrispondenti parentesi, parentesi quadre e parentesi graffe con colori diversi, facilitando la comprensione della struttura del codice.
+JavaScript (ES6) code snippets:
+Questa estensione offre una raccolta di snippet di codice JavaScript, inclusi i più comuni utilizzati in ECMAScript 6.
+JavaScript Booster:
+Questa estensione offre molte funzionalità utili per lo sviluppo di applicazioni JavaScript, come la navigazione nel codice, la ricerca di definizioni, il refactoring del codice e la generazione automatica di test unitari.
+Live Server:
+Questa estensione consente di eseguire un server web locale per lo sviluppo di applicazioni web in tempo reale.
+
+
+/**********************
+ * JAVASCRIPT CONSOLE *
+ **********************/
+
+Per eseguire il codice JavaScript, apri una finestra del terminale all'interno di Visual Studio Code scegliendo
+"Visualizza" > "Terminale" dal menu principale o utilizzando la combinazione di tasti "CTRL + SHIFT + " (Windows/Linux) o "CMD + SHIFT + " (Mac).
+Digita il comando "node nomeFile.js" nel terminale per eseguire il file JavaScript.
+
+/****************************************
+ * CONCETTI FONDAMENTALI DI JAVASCRIPT, *
+ ****************************************/
+
+come la creazione di variabili, funzioni, array e l'utilizzo di cicli for
+
+Crea una variabile "nome" e assegna il tuo nome
+let nome = "Mario";
+
+Crea una variabile "età" e assegna la tua età
+let età = 30;
+
+Crea una funzione "saluta" che accetti come argomento una stringa "nome" e restituisca un saluto personalizzato con il nome inserito.
+function saluta(nome) {
+  return "Ciao " + nome + "!";
+}
+
+Utilizza la funzione "saluta" per salutare utilizzando il tuo nome.
+console.log(saluta(nome)); // Output: "Ciao Mario!"
+
+Crea un array di numeri interi da 1 a 10.
+let numeri = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+Crea una funzione "somma" che accetti come argomento un array di numeri e restituisca la somma di tutti i numeri nell'array.
+function somma(numeri) {
+  let totale = 0;
+  for (let i = 0; i < numeri.length; i++) {
+    totale += numeri[i];
+  }
+  return totale;
+}
+
+Utilizza la funzione "somma" per calcolare la somma degli elementi dell'array.
+
+console.log(somma(numeri)); // Output: 55 (la somma dei numeri da 1 a 10)
+
+/***************************************
+ * CONCETTI PIÙ AVANZATI DI JAVASCRIPT *
+ ***************************************/
+
+come la creazione di oggetti, la gestione degli array utilizzando i metodi filter, map e reduce, e la creazione di funzioni che restituiscono oggetti.
+
+Crea un oggetto "persona" con le seguenti proprietà: nome, cognome, età e città.
+
+let persona = {
+  nome: "Mario",
+  cognome: "Rossi",
+  età: 30,
+  città: "Roma"
+};
+
+Aggiungi al metodo "persona" una proprietà "fullName" che restituisca il nome completo della persona.
+persona.fullName = persona.nome + " " + persona.cognome;
+
+Crea una funzione "creaPersona" che accetti come argomenti nome, cognome, età e città e restituisca un oggetto persona con le proprietà corrispondenti
+function creaPersona(nome, cognome, età, città) {
+  return {
+    nome: nome,
+    cognome: cognome,
+    età: età,
+    città: città,
+    fullName: nome + " " + cognome
+  };
+}
+
+Crea un array di oggetti persona utilizzando la funzione "creaPersona".
+let persone = [
+  creaPersona("Mario", "Rossi", 30, "Roma"),
+  creaPersona("Luigi", "Verdi", 25, "Milano"),
+  creaPersona("Chiara", "Bianchi", 40, "Firenze")
+];
+
+Utilizza il metodo "filter" dell'array per creare un nuovo array che contenga solo le persone di età superiore ai 30 anni
+let personeOver30 = persone.filter(function(persona) {
+  return persona.età > 30;
+});
+
+Utilizza il metodo "map" dell'array per creare un nuovo array che contenga solo il nome completo delle persone nell'array originale.
+let nomiPersone = persone.map(function(persona) {
+  return persona.fullName;
+});
+
+Utilizza il metodo "reduce" dell'array per calcolare la somma di tutte le età delle persone nell'array originale.
+let sommaEtà = persone.reduce(function(totale, persona) {
+  return totale + persona.età;
+}, 0);
+

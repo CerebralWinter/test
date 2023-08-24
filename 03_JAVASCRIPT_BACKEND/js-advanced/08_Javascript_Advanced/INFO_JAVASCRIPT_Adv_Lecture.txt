@@ -1,0 +1,103 @@
+
+/********************************
+ * CORSO DI JAVASCRIPT ADVANCED *
+ ********************************/
+
+ Prerequisiti
+
+ javascript base
+
+Naming conventions:
+utilizzare nomi di variabili, funzioni, classi e metodi significativi e coerenti.
+Struttura del codice:
+organizzare il codice in modo coerente, utilizzando indentazioni e spaziatura uniformi.
+Commenti:
+utilizzare commenti per descrivere il codice e le funzionalità dell'applicazione.
+Uso delle costanti:
+utilizzare costanti invece di numeri o stringhe letterali per rendere il codice più leggibile e manutenibile.
+Utilizzo di funzioni pure:
+utilizzare funzioni pure per scrivere codice meno complesso e meno soggetto a errori.
+Utilizzo di funzioni asincrone:
+utilizzare le funzioni asincrone per semplificare la gestione del codice asincrono e evitare il callback hell.
+Modularità:
+utilizzare moduli per suddividere il codice in parti più piccole e gestibili.
+Test unitari:
+scrivere test unitari per verificare che il codice funzioni correttamente e per facilitare la manutenzione del codice.
+Strumenti di sviluppo:
+utilizzare strumenti di sviluppo come il debugger JavaScript, la console del browser e gli
+strumenti di profiling per la diagnostica del codice e la risoluzione dei problemi
+
+Fondamenti di JavaScript: variabili, tipi di dati, operatori, funzioni e cicli di controllo del flusso
+
+Variabili:
+definizione, assegnazione, dichiarazione e scope delle variabili in JavaScript.
+Tipi di dati:
+numeri, booleani, oggetti, array, null e undefined in JavaScript.
+Operatori:
+aritmetici, di confronto, logici, di assegnazione, bitwise e ternari in JavaScript
+Funzioni:
+definizione di funzioni, passaggio di parametri, valore di ritorno,
+scope delle variabili e funzioni anonime in JavaScript.
+Cicli di controllo del flusso:
+cicli for, while e do-while, condizioni if/else e switch in JavaScript.
+Conversione di tipi di dati:
+conversione esplicita e implicita di tipi di dati in JavaScript.
+Operazioni con stringhe e array:
+concatenazione, slicing, splitting, joining e iterating su stringhe e array in JavaScript.
+Oggetti e proprietà:
+creazione di oggetti, accesso e modifica delle proprietà degli oggetti in JavaScript.
+ES6 e sintassi moderna di JavaScript:
+arrow functions, template literals, let e const, spread e rest operator, destructuring, etc.
+
+Object-Oriented Programming (OOP) in JavaScript: classi, ereditarietà, incapsulamento e polimorfismo 
+
+Concetti di base dell'OOP:
+oggetti, classi, incapsulamento, ereditarietà e polimorfismo.
+Classi in JavaScript:
+come creare classi in JavaScript utilizzando la sintassi ES6 e la sintassi tradizionale basata sulle funzioni.
+Ereditarietà in JavaScript:
+come creare classi figlie che ereditano metodi e proprietà dalla classe madre.
+Incapsulamento in JavaScript:
+come creare proprietà e metodi privati utilizzando la chiusura di scope e i simboli delle proprietà private.
+Polimorfismo in JavaScript:
+come creare metodi che possono essere utilizzati su oggetti diversi in modo flessibile.
+
+
+/***********************************************************************************************************************
+ * Librerie e framework di JavaScript                                                                                  *
+ ***********************************************************************************************************************/
+
+jQuery:
+una delle librerie JavaScript più popolari,
+utilizzata per semplificare la manipolazione del DOM,
+la gestione degli eventi, le chiamate AJAX, le animazioni e molto altro ancora.
+React:
+un framework JavaScript utilizzato per creare interfacce utente sofisticate e dinamiche,
+utilizzando il concetto di componenti per rendere il codice riutilizzabile e facile da gestire.
+Vue.js:
+un framework JavaScript leggero e facile da imparare,
+utilizzato per creare interfacce utente dinamiche e reattive.
+Angular:
+un framework JavaScript completo per lo sviluppo di applicazioni web,
+utilizzato per creare applicazioni single-page e utilizzato da molte grandi aziende.
+Ember.js:
+un framework JavaScript completo utilizzato per la creazione di applicazioni web complesse,
+utilizzando il pattern MVC (Model-View-Controller) per gestire lo stato dell'applicazione.
+Backbone.js:
+un framework JavaScript leggero utilizzato per creare applicazioni web basate su modello,
+che utilizza una struttura modulare per gestire il codice.
+Express.js:
+un framework JavaScript utilizzato per la creazione di server web,
+utilizzando Node.js come ambiente di esecuzione.
+D3.js:
+una libreria JavaScript utilizzata per la visualizzazione dei dati,
+che fornisce strumenti per la creazione di grafici, mappe, diagrammi e molto altro ancora.
+Three.js:
+una libreria JavaScript utilizzata per la creazione di grafica 3D,
+utilizzata per la creazione di giochi, visualizzazioni e molto altro ancora.
+Lodash:
+una libreria JavaScript utilizzata per la manipolazione dei dati,
+che fornisce funzioni utili per la gestione di array, oggetti, stringhe e molto altro ancora.
+
+
+

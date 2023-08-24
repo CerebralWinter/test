@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Example</title>
+</head>
+<body>
+
+<form action="/submit" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+
+    <label for="comments">Comments:</label>
+    <textarea id="comments" name="comments"></textarea>
+    <br>
+
+    <label for="receiveUpdates">Ricevi aggiornamenti:</label>
+    <input type="checkbox" id="receiveUpdates" name="receiveUpdates" value="yes">
+    <br>
+
+    <label for="favoriteColor">Colore Preferito:</label>
+    <select id="favoriteColor" name="favoriteColor">
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+    </select>
+    <br>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

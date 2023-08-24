@@ -1,0 +1,27 @@
+/***********************************************************************************************************************
+ * Per cosa è utilizzato principalmente ANGULAR JS                                                                     *
+ ***********************************************************************************************************************/
+AngularJS è un framework JavaScript utilizzato principalmente per lo sviluppo di applicazioni web a
+singola pagina (Single Page Applications - SPA) che offrono un'esperienza utente interattiva e veloce.
+
+Tra i principali utilizzi di AngularJS ci sono:
+
+Sviluppo di applicazioni web complesse:
+AngularJS fornisce un'architettura solida per lo sviluppo di applicazioni web complesse,
+che richiedono un alto grado di interattività e dinamicità.
+
+Manipolazione dei dati:
+AngularJS offre un'ampia gamma di strumenti per la manipolazione dei dati,
+il che lo rende particolarmente utile per lo sviluppo di applicazioni basate sui dati.
+
+Routing:
+AngularJS consente di creare un routing delle pagine della SPA in modo
+da poter visualizzare e aggiornare il contenuto in modo dinamico senza dover ricaricare l'intera pagina.
+
+Modularità:
+AngularJS è altamente modulare e offre un'
+architettura che consente di sviluppare applicazioniweb complesse con codice facilmente organizzabile e riutilizzabile.
+
+Testing:
+AngularJS include strumenti integrati per il testing,
+il che semplifica il processo di sviluppo e aiuta a garantire la qualità dell'applicazione finale.

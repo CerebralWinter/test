@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esempio Elementi Form</title>
+
+      <!-- Collegamento al file CSS -->
+      <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <h1>Esempio Elementi del Form</h1>
+
+  <form>
+    <h2>Pulsanti</h2>
+    <button type="submit">Invia</button>
+    <button type="reset">Reset</button>
+
+    <h2>Menu a Tendina</h2>
+    <label for="color-select">Seleziona un colore:</label>
+    <select id="color-select" name="color">
+      <option value="red">Rosso</option>
+      <option value="green">Verde</option>
+      <option value="blue">Blu</option>
+    </select>
+
+    <h2>Selezione Multipla</h2>
+    <label for="fruit-select">Seleziona la tua frutta preferita:</label>
+    <select id="fruit-select" name="fruit" multiple>
+      <option value="apple">Mela</option>
+      <option value="banana">Banana</option>
+      <option value="orange">Arancia</option>
+      <option value="strawberry">Fragola</option>
+    </select>
+
+    <h2>Caselle di Controllo</h2>
+    <div>
+      <input type="checkbox" id="checkbox1" name="checkbox1">
+      <label for="checkbox1">Opzione 1</label>
+    </div>
+    <div>
+      <input type="checkbox" id="checkbox2" name="checkbox2">
+      <label for="checkbox2">Opzione 2</label>
+    </div>
+    <div>
+      <input type="checkbox" id="checkbox3" name="checkbox3">
+      <label for="checkbox3">Opzione 3</label>
+    </div>
+
+    <h2>Radio Buttons</h2>
+    <div>
+      <input type="radio" id="radio1" name="radio" value="option1">
+      <label for="radio1">Opzione 1</label>
+    </div>
+    <div>
+      <input type="radio" id="radio2" name="radio" value="option2">
+      <label for="radio2">Opzione 2</label>
+    </div>
+    <div>
+      <input type="radio" id="radio3" name="radio" value="option3">
+      <label for="radio3">Opzione 3</label>
+    </div>
+
+    <h2>Campo di Testo</h2>
+    <label for="name-input">Nome:</label>
+    <input type="text" id="name-input" name="name">
+
+    <h2>Area di Testo</h2>
+    <label for="message-textarea">Messaggio:</label>
+    <textarea id="message-textarea" name="message" rows="4"></textarea>
+
+    <h2>Data</h2>
+    <label for="date-input">Data di nascita:</label>
+    <input type="date" id="date-input" name="birthdate">
+
+    <h2>Email</h2>
+    <label for="email-input">Email:</label>
+    <input type="email" id="email-input" name="email">
+
+    <h2>Password</h2>
+    <label for="password-input">Password:</label>
+    <input type="password" id="password-input" name="password">
+
+    <h2>File</h2>
+    <label for="file-input">Carica un file:</label>
+    <input type="file" id="file-input" name="file">
+
+    <h2>Submit</h2>
+    <input type="submit" value="Invia">
+  </form>
+
+</body>
+
+</html>

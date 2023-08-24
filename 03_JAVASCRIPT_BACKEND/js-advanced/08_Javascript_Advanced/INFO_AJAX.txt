@@ -1,0 +1,20 @@
+/***********************************************************************************************************************
+ * Per cosa è utilizzato principalmente AJAX                                                                           *
+ ***********************************************************************************************************************/
+AJAX (Asynchronous JavaScript and XML) è utilizzato principalmente per migliorare l'interattività e la responsività
+delle pagine web senza dover ricaricare l'intera pagina.
+
+AJAX consente di eseguire richieste asincrone al server web senza dover ricaricare la pagina,
+il che significa che gli utenti possono interagire con le pagine web senza dover aspettare che si ricarichino completamente.
+
+Tra i principali utilizzi di AJAX ci sono:
+
+Caricamento dinamico di contenuti:
+AJAX può essere utilizzato per caricare dinamicamente parti di una pagina web
+Validazione dei dati:
+AJAX può essere utilizzato per validare i dati inseriti dagli utenti in un modulo, inviandoli al server web senza dover ricaricare la pagina.
+Autocompletamento:
+AJAX può essere utilizzato per fornire suggerimenti di completamento
+automatico durante la digitazione di una parola o di una frase in un campo di ricerca.
+Aggiornamento dinamico dei dati: AJAX può essere utilizzato per aggiornare dinamicamente i dati su una pagina web,
+come i risultati di una ricerca o gli aggiornamenti di un feed di social media

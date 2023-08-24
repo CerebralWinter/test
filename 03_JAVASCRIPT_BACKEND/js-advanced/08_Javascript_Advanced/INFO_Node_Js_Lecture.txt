@@ -1,0 +1,134 @@
+
+/***********************************************************************************************************************
+ * NODE JS                                                                                                             *
+ ***********************************************************************************************************************/
+
+Introduzione a Node.js:
+cos'è Node.js, come funziona, perché è importante.
+
+Gestione degli eventi in Node.js:
+utilizzo del modulo "events" di Node.js, creazione e gestione di eventi personalizzati.
+
+Moduli e pacchetti in Node.js:
+creazione, esportazione e utilizzo di moduli e pacchetti Node.js.
+
+Node.js e il sistema di file:
+lettura e scrittura di file, gestione delle directory, utilizzo dei flussi di file.
+
+Node.js e la comunicazione con il server:
+creazione di server HTTP, gestione delle richieste e delle risposte HTTP, utilizzo di WebSocket.
+
+Node.js e la gestione dei dati:
+utilizzo di database relazionali e non relazionali, creazione e gestione di query SQL e NoSQL.
+
+Creazione di applicazioni web con Node.js:
+utilizzo di framework come Express.js e Koa.js, gestione delle sessioni e dei cookie, autenticazione degli utenti.
+
+Strumenti di sviluppo e testing in Node.js:
+utilizzo di NPM, creazione e gestione di script di avvio, test unitari e integrazione.
+
+Deploy di applicazioni Node.js:
+deployment su server, utilizzo di servizi di hosting come Heroku e AWS.
+
+Best practices per lo sviluppo di applicazioni Node.js: pattern di design, sicurezza, scalabilità e performance.
+
+/***********************************************************************************************************************
+ * Per cosa è utilizzato principalmente NODE JS                                                                        *
+ ***********************************************************************************************************************/
+Node.js è utilizzato principalmente per lo sviluppo di applicazioni web e di rete su larga scala.
+Grazie alla sua architettura orientata agli eventi e basata su JavaScript,
+Node.js consente agli sviluppatori di creare applicazioni efficienti e scalabili
+che possono gestire grandi quantità di traffico e richieste.
+
+Alcuni dei principali utilizzi di Node.js includono:
+
+Sviluppo di server web:
+Node.js può essere utilizzato per sviluppare server web altamente scalabili che gestiscono grandi quantità di traffico.
+
+Sviluppo di applicazioni API:
+Node.js è spesso utilizzato per creare API (interfacce di programmazione delle applicazioni) per applicazioni web e mobili
+
+Sviluppo di applicazioni real-time:
+Node.js è ideale per lo sviluppo di applicazioni real-time come chat, giochi online e app di collaborazione
+
+Sviluppo di strumenti di automazione:
+Node.js può essere utilizzato per creare strumenti di automazione per semplificare e migliorare il flusso di lavoro degli sviluppatori.
+
+Sviluppo di applicazioni desktop:
+Node.js può essere utilizzato per creare applicazioni desktop cross-platform utilizzando framework come Electron
+
+/***********************************************************************************************************************
+ * Che cosa è express                                                                                                  *
+ ***********************************************************************************************************************/
+Express è un framework per applicazioni web Node.js,
+che fornisce un'architettura robusta e flessibile per lo sviluppo di server web e applicazioni API.
+
+Express è progettato per semplificare la creazione di applicazioni web in Node.js,
+fornendo un insieme di funzionalità predefinite per gestire le richieste HTTP,
+il routing, la gestione delle risposte e la manipolazione dei dati.
+Express è altamente modulare, il che significa che gli sviluppatori
+possono aggiungere o rimuovere funzionalità in base alle proprie esigenze.
+
+Con Express, gli sviluppatori possono creare server web in modo rapido ed efficiente,
+con codice facilmente organizzabile e manutenibile.
+Express è anche altamente personalizzabile e supporta molte funzionalità avanzate come l'elaborazione di richieste asincrone,
+la compressione dei dati, la gestione delle sessioni, la sicurezza e molto altro ancora.
+
+/***********************************************************************************************************************
+ * Quali sarebbero i compiti principali di express in un app web full stack                                            *
+ ***********************************************************************************************************************/
+In un'applicazione web full stack, Express sarebbe utilizzato principalmente per gestire il back-end del sito web,
+ovvero il server web e le API che forniscono accesso ai dati e alle funzionalità del sito.
+
+Tra i principali compiti di Express in un'applicazione web full stack ci sono:
+
+Gestione delle richieste HTTP:
+Express gestisce le richieste HTTP in ingresso dal browser dell'utente e fornisce risposte adeguate in base alla richiesta.
+
+Routing:
+Express gestisce il routing delle richieste HTTP e dirige le richieste alle funzionalità appropriate.
+
+Interazione con il database:
+Express interagisce con il database del sito web per recuperare, aggiornare o eliminare i dati in base alle richieste dei client.
+
+Sicurezza:
+Express gestisce la sicurezza dell'applicazione web attraverso la gestione delle autorizzazioni degli utenti,
+la prevenzione degli attacchi CSRF e altri problemi di sicurezza.
+
+Autenticazione:
+Express gestisce l'autenticazione degli utenti, ovvero la verifica dell'identità dell'utente attraverso la gestione dei token di autenticazione e delle sessioni.
+
+Compressione e caching:
+Express può gestire la compressione dei dati per ridurre la dimensione dei file inviati
+al browser dell'utente e può anche gestire il caching dei dati per migliorare le prestazioni del sito web.
+
+/***********************************************************************************************************************
+ * Per utilizzare express in VISUAL STUDIO CODE                                                                        *
+ ***********************************************************************************************************************/
+
+Crea una nuova cartella di progetto nella directory desiderata.
+Apri Visual Studio Code e seleziona "File" -> "Apri cartella".
+Seleziona la cartella di progetto appena creata e apri il terminale integrato di Visual Studio Code (Ctrl + Shift + `).
+
+Digita il comando npm init e segui le istruzioni per creare un file package.json, che descrive il progetto e le sue dipendenze.
+
+Installa Express digitando il comando npm install express nel terminale.
+
+Crea un nuovo file server.js nella cartella di progetto.
+
+Inserisci il seguente codice di esempio per creare un server web Express:
+
+const express = require('express');
+const app = express();
+
+app.get('/', function (req, res) {
+  res.send('Ciao, mondo!');
+});
+
+app.listen(3000, function () {
+  console.log('Il server è in ascolto sulla porta 3000!');
+});
+
+Salva il file server.js.
+Nel terminale di Visual Studio Code, digita il comando node server.js per avviare il server web Express.
+Apri il browser e digita l'indirizzo http://localhost:3000 per visualizzare la pagina "Ciao, mondo!".
